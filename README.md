@@ -43,7 +43,7 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 ```
 <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
 ```
-![Marker Style](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/642b570646added5318712b55309d4aa5ad15b05/ReadmeImages/MarkerType.png)
+![Marker Style](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/aa3302c2e3dabab259680f2b4b0ed5fa02281b4b/ReadmeImages/MarkerType.png)
 
 
 #### Dot Fill Colour
