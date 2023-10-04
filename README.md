@@ -38,12 +38,30 @@ MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so d
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
 ## Appearance
+### Marker Style
+
+#### Dot Fill Colour
+
+### Fill Brush
+
+### Outline Colour
+
+###Outline Width
+
+### Marker Width
 
 ## Snapping
 
 ## Tick Marks
 
 ## Annotations
+Annotation Mode
+### Automatic Labels
+
+### Labels
+
+### Images
 
 ## Caption
 
+### CaptionBold
