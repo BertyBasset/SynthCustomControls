@@ -31,3 +31,4 @@ Codebehind:
             };
         }
 ```
+MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so dragging the knob marker with the mouse gives:
