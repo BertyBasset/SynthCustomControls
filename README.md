@@ -39,8 +39,15 @@ MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so d
 
 ## Appearance
 ### Marker Style
+There are 4 marker styles controlled by the MarkerStyle property e.g.
+```
+<custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
+```
+
+
 
 #### Dot Fill Colour
+For a dot marker, a Fill Colour can be specified
 
 ### Fill Brush
 
