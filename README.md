@@ -46,13 +46,16 @@ MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so d
 
 ### Outline Colour
 
-###Outline Width
+### Outline Width
 
 ### Marker Width
 
+
 ## Snapping
 
+
 ## Tick Marks
+
 
 ## Annotations
 Annotation Mode
@@ -61,6 +64,7 @@ Annotation Mode
 ### Labels
 
 ### Images
+
 
 ## Caption
 
