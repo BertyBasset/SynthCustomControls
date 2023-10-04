@@ -24,7 +24,6 @@ namespace Testbed {
             knob2.ValueChanged += (o, e) => {
                 txtValue.Text = $"{e:F3}";
             };
-
         }
 
   
