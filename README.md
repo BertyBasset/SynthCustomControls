@@ -1,7 +1,7 @@
 # SynthCustomControls
 WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob control
 
-# Basic Usage
+## Basic Usage
 
 Add a refrence to either SynthCustomControls.dll or SynthCustomControls.csproj
 
@@ -34,3 +34,45 @@ Codebehind:
         }
 ```
 MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so dragging the knob marker with the mouse gives continuous variation of Value:
+
+![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
+
+## Appearance
+### Marker Style
+There are 4 marker styles controlled by the MarkerStyle property e.g.
+```
+<custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
+```
+
+
+
+#### Dot Fill Colour
+For a dot marker, a Fill Colour can be specified
+
+### Fill Brush
+
+### Outline Colour
+
+### Outline Width
+
+### Marker Width
+
+
+## Snapping
+
+
+## Tick Marks
+
+
+## Annotations
+Annotation Mode
+### Automatic Labels
+
+### Labels
+
+### Images
+
+
+## Caption
+
+### CaptionBold
