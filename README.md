@@ -3,14 +3,15 @@ WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob co
 
 # Basic Usage
 
-```<Window x:Class="Testbed.MainWindow"
+```
+<Window x:Class="Testbed.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls"
         Title="MainWindow" Height="400" Width="800">
     <Canvas>
-        <custom:Knob Width="70" Name="knob2"  Canvas.Left="144" Canvas.Top="75">
+        <custom:Knob Width="70" Name="knob1"  Canvas.Left="144" Canvas.Top="75">
             <custom:Knob.Value>0</custom:Knob.Value>
             <custom:Knob.ValueMin>0</custom:Knob.ValueMin>
             <custom:Knob.ValueMax>1</custom:Knob.ValueMax>
@@ -20,5 +21,15 @@ WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob co
         <TextBox Name="txtValue" Canvas.Left="105" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Center" Width="81"/>
     </Canvas>
 </Window>
+
+Codebehind:
+        public MainWindow() {
+            InitializeComponent();
+
+            knob1.ValueChanged += (o, e) => {
+                txtValue.Text = $"{e:F3}";
+            };
+        }
+
 
 ```
