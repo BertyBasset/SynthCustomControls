@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using SynthCustomControls.Utils;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -8,8 +9,8 @@ using System.Windows.Media.Imaging;
 namespace SynthCustomControls;
 
 // To DO
-// 1. Add to Github
-// 2. Github using redme
+// 1. Add to Git hub
+// 2. Git hub using readme
 // 3. Article
 
 
@@ -21,6 +22,9 @@ public class Knob : Control {
 
     readonly double MIN_FULL_SWEEP_ANGLE = 20;
     readonly double MAX_FULL_SWEEP_ANGLE = 340;
+
+    readonly int MAX_NUM_TICK_POSITIONS = 10;
+
     double _currentAngle = 0;
 
 
@@ -221,7 +225,7 @@ public class Knob : Control {
         get { return _NumPositions; }
         // Allow continuous (NULL) or anything between 2 and 10 positions
         set { 
-            _NumPositions = value == null ? null : ((int)value).Clamp<int>(2, 11);
+            _NumPositions = value == null ? null : ((int)value).Clamp<int>(2, MAX_NUM_TICK_POSITIONS);
             DoFullRedraw();
         }
     }
@@ -363,8 +367,8 @@ public class Knob : Control {
         DrawingVisual visual = new();
         using (DrawingContext cacheContext = visual.RenderOpen()) {
 
-            // We can make know size smaller later when adding tick marks and labels
-            cacheContext.DrawRectangle(new SolidColorBrush(Colors.Aqua), null, new Rect(new Point(-ActualWidth / 2, -ActualHeight / 2), new Point(ActualWidth / 2, ActualHeight / 2)));
+            // Debug rectangle
+            //cacheContext.DrawRectangle(new SolidColorBrush(Colors.Aqua), null, new Rect(new Point(-ActualWidth / 2, -ActualHeight / 2), new Point(ActualWidth / 2, ActualHeight / 2)));
 
             _knobWidth = ActualWidth - 2;
 
@@ -404,7 +408,7 @@ public class Knob : Control {
     }
 
     public void DrawTicks(DrawingContext dc, Pen outlinePen) {
-        int numTicks = (_NumPositions ?? 11)-1;  //       0-10 ticks if snapangle is off
+        int numTicks = (_NumPositions ?? MAX_NUM_TICK_POSITIONS + 1) -1;  //       0-10 ticks if snapangle is off
         var angle = _minAngle;
         for(int i = 0; i <= numTicks; i++) {
             dc.DrawLine(outlinePen, PointFromAngleAndRadius(angle, (_knobWidth/2)*1.1), PointFromAngleAndRadius(angle, (_knobWidth/2)*1.3));
@@ -434,7 +438,7 @@ public class Knob : Control {
             var imgFile = GetAnnotation(i);
             if (!string.IsNullOrWhiteSpace(imgFile)) {
 
-                BitmapImage bitmapImage = new (new Uri(imgFile, UriKind.Relative));
+                BitmapImage bitmapImage = new (new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, imgFile)));
                 // Move centre of image to plot point
                 centrePoint.X -= bitmapImage.Width / 2;
                 centrePoint.Y -= bitmapImage.Height/ 2;

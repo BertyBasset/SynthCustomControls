@@ -4,45 +4,43 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls"
         Title="MainWindow" Height="400" Width="800">
-    <Grid>
+    <Canvas>
+        <custom:Knob Width="90" ValueMin="0" ValueMax="4" Name="knob1" FullSweepAngle="220" Value="0" Margin="444,113,129,200" >
+            <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
+            <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
+            <custom:Knob.OutlineColor>Black</custom:Knob.OutlineColor>
+            <custom:Knob.OutlineWidth>1</custom:Knob.OutlineWidth>
+            <custom:Knob.MarkerWidth>1</custom:Knob.MarkerWidth>
+            <custom:Knob.DotFillColor>white</custom:Knob.DotFillColor>
+            <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+            <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
+            <custom:Knob.Caption>OSC 1</custom:Knob.Caption>
+            <custom:Knob.CaptionBold>true</custom:Knob.CaptionBold>
+            <custom:Knob.Annotations>
+                <sys:String>KnobImages/Sine.png</sys:String>
+                <sys:String>KnobImages/Triangle.png</sys:String>
+                <sys:String>KnobImages/Square.png</sys:String>
+                <sys:String>KnobImages/Saw.png</sys:String>
+                <sys:String>KnobImages/SuperSaw.png</sys:String>
+            </custom:Knob.Annotations>
+            <custom:Knob.FillBrush>
+                <RadialGradientBrush Center="0.5, 0.5">
+                    <GradientStop Color="PowderBlue" Offset="0.3" />
+                    <GradientStop Color="LightSteelBlue" Offset="0.7" />
+                    <GradientStop Color="CornflowerBlue" Offset="0.0" />
+                </RadialGradientBrush>
+            </custom:Knob.FillBrush>
+        </custom:Knob>
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <!-- Row for the Knob -->
-                <RowDefinition Height="Auto" />
-                <!-- Row for the TextBox -->
-            </Grid.RowDefinitions>
 
-            <custom:Knob Grid.Row="0" Width="90" ValueMin="0" ValueMax="4" Name="knob1" FullSweepAngle="220" Value="0" Margin="444,113,129,200" >
-                <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
-                <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
-                <custom:Knob.OutlineColor>Black</custom:Knob.OutlineColor>
-                <custom:Knob.OutlineWidth>1</custom:Knob.OutlineWidth>
-                <custom:Knob.MarkerWidth>1</custom:Knob.MarkerWidth>
-                <custom:Knob.DotFillColor>white</custom:Knob.DotFillColor>
-                <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
-                <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
-                <custom:Knob.Caption>OSC 1</custom:Knob.Caption>
-                <custom:Knob.CaptionBold>true</custom:Knob.CaptionBold>
-                <custom:Knob.Annotations>
-                    <sys:String>KnobImages/Sine.png</sys:String>
-                    <sys:String>KnobImages/Triangle.png</sys:String>
-                    <sys:String>KnobImages/Square.png</sys:String>
-                    <sys:String>KnobImages/Saw.png</sys:String>
-                    <sys:String>KnobImages/SuperSaw.png</sys:String>
-                </custom:Knob.Annotations>
-                <custom:Knob.FillBrush>
-                    <RadialGradientBrush Center="0.5, 0.5">
-                        <GradientStop Color="PowderBlue" Offset="0.3" />
-                        <GradientStop Color="LightSteelBlue" Offset="0.7" />
-                        <GradientStop Color="CornflowerBlue" Offset="0.0" />
-                    </RadialGradientBrush>
-                </custom:Knob.FillBrush>
-            </custom:Knob>
+        <TextBox Name="txtValue" Canvas.Left="113" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Center" Width="81"/>
 
-            <TextBox Name="txtValue" Grid.Row="1" />
-        </Grid>
 
-    </Grid>
+        <custom:Knob Width="70" Name="knob2"  Canvas.Left="144" Canvas.Top="75">
+            <custom:Knob.Value>1</custom:Knob.Value>
+            <custom:Knob.ValueMin>0</custom:Knob.ValueMin>
+            <custom:Knob.ValueMax>1</custom:Knob.ValueMax>
+            <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
+        </custom:Knob>
+    </Canvas>
 </Window>

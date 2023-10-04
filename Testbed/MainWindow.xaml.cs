@@ -21,7 +21,7 @@ namespace Testbed {
         public MainWindow() {
             InitializeComponent();
 
-            knob1.ValueChanged += (o, e) => {
+            knob2.ValueChanged += (o, e) => {
                 txtValue.Text = $"{e:F3}";
             };
 
