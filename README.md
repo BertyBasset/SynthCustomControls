@@ -30,6 +30,4 @@ Codebehind:
                 txtValue.Text = $"{e:F3}";
             };
         }
-
-
 ```
