@@ -1,7 +1,7 @@
 # SynthCustomControls
 WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob control
 
-# Basic Usage
+## Basic Usage
 
 Add a refrence to either SynthCustomControls.dll or SynthCustomControls.csproj
 
@@ -37,13 +37,13 @@ MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so d
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
-#Appearance
+## Appearance
 
-#Snapping
+## Snapping
 
-#Tick Marks
+## Tick Marks
 
-#Annotations
+## Annotations
 
-#Caption
+## Caption
 
