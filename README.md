@@ -45,17 +45,28 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 ```
 ![Marker Style](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/aa3302c2e3dabab259680f2b4b0ed5fa02281b4b/ReadmeImages/MarkerType.png)
 
+### Marker Width
+<sample>
+<image>
 
 #### Dot Fill Colour
-For a dot marker, a Fill Colour can be specified
+For a dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
+<sample>
+<image>
+
 
 ### Fill Brush
+A solid brush, a linear gradient, or a radial gradient brush can be used to paint the body of the knob.
+<samples>     a range of solid and gradient brushes
+<images>
+
+
 
 ### Outline Colour
 
 ### Outline Width
 
-### Marker Width
+
 
 
 ## Snapping
