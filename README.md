@@ -33,7 +33,7 @@ Codebehind:
             };
         }
 ```
-MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so dragging the knob marker with the mouse gives continuous variation of Value:
+MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so dragging the knob marker with the mouse gives continuous variation of Value (note textbox is separate control):
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
@@ -43,7 +43,7 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 ```
 <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
 ```
-
+![Marker Style](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/642b570646added5318712b55309d4aa5ad15b05/ReadmeImages/MarkerType.png)
 
 
 #### Dot Fill Colour
