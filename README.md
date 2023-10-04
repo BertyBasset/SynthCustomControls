@@ -3,6 +3,8 @@ WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob co
 
 # Basic Usage
 
+Add a refrence to either SynthCustomControls.dll or SynthCustomControls.csproj
+
 ```
 <Window x:Class="Testbed.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
