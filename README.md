@@ -135,7 +135,7 @@ For this example, we've gone for a dark theme with the `Canvas` `Background` set
     <SolidColorBrush Color="Navy" />
 </custom:Knob.FillBrush>
 ```
-<Image>
+![Solid Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8880e3aebc3eab8d01eb0555d1b01e54214d1d41/ReadmeImages/FillColorSolid.png)
 
 
 #### LinearGradientBrush
