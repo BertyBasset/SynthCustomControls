@@ -126,9 +126,10 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 ### FillBrush
 A Bush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - the most useful being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` and `DrawingBrush`. You might even be able to use `VideoBrush`, but I've not tried that one!
 
+#### SolidBrush
+For this example, we've gone for a dark theme with the 'Canvas' 'Background' set to 'Gray'. This illustrates that the Knob background takes on the background of the Canvas automatically.
 
-<samples>     a range of solid and gradient brushes
-<images>
+
 
 
 
