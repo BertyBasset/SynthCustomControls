@@ -318,27 +318,27 @@ Future work. The knob gets resized when Ticks and/or Annotations are being displ
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    | ..      | ..      |  ..     |
 | ------ | ------| ------| ------| ------| ------|
-| AnnotationMode       |       |       |       |       |       |
-| Annotations       |       |       |       |       |       |
-| AnnotationTextColor       |       |       |       |       |       |
-| Caption       |       |       |       |       |       |
-| CaptionBold       |       |       |       |       |       |
-| CaptionColor      |       |       |       |       |       |
-| DotFillColor       |       |       |       |       |       |
-| FillBrush       |       |       |       |       |       |
-| FullSweepAngle       |       |       |       |       |       |
-| MarkerColor       |       |       |       |       |       |
-| MarkerStyle       |       |       |       |       |       |
-| MarkerWidth       |       |       |       |       |       |
-| NumPositions       |       |       |       |       |       |
-| OutlineColor       |       |       |       |       |       |
-| OutlineWidth       |       |       |       |       |       |
-| ShowTicks       |       |       |       |       |       |
-| TickWidth       |       |       |       |       |       |
-| Value       |       |       |       |       |       |
-| ValueMax       |       |       |       |       |       |
-| ValueMin       |       |       |       |       |       |
-| Width       |       |       |       |       |       |
+| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      |
+| `Annotations`       |       |       |       |       |       |
+| `AnnotationTextColor`       |       |       |       |       |       |
+| `Caption`       |       |       |       |       |       |
+| `CaptionBold`       |       |       |       |       |       |
+| `CaptionColor`      |       |       |       |       |       |
+| `DotFillColor`       |       |       |       |       |       |
+| `FillBrush`       |       |       |       |       |       |
+| `FullSweepAngle`       |       |       |       |       |       |
+| `MarkerColor`       |       |       |       |       |       |
+| `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      |
+| `MarkerWidth`       |       |       |       |       |       |
+| `NumPositions`       |       |       |       |       |       |
+| `OutlineColor`       |       |       |       |       |       |
+| `OutlineWidth`       |       |       |       |       |       |
+| `ShowTicks`       |       |       |       |       |       |
+| `TickWidth`       |       |       |       |       |       |
+| `Value`       |       |       |       |       |       |
+| `ValueMax`       |       |       |       |       |       |
+| `ValueMin`       |       |       |       |       |       |
+| `Width`       |       |       |       |       |       |
 
 
 
