@@ -9,8 +9,8 @@ using System.Windows.Media.Imaging;
 namespace SynthCustomControls;
 
 // To DO
-// 1. Add to Git hub
-// 2. Git hub using readme
+// 1. Git hub using readme
+// 2. Offset position
 // 3. Article
 
 
