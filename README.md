@@ -42,7 +42,7 @@ public MainWindow() {
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
-`MinValue` and `MaxValue` can be set to any valid positive or negative double value as long as `MaxValue` > `MinValue`. `FullSweepAngle` can be set to any angle between 20° and 340°. The `Value` property will reflect the current knob marker value taking the previous properties into account. e.g. `MinValue` = -1, `MaxValue` = +3, `FullSweepAngle` = 180°
+`MinValue` and `MaxValue` can be set to any valid positive or negative double value as long as `MaxValue` > `MinValue`. `FullSweepAngle` can be set to any angle between 20° and 340°. The `Value` property will reflect the current knob marker position taking the aforementioned properties into account. e.g. `MinValue` = -1, `MaxValue` = +3, `FullSweepAngle` = 180°
 ```
 <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
 <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
@@ -100,7 +100,7 @@ Note: `MarkerColor` also affects outline of dot where `MarkerStyle` is `Dot`
 
 
 ### DotFillColour
-For `Dot` marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
+For `Dot` marker, a `DotFillColour` can be specified to distinguish the dot from the brush used to paint the body of the knob.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
@@ -124,7 +124,7 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 
 
 ### FillBrush
-A Brush for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any `Brush` type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`. `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
+A `Brush` for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any `Brush` type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`, `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
 
 #### SolidBrush
 For this example, we've gone for a darker background with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the `Canvas` automatically.
@@ -222,7 +222,7 @@ By default, the knob moves smoothly in response to a MouseDrag through the `Full
 ![Snapping using NumPositions](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/48155599a8dcf39e34db4a4fe09328d2da74f6f6/ReadmeImages/Snapping.png)
 
 ## Tick Marks
-Tick marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Ticks are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth` properties. When tick marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
+Tick Marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Ticks are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth`. When Tick Marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
 ```
 <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
 <custom:Knob.TickColor>silver</custom:Knob.TickColor>
@@ -242,7 +242,7 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 
 
 ## Annotations
-Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each tick position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of tick positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
+Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each Tick Position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of Tick Positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels` and `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
 
 ### Automatic Labels
 `AnnotationMode` is set to `LabelsAuto`. If snapping is off, then the digits 0 to 10 will be displayed along the full sweep angle. If `ShowTicks` is `true`, the positions will correspond to those of the ticks. The last 2 examples show snapping by setting `NumPositions`. In this case the number and location of labels displayed correspond with the snap positions.
@@ -257,7 +257,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Automatic Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/2cc53fa84ed078f7b7863ae4be67e65aa1e00877/ReadmeImages/AnnotationsAuto.png)
 
 ### Labels
-`AnnotationMode` is set to `Labels`. In this setting labels can be specified manually using the `Annotations` property. `Annotations` is of type `List<string>` so a separate annotation can be set for each Tick Position. If there are more Tick Positions than annotations provided, the remainder of the annotations are dislpayed as in `LabelsAuto` mode. This mode is meant mainly the knob is in snapping mode, and usually `NumPositions` is set quite low.
+`AnnotationMode` is set to `Labels`. In this setting labels can be specified manually using the `Annotations` property. `Annotations` is of type `List<string>` so a separate annotation can be set for each Tick Position. If there are more Tick Positions than annotations provided, the remainder of the annotations are displayed as in `LabelsAuto` mode. This mode is meant mainly the knob is in snapping mode, and usually `NumPositions` is set quite low.
 ```
 <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
 <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
@@ -289,12 +289,57 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 
 ## Caption
+A caption can be displayed below the knob using the `Caption`, `CaptionBold` and `CaptionColor` properties.
+```
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+<custom:Knob.Annotations>
+    <sys:String>-2</sys:String>
+    <sys:String>-1</sys:String>
+    <sys:String>0</sys:String>
+    <sys:String>+1</sys:String>
+    <sys:String>+2</sys:String>
+/custom:Knob.Annotations>
+<custom:Knob.Caption>Frequency</custom:Knob.Caption>
+<custom:Knob.CaptionBold>true</custom:Knob.CaptionBold>
+<custom:Knob.CaptionColor>Green</custom:Knob.CaptionColor>
+```
+![Caption](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/42fe8be5916bf8e2ef214be3e7f935b9c278720d/ReadmeImages/Caption.png)
 
-### CaptionBold
+
 
 ## Notes
-There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background. 
+There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background each time. 
 
 When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
+Future work. The knob gets resized when Ticks and/or Annotations are being displayed. Text and Tick sizes also change in proportion to overall knob size. The positions and sizing of elements could do with a tidy up.
+
 ## Full Property List
+| Property/XAML attribute | Data Type      |   Options    |       |       |       |
+| ------ | ------| ------| ------| ------| ------|
+| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      |
+| `Annotations`       | `List<string>`      |       |       |       |       |
+| `AnnotationTextColor`       | `Color`      |       |       |       |       |
+| `Caption`       | `string?`      |       |       |       |       |
+| `CaptionBold`       | `bool`      |       |       |       |       |
+| `CaptionColor`      | `Color`      |       |       |       |       |
+| `DotFillColor`       | `Color`      |       |       |       |       |
+| `FillBrush`       | `Brush`      |       |       |       |       |
+| `FullSweepAngle`       | `double`      |       |       |       |       |
+| `MarkerColor`       | `Color`      |       |       |       |       |
+| `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      |
+| `MarkerWidth`       | `int`      |       |       |       |       |
+| `NumPositions`       | `int`      |       |       |       |       |
+| `OutlineColor`       | `Color`      |       |       |       |       |
+| `OutlineWidth`       | `int`      |       |       |       |       |
+| `ShowTicks`       | `bool`      |       |       |       |       |
+| `TickWidth`       | `int`      |       |       |       |       |
+| `Value`       | `double`      |       |       |       |       |
+| `ValueMax`       | `double`      |       |       |       |       |
+| `ValueMin`       | `double`      |       |       |       |       |
+| `Width`       | `int`      |       |       |       |       |
+
+
+
+
