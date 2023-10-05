@@ -242,14 +242,39 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 
 
 ## Annotations
-Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each tick position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of tick positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`.
+Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each tick position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of tick positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
 
 ### Automatic Labels
+`AnnotationMode` is set to `LabelsAuto`. If snapping is off, then the digits 0 to 10 will be displayed along the full sweep angle. If `ShowTicks` is `true`, the positions will correspond to those of the ticks. The last 2 examples show snapping by setting `NumPositions`. In this case the number and location of labels displayed correspond with the snap positions.
+```
+<custom:Knob.FullSweepAngle>220</custom:Knob.FullSweepAngle>
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.TickColor>black</custom:Knob.TickColor>
+<custom:Knob.TickWidth>1</custom:Knob.TickWidth>
+<custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
+<custom:Knob.AnnotationMode>LabelsAuto</custom:Knob.AnnotationMode>
+```
+![Automatic Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/2cc53fa84ed078f7b7863ae4be67e65aa1e00877/ReadmeImages/AnnotationsAuto.png)
 
 ### Labels
+`AnnotationMode` is set to `Labels`. In this setting labels can be specified manually using the `Annotations` property. `Annotations` is of type `List<string>` so a separate annotation can be set for each Tick Position. If there are more Tick Positions than annotations provided, the remainder of the annotations are dislpayed as in `LabelsAuto` mode. This mode is meant mainly the knob is in snapping mode, and usually `NumPositions` is set quite low.
+```
+<custom:Knob.NumPositions>5</custom:Knob.NumPositions>
+<custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
+<custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
+<custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+<custom:Knob.Annotations>
+   <sys:String>-2</sys:String>
+   <sys:String>-1</sys:String>
+   <sys:String>0</sys:String>
+   <sys:String>+1</sys:String>
+   <sys:String>+2</sys:String>
+</custom:Knob.Annotations>
+```
+
 
 ### Images
-
+`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions.
 
 ## Caption
 
