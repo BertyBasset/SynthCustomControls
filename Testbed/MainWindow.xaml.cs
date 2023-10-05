@@ -21,11 +21,14 @@ namespace Testbed {
         public MainWindow() {
             InitializeComponent();
 
-            knob2.ValueChanged += (o, e) => {
-                txtValue.Text = $"{e:F3}";
-            };
+              knob2.ValueChanged += (o, e) => {
+                  txtValue.Text = $"{e:F3}";
+              };
+
+
+
         }
 
-  
+
     }
 }

@@ -8,12 +8,14 @@
 
         <custom:Knob Width="70" Name="knob2"  Canvas.Left="144" Canvas.Top="75">
             <custom:Knob.Value>0</custom:Knob.Value>
-            <custom:Knob.ValueMin>0</custom:Knob.ValueMin>
-            <custom:Knob.ValueMax>1</custom:Knob.ValueMax>
+            <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
+            <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
+            <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
             <custom:Knob.MarkerStyle>Line2</custom:Knob.MarkerStyle>
-            <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
-            <custom:Knob.MarkerColor>Black</custom:Knob.MarkerColor>
-            <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
+
+            
+            
+            <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
         </custom:Knob>
 
         <TextBox Name="txtValue" Canvas.Left="105" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Center" Width="81"/>
