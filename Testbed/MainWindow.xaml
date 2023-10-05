@@ -4,18 +4,21 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls"
         Title="MainWindow" Height="400" Width="800">
-    <Canvas>
+    <Canvas Background="Navy"> 
 
         <custom:Knob Width="70" Name="knob2"  Canvas.Left="144" Canvas.Top="75">
             <custom:Knob.Value>0</custom:Knob.Value>
             <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
             <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
-            <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
+            <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
             <custom:Knob.MarkerStyle>Line2</custom:Knob.MarkerStyle>
-
-            
-            
-            <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
+            <custom:Knob.MarkerColor>White</custom:Knob.MarkerColor>
+            <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
+            <custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
+            <custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
+            <custom:Knob.FillBrush>
+                <SolidColorBrush Color="Black" />
+            </custom:Knob.FillBrush>
         </custom:Knob>
 
         <TextBox Name="txtValue" Canvas.Left="105" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Center" Width="81"/>
@@ -26,7 +29,7 @@
         <custom:Knob Width="90" ValueMin="0" ValueMax="4" Name="knob1" FullSweepAngle="220" Value="0" Margin="444,113,129,200" >
             <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
             <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
-            <custom:Knob.OutlineColor>Black</custom:Knob.OutlineColor>
+            <custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
             <custom:Knob.OutlineWidth>1</custom:Knob.OutlineWidth>
             <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
             <custom:Knob.DotFillColor>white</custom:Knob.DotFillColor>
