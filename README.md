@@ -34,11 +34,21 @@ public MainWindow() {
 }
 ```
 **MinValue** is set to 0, **MaxValue** is set to 1, **FullSweepAngle** is set to 270°, so dragging the knob marker with the mouse gives continuous variation of **Value** (note textbox is separate control):
+```
+<custom:Knob.ValueMin>0</custom:Knob.ValueMin>
+<custom:Knob.ValueMax>1</custom:Knob.ValueMax>
+<custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
+```
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
 **MinValue and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
-<TO DO IMAGE>
+```
+<custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
+<custom:Knob.ValueMax>3</custom:Knob.ValueMax>
+<custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
+```
+<Image>
 
 ### ValueChanged Event
 The Knob control has a single event that is fired whenever the **Value** property changes. It passes an event argument of type double representing the **Value** property. An event handler can be specified in the XAML, or in codebehind:
