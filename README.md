@@ -242,7 +242,7 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 
 
 ## Annotations
-Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each Tick Position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of Tick Positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
+Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each Tick Position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of Tick Positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels` and `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
 
 ### Automatic Labels
 `AnnotationMode` is set to `LabelsAuto`. If snapping is off, then the digits 0 to 10 will be displayed along the full sweep angle. If `ShowTicks` is `true`, the positions will correspond to those of the ticks. The last 2 examples show snapping by setting `NumPositions`. In this case the number and location of labels displayed correspond with the snap positions.
