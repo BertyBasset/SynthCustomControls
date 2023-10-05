@@ -152,7 +152,7 @@ With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, the 
 
 #### RadialGradientBrush
 <Intro>
-In this point, you specify a `Center` point and x and y radii `RadiusX` and `RadiusY` respectively. These specify the start and end of transistions. There is also a `GradientOrigin` which is a sort of focal point for the gradient. By default it is the same as `Center` but may be set separately. Again two or more `GradientStop` elements specify colours and how fast transition between the occurs. See following for brief article on Radial Gradients https://www.c-sharpcorner.com/uploadfile/mahesh/wpf-radialgradientbrush/
+Here, you specify a `Center` point and x and y radii `RadiusX` and `RadiusY` respectively. These specify the start and end of transistions. There is also a `GradientOrigin` which is a sort of focal point for the gradient. By default it is the same as `Center` but may be set separately. Again two or more `GradientStop` elements specify colours and how fast transition between the occurs. See following for brief article on Radial Gradients https://www.c-sharpcorner.com/uploadfile/mahesh/wpf-radialgradientbrush/
 ```
 <custom:Knob.FillBrush>
     <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
