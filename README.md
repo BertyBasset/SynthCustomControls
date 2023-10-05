@@ -124,7 +124,7 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 
 
 ### FillBrush
-A Brush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`. `TileBrush` and `BitmapCahceBrush` - we won't discuss the final 3.
+A Brush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`. `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
 
 #### SolidBrush
 For this example, we've gone for a dark theme with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the Canvas automatically.
@@ -205,8 +205,6 @@ A Drawing Brush extends the functionality of an Image Brush. As well as images, 
 </custom:
 ```
 ![Drawing Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/5ddd436993ffa25df4b7832096c2646c3f9921a0/ReadmeImages/FillDrawingBrush.png) 
-
-#### VisualBrush
 
 
 
