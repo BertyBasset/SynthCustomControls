@@ -204,9 +204,9 @@ A Drawing Brush extends the funcitonality of an Image Brush. As well as images, 
     </DrawingBrush>
 </custom:
 ```
-<Image> 
+![Drawing Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/5ddd436993ffa25df4b7832096c2646c3f9921a0/ReadmeImages/FillDrawingBrush.png) 
 
-
+#### VisualBrush
 
 
 
