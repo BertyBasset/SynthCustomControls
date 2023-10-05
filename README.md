@@ -42,7 +42,7 @@ public MainWindow() {
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
-**MinValue and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
+**MinValue** and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
 ```
 <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
 <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
