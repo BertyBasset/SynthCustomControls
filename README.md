@@ -219,6 +219,7 @@ By default, the knob moves smoothly in response to a MouseDrag through the `Full
      <SolidColorBrush Color="">#103070</SolidColorBrush>
  </custom:Knob.FillBrush>
 ```
+![Snapping using NumPositions](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/48155599a8dcf39e34db4a4fe09328d2da74f6f6/ReadmeImages/Snapping.png)
 
 ## Tick Marks
 
