@@ -223,8 +223,12 @@ By default, the knob moves smoothly in response to a MouseDrag through the `Full
 
 ## Tick Marks
 Tick marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Ticks are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth` properties. When tick marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
-<Code>
-<Image>
+```
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.TickColor>silver</custom:Knob.TickColor>
+<custom:Knob.TickWidth>2</custom:Knob.TickWidth>
+```
+![Tick Marks](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/5d5c527034d7f81b926ac19828e5b5b03ca4a30b/ReadmeImages/Ticks.png)
 
 If snapping is enabled due to `NumPositions` property being set to a value, the number of ticks and their locations correspond to the snap angles. 
 
