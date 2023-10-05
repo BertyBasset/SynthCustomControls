@@ -271,7 +271,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
    <sys:String>+2</sys:String>
 </custom:Knob.Annotations>
 ```
-
+![Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
 
 ### Images
 `AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions.
