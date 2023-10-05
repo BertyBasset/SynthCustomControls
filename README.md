@@ -74,16 +74,28 @@ For Dot marker, a Fill Colour can be specified to distinguish the dot from the b
 ![Dot Fill Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/b554e97f70df5df92c9c94976f8f9496923f38dd/ReadmeImages/MarkerDotFillColor.png)
 
 
+### Outline Width
+Determines the width of the knob outline. Note: The Marker width is controlled by a separate **MarkerWidth** property.
+```
+<custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
+```
+<images>
+
+### Outline Colour
+Determines the colour of the knob outline. Note: The Marker colour is controlled by a separate **MarkerColor** property.
+```
+<custom:Knob.OutlineColor>Magenta</custom:Knob.OutlineColor>
+```
+<image>
+
+
 ### Fill Brush
 A solid brush, a linear gradient, or a radial gradient brush can be used to paint the body of the knob.
 <samples>     a range of solid and gradient brushes
 <images>
 
 
-### Outline Width
 
-
-### Outline Colour
 
 
 ## Snapping
