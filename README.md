@@ -3,7 +3,7 @@ WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob co
 
 ## Basic Usage
 
-Add a refrence to either SynthCustomControls.dll or SynthCustomControls.csproj
+Add a reference to either SynthCustomControls.dll or SynthCustomControls.csproj
 
 ```
 <Window x:Class="Testbed.MainWindow"
@@ -46,8 +46,17 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 ![Marker Style](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/aa3302c2e3dabab259680f2b4b0ed5fa02281b4b/ReadmeImages/MarkerType.png)
 
 ### Marker Width
-<sample>
+``` 
+<custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
+```
 <image>
+
+### Marker Color
+``` 
+<custom:Knob.MarkerColor>Green</custom:Knob.MarkerWidth>
+```
+<image>
+
 
 #### Dot Fill Colour
 For a dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
@@ -65,6 +74,7 @@ A solid brush, a linear gradient, or a radial gradient brush can be used to pain
 ### Outline Colour
 
 ### Outline Width
+
 
 
 
