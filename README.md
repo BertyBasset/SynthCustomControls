@@ -274,10 +274,12 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
 
 ### Images
-`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions.
+`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property. Relative or absolute image filenames are passed by setting the `Annotations` `List<String>` property. If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. Personal preference, but `ShowTick` is probably best set to `false` when displaying images.
 
 ## Caption
 
 ### CaptionBold
+
+## Notes
 
 ## Full Property List
