@@ -127,7 +127,7 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 A Brush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`. `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
 
 #### SolidBrush
-For this example, we've gone for a dark theme with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the Canvas automatically.
+For this example, we've gone for a darker background with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the Canvas automatically.
 ```
 <custom:Knob.MarkerColor>White</custom:Knob.MarkerColor>
 <custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
