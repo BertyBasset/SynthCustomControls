@@ -162,7 +162,7 @@ Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` re
     </RadialGradientBrush>
 <\custom:Knob.FillBrush>
 ```        
-<Image> 
+![Radial Gradient Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/a01c23c8ef635b18d23bc126ccb9a39a8019f273/ReadmeImages/FillColorRadial.png)
 
 
 #### ImageBrush
