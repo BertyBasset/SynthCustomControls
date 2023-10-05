@@ -146,7 +146,7 @@ With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, the 
     <GradientStop Color="Red" Offset="1.0" />
 </LinearGradientBrush>
 ```
-<Image> 
+![Linear Gradient Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/0c3b8506681c1872ddbac7a8430bc560ac317bdb/ReadmeImages/FillColorLinear.png)
 
 #### RadialGradientBrush
 <Intro>
