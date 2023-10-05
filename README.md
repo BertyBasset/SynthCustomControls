@@ -6,6 +6,7 @@ WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob co
 Add a reference to either SynthCustomControls.dll or SynthCustomControls.csproj
 
 ```
+XAML:
 <Window x:Class="Testbed.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -25,13 +26,12 @@ Add a reference to either SynthCustomControls.dll or SynthCustomControls.csproj
 </Window>
 
 Codebehind:
-        public MainWindow() {
-            InitializeComponent();
-
-            knob1.ValueChanged += (o, e) => {
-                txtValue.Text = $"{e:F3}";
-            };
-        }
+public MainWindow() {
+    InitializeComponent();
+    knob1.ValueChanged += (o, e) => {
+          txtValue.Text = $"{e:F3}";
+    };
+}
 ```
 **MinValue** is set to 0, **MaxValue** is set to 1, **FullSweepAngle** is set to 270°, so dragging the knob marker with the mouse gives continuous variation of **Value** (note textbox is separate control):
 
@@ -43,16 +43,17 @@ Codebehind:
 ### ValueChanged Event
 The Knob control has a single event that is fired whenever the **Value** property changes. It passes a double event argument representing the **Value** property. An event handler can be specified in the markup, or in codebehind:
 ```
+XAML:
 <custom:Knob ValueChanged="knob1_ValueChanged" />
 
-
+Codebehind:
 knob2.ValueChanged += Knob1_ValueChanged;
 ```
 where the event handler is
 ```
-        private void Knob1_ValueChanged(object? sender, double e) {
-            double value = e;
-        }
+private void Knob1_ValueChanged(object? sender, double e) {
+    double value = e;
+}
 ```
 Alternatively a lamda may be used
 ```
