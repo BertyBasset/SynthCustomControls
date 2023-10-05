@@ -324,20 +324,21 @@ Future work. The knob gets resized when Ticks and/or Annotations are being displ
 | Caption       |       |       |       |       |       |
 | CaptionBold       |       |       |       |       |       |
 | CaptionColor      |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
+| DotFillColor       |       |       |       |       |       |
+| FillBrush       |       |       |       |       |       |
+| FullSweepAngle       |       |       |       |       |       |
+| MarkerColor       |       |       |       |       |       |
+| MarkerStyle       |       |       |       |       |       |
+| MarkerWidth       |       |       |       |       |       |
+| NumPositions       |       |       |       |       |       |
+| OutlineColor       |       |       |       |       |       |
+| OutlineWidth       |       |       |       |       |       |
+| ShowTicks       |       |       |       |       |       |
+| TickWidth       |       |       |       |       |       |
+| Value       |       |       |       |       |       |
+| ValueMax       |       |       |       |       |       |
+| ValueMin       |       |       |       |       |       |
+| Width       |       |       |       |       |       |
 
 
 
