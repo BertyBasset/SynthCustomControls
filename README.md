@@ -173,7 +173,7 @@ Here you can specify an image file, or other image resource as a brush. This is 
 </custom:Knob.FillBrush>
 ```
 ![Image Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/80aca0a34b57d4e8ed28462754f42d893472c722/ReadmeImages/FillImagel.png)
-
+One disadvantage is that where an image background has an obvious orientation, it does not rotate as the knob rotates. It might be worth adding a `RotateBackground` property?
 
 #### DrawingBrush
 <Intro>
