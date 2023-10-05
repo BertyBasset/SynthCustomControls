@@ -172,7 +172,7 @@ Here you can specify an image file, or other image resource as a brush. This is 
     <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
 </custom:Knob.FillBrush>
 ```
-<Image> 
+![Image Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/80aca0a34b57d4e8ed28462754f42d893472c722/ReadmeImages/FillImagel.png)
 
 
 #### DrawingBrush
