@@ -135,12 +135,17 @@ For this example, we've gone for a dark theme with the `Canvas` `Background` set
     <SolidColorBrush Color="Navy" />
 </custom:Knob.FillBrush>
 ```
-<Image>
+![Solid Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8880e3aebc3eab8d01eb0555d1b01e54214d1d41/ReadmeImages/FillColorSolid.png)
 
 
 #### LinearGradientBrush
-<Intro>
-<Code>
+With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, whose angle setermines the gardient direction, and whose distance apart specifies the start and end of the gradient trasnsition. Two or more `GradientStop` elements are then spcified to control colorus, and how fast the  transistion between them occur. The first example shows a vertical gradient, the remainder angled.
+```
+<LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+    <GradientStop Color="Blue" Offset="0" />
+    <GradientStop Color="Red" Offset="1.0" />
+</LinearGradientBrush>
+```
 <Image> 
 
 #### RadialGradientBrush
