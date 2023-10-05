@@ -52,6 +52,7 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
 Note: MarkerWidth also affects outline of dot where MarkerStyle is Dot
+
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
 
@@ -60,6 +61,7 @@ Note: MarkerWidth also affects outline of dot where MarkerStyle is Dot
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
 Note: MarkerColor also affects outline of dot where MarkerStyle is Dot
+
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
 
@@ -69,7 +71,7 @@ For Dot marker, a Fill Colour can be specified to distinguish the dot from the b
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
 ```
-[Dot Fill Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/b554e97f70df5df92c9c94976f8f9496923f38dd/ReadmeImages/MarkerDotFillColor.png)
+![Dot Fill Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/b554e97f70df5df92c9c94976f8f9496923f38dd/ReadmeImages/MarkerDotFillColor.png)
 
 
 ### Fill Brush
