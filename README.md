@@ -316,14 +316,14 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 Future work. The knob gets resized when Ticks and/or Annotations are being displayed. Text and Tick sizes also change in proportion to overall knob size. The positions and sizing of elements could do with a tidy up.
 
 ## Full Property List
-| Property/XAML attribute | Data Type      |   Options    |       |       |       |
+| Property/XAML attribute | Data Type      |   Options    | ..      | ..      |  ..     |
 | ------ | ------| ------| ------| ------| ------|
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
-|        |       |       |       |       |       |
+| AnnotationMode       |       |       |       |       |       |
+| Annotations       |       |       |       |       |       |
+| AnnotationTextColor       |       |       |       |       |       |
+| Caption       |       |       |       |       |       |
+| CaptionBold       |       |       |       |       |       |
+| CaptionColor      |       |       |       |       |       |
 |        |       |       |       |       |       |
 |        |       |       |       |       |       |
 |        |       |       |       |       |       |
