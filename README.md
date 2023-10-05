@@ -222,7 +222,7 @@ By default, the knob moves smoothly in response to a MouseDrag through the `Full
 ![Snapping using NumPositions](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/48155599a8dcf39e34db4a4fe09328d2da74f6f6/ReadmeImages/Snapping.png)
 
 ## Tick Marks
-Tick marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Ticks are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth`. When tick marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
+Tick Marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Ticks are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth`. When Tick Marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
 ```
 <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
 <custom:Knob.TickColor>silver</custom:Knob.TickColor>
@@ -242,7 +242,7 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 
 
 ## Annotations
-Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each tick position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of tick positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
+Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each Tick Position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of Tick Positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
 
 ### Automatic Labels
 `AnnotationMode` is set to `LabelsAuto`. If snapping is off, then the digits 0 to 10 will be displayed along the full sweep angle. If `ShowTicks` is `true`, the positions will correspond to those of the ticks. The last 2 examples show snapping by setting `NumPositions`. In this case the number and location of labels displayed correspond with the snap positions.
