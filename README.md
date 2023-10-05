@@ -40,7 +40,7 @@ MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so d
 
 ## Appearance
 ### Marker Style
-There are 4 marker styles controlled by the MarkerStyle property e.g.
+There are 4 marker styles controlled by the **MarkerStyle** property e.g.
 ```
 <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
 ```
@@ -51,7 +51,7 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
-Note: MarkerWidth also affects outline of dot where MarkerStyle is Dot
+Note: **MarkerWidth** also affects outline of dot where **MarkerStyle** is Dot
 
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
@@ -60,7 +60,7 @@ Note: MarkerWidth also affects outline of dot where MarkerStyle is Dot
 ``` 
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
-Note: MarkerColor also affects outline of dot where MarkerStyle is Dot
+Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is Dot
 
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
@@ -80,14 +80,14 @@ A solid brush, a linear gradient, or a radial gradient brush can be used to pain
 <images>
 
 
-### Outline Colour
-
-
 ### Outline Width
 
 
-## Snapping
+### Outline Colour
 
+
+## Snapping
+By default, the knob moves smoothly in response to a MouseDrag through the **FullSweepAmgle**.
 
 ## Tick Marks
 
