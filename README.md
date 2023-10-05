@@ -222,11 +222,11 @@ By default, the knob moves smoothly in response to a MouseDrag through the `Full
 ![Snapping using NumPositions](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/48155599a8dcf39e34db4a4fe09328d2da74f6f6/ReadmeImages/Snapping.png)
 
 ## Tick Marks
-Tick marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Tick are enabled using the `ShowTicks` property, and they can be styled using the `TickColor' and `TickWidth' properties. When tick marks are being displayed, the knob will be scaled down slightly to provide room for the ticks to be displayed.
+Tick marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Tick are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth` properties. When tick marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
 <Code>
 <Image>
 
-If snapping is enabled via the `NumPositions` property being set to a value, the number of ticks and their locations correspond to the snap angles. 
+If snapping is enabled due to `NumPositions` property being set to a value, the number of ticks and their locations correspond to the snap angles. 
 
 <Code>
 <Image>
