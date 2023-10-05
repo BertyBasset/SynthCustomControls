@@ -172,12 +172,38 @@ Here you can specify an image file, or other image resource as a brush. This is 
     <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
 </custom:Knob.FillBrush>
 ```
-<Image> 
+![Image Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/80aca0a34b57d4e8ed28462754f42d893472c722/ReadmeImages/FillImagel.png)
 
+One disadvantage is that where an image background has an obvious orientation, it does not rotate as the knob rotates. It might be worth adding a `RotateBackground` property in the future?
 
 #### DrawingBrush
-<Intro>
-<Code>
+A Drawing Brush extends the funcitonality of an Image Brush. As well as images, it can contain text, shapes and media. Shapes and text can be drawn directly using XamlL
+```
+<custom:Knob.FillBrush>
+    <DrawingBrush>
+        <DrawingBrush.Drawing>
+            <GeometryDrawing Brush="Yellow">
+                <GeometryDrawing.Geometry>
+                    <GeometryGroup>
+                        <RectangleGeometry Rect="50,25,25,25" />
+                        <RectangleGeometry Rect="25,50,25,25" />
+                    </GeometryGroup>
+                </GeometryDrawing.Geometry>
+                <GeometryDrawing.Pen>
+                    <Pen Thickness="5">
+                        <Pen.Brush>
+                            <LinearGradientBrush>
+                                <GradientStop Offset="0.0" Color="Blue" />
+                                <GradientStop Offset="1.0" Color="Black" />
+                            </LinearGradientBrush>
+                        </Pen.Brush>
+                    </Pen>
+                </GeometryDrawing.Pen>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+</custom:
+```
 <Image> 
 
 
