@@ -108,6 +108,16 @@ public class Knob : Control {
         }
     }
 
+    Color _CaptionColor = Colors.Black;
+    public Color CaptionColor {
+        get { return _CaptionColor; }
+        set {
+            _CaptionColor = value;
+            DoFullRedraw();
+        }
+    }
+
+
     bool _CaptionBold = false;
     public bool CaptionBold {
         get { return _CaptionBold; }
@@ -534,7 +544,7 @@ public class Knob : Control {
                  FlowDirection.LeftToRight,
                  new Typeface(new FontFamily("Arial"), FontStyles.Normal, CaptionBold ? FontWeights.Bold : FontWeights.Normal, FontStretches.Normal),
                  17 * ActualHeight / 100.0,                // Autosize font according to control width, with baseline of 17pt
-                 new SolidColorBrush(OutlineColor),
+                 new SolidColorBrush(CaptionColor),
                  1.0                                       // Pixels per dip
              );
 
