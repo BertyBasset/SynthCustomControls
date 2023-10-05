@@ -124,10 +124,10 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 
 
 ### FillBrush
-A Brush for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`. `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
+A Brush for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any `Brush` type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`. `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
 
 #### SolidBrush
-For this example, we've gone for a darker background with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the Canvas automatically.
+For this example, we've gone for a darker background with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the `Canvas` automatically.
 ```
 <custom:Knob.MarkerColor>White</custom:Knob.MarkerColor>
 <custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
@@ -166,7 +166,7 @@ Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` re
 
 
 #### ImageBrush
-Here you can specify an image file, or other image resource as a brush. This is potentially useful for simulating knob materials.
+Here you can specify an image file, or other image resource as a `Brush`. This is potentially useful for simulating knob materials.
 ```
 <custom:Knob.FillBrush>
     <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
@@ -209,7 +209,7 @@ A Drawing Brush extends the functionality of an Image Brush. As well as images, 
 
 
 ## Snapping
-By default, the knob moves smoothly in response to a MouseDrag through the `FullSweepAngle`. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the FullSweepAngle into NumPositions - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1, 0.333, 1.667, 3.
+By default, the knob moves smoothly in response to a MouseDrag through the `FullSweepAngle`. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the `FullSweepAngle` into `NumPositions` - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1, 0.333, 1.667, 3.
 ```
  <custom:Knob.NumPositions>4</custom:Knob.NumPositions>
  <custom:Knob.Value>0</custom:Knob.Value>
