@@ -319,26 +319,26 @@ Future work. The knob gets resized when Ticks and/or Annotations are being displ
 | Property/XAML attribute | Data Type      |   Options    | ..      | ..      |  ..     |
 | ------ | ------| ------| ------| ------| ------|
 | `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      |
-| `Annotations`       |       |       |       |       |       |
-| `AnnotationTextColor`       |       |       |       |       |       |
-| `Caption`       |       |       |       |       |       |
-| `CaptionBold`       |       |       |       |       |       |
-| `CaptionColor`      |       |       |       |       |       |
-| `DotFillColor`       |       |       |       |       |       |
-| `FillBrush`       |       |       |       |       |       |
-| `FullSweepAngle`       |       |       |       |       |       |
-| `MarkerColor`       |       |       |       |       |       |
+| `Annotations`       | `List<string>`      |       |       |       |       |
+| `AnnotationTextColor`       | `Color`      |       |       |       |       |
+| `Caption`       | `string?`      |       |       |       |       |
+| `CaptionBold`       | `bool`      |       |       |       |       |
+| `CaptionColor`      | `Color`      |       |       |       |       |
+| `DotFillColor`       | `Color`      |       |       |       |       |
+| `FillBrush`       | `Brush`      |       |       |       |       |
+| `FullSweepAngle`       | `double`      |       |       |       |       |
+| `MarkerColor`       | `Color`      |       |       |       |       |
 | `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      |
-| `MarkerWidth`       |       |       |       |       |       |
-| `NumPositions`       |       |       |       |       |       |
-| `OutlineColor`       |       |       |       |       |       |
-| `OutlineWidth`       |       |       |       |       |       |
-| `ShowTicks`       |       |       |       |       |       |
-| `TickWidth`       |       |       |       |       |       |
-| `Value`       |       |       |       |       |       |
-| `ValueMax`       |       |       |       |       |       |
-| `ValueMin`       |       |       |       |       |       |
-| `Width`       |       |       |       |       |       |
+| `MarkerWidth`       | `int`      |       |       |       |       |
+| `NumPositions`       | `int`      |       |       |       |       |
+| `OutlineColor`       | `Color`      |       |       |       |       |
+| `OutlineWidth`       | `int`      |       |       |       |       |
+| `ShowTicks`       | `bool`      |       |       |       |       |
+| `TickWidth`       | `int`      |       |       |       |       |
+| `Value`       | `double`      |       |       |       |       |
+| `ValueMax`       | `double`      |       |       |       |       |
+| `ValueMin`       | `double`      |       |       |       |       |
+| `Width`       | `int`      |       |       |       |       |
 
 
 
