@@ -47,7 +47,7 @@ There are 4 marker styles controlled by the **MarkerStyle** property e.g.
 ![Marker Style](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/aa3302c2e3dabab259680f2b4b0ed5fa02281b4b/ReadmeImages/MarkerType.png)
 
 
-### Marker Width
+### MarkerWidth
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
@@ -56,7 +56,7 @@ Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is D
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
 
-### Marker Color
+### MarkerColor
 ``` 
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
@@ -65,7 +65,7 @@ Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is Dot
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
 
-#### Dot Fill Colour
+#### DotFillColour
 For Dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
@@ -74,14 +74,14 @@ For Dot marker, a Fill Colour can be specified to distinguish the dot from the b
 ![Dot Fill Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/b554e97f70df5df92c9c94976f8f9496923f38dd/ReadmeImages/MarkerDotFillColor.png)
 
 
-### Outline Width
+### OutlineWidth
 Determines the width of the knob outline. Note: The Marker width is controlled by a separate **MarkerWidth** property.
 ```
 <custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
 ```
 <images>
 
-### Outline Colour
+### OutlineColor
 Determines the colour of the knob outline. Note: The Marker colour is controlled by a separate **MarkerColor** property.
 ```
 <custom:Knob.OutlineColor>Magenta</custom:Knob.OutlineColor>
@@ -89,7 +89,7 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 <image>
 
 
-### Fill Brush
+### FillBrush
 A solid brush, a linear gradient, or a radial gradient brush can be used to paint the body of the knob.
 <samples>     a range of solid and gradient brushes
 <images>
