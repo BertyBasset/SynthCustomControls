@@ -242,7 +242,8 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 
 
 ## Annotations
-Annotation Mode
+Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each tick position. Text labels can be manually sepcified, or they can be automatic where they will take the value 0 up to the number of tick positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels`, `Images`.
+
 ### Automatic Labels
 
 ### Labels
