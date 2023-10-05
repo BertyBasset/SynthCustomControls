@@ -139,7 +139,7 @@ For this example, we've gone for a dark theme with the `Canvas` `Background` set
 
 
 #### LinearGradientBrush
-With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, the  angle between which determines the gradient direction, and the distance apart specifies the start and end of the gradient transition. Two or more `GradientStop` elements are then specified to control colours, and how fast the transistion between them occur. The first example shows a vertical gradient, the remainder angled.
+With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, the  angle between which determines the gradient direction, and the distance apart specifies the start and end of the gradient transition. Two or more `GradientStop` elements are then specified to control colours, and how fast the transistion between them occur. The first example shows a vertical gradient, the remainder angled. See following for brief article on Linear Gradients https://www.c-sharpcorner.com/uploadfile/mahesh/wpf-lineargradientbrush/
 ```
 <custom:Knob.FillBrush>
     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
