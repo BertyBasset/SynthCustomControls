@@ -34,6 +34,7 @@ Codebehind:
         }
 ```
 MinValue is set to 0, MaxValue is set to 1, FullSweepAngle is set to 270°, so dragging the knob marker with the mouse gives continuous variation of Value (note textbox is separate control):
+
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
 
@@ -50,20 +51,16 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
-![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
-
-
 Note: MarkerWidth also affects outline of dot where MarkerStyle is Dot
+![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
 
 ### Marker Color
 ``` 
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
-![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
-
-
 Note: MarkerColor also affects outline of dot where MarkerStyle is Dot
+![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
 
 #### Dot Fill Colour
