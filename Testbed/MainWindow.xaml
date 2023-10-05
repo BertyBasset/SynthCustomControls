@@ -10,24 +10,38 @@
 
             <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
-            <custom:Knob.OutlineWidth>1</custom:Knob.OutlineWidth>
+            <custom:Knob.OutlineWidth>2</custom:Knob.OutlineWidth>
             <custom:Knob.MarkerColor>blue</custom:Knob.MarkerColor>
-            <custom:Knob.OutlineColor>red</custom:Knob.OutlineColor>
+            <custom:Knob.OutlineColor>black</custom:Knob.OutlineColor>
 
-            <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
-            
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
             <custom:Knob.TickColor>black</custom:Knob.TickColor>
             <custom:Knob.TickWidth>1</custom:Knob.TickWidth>
-            <custom:Knob.AnnotationTextColor>red</custom:Knob.AnnotationTextColor>
-            <custom:Knob.AnnotationMode>LabelsAuto</custom:Knob.AnnotationMode>
+            
+            <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
+            <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
+            <custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
+            <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+            <custom:Knob.Annotations>
+                <sys:String>fo</sys:String>
+                <sys:String>Q</sys:String>
+                <sys:String>Env</sys:String>
+                <sys:String>-</sys:String>
+                <sys:String>+</sys:String>
+            </custom:Knob.Annotations>
+            
             
             <custom:Knob.Value>0</custom:Knob.Value>
             <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
             <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
 
             <custom:Knob.FillBrush>
-                <SolidColorBrush Color="MediumSpringGreen"></SolidColorBrush>
+                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                    <RadialGradientBrush.GradientStops>
+                        <GradientStop Color="pink" Offset="0" />
+                        <GradientStop Color="blue" Offset="1.0" />
+                    </RadialGradientBrush.GradientStops>
+                </RadialGradientBrush>
             </custom:Knob.FillBrush>
         </custom:Knob>
 
