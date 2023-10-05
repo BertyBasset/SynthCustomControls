@@ -166,8 +166,12 @@ Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` re
 
 
 #### ImageBrush
-<Intro>
-<Code>
+Here you can specify an image file, or other image resource as a brush. This is potentially useful for simulating knob materials.
+```
+<custom:Knob.FillBrush>
+    <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
+</custom:Knob.FillBrush>
+```
 <Image> 
 
 
