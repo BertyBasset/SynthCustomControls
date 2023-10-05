@@ -289,8 +289,24 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 
 ## Caption
+A caption can be displayed below the knob using the `Caption`, `CaptionBold` and `CaptionColor` properties.
+```
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+<custom:Knob.Annotations>
+    <sys:String>-2</sys:String>
+    <sys:String>-1</sys:String>
+    <sys:String>0</sys:String>
+    <sys:String>+1</sys:String>
+    <sys:String>+2</sys:String>
+/custom:Knob.Annotations>
+<custom:Knob.Caption>Frequency</custom:Knob.Caption>
+<custom:Knob.CaptionBold>true</custom:Knob.CaptionBold>
+<custom:Knob.CaptionColor>Green</custom:Knob.CaptionColor>
+```
+![Caption]()
 
-### CaptionBold
+
 
 ## Notes
 There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background. 
