@@ -34,11 +34,21 @@ public MainWindow() {
 }
 ```
 **MinValue** is set to 0, **MaxValue** is set to 1, **FullSweepAngle** is set to 270°, so dragging the knob marker with the mouse gives continuous variation of **Value** (note textbox is separate control):
+```
+<custom:Knob.ValueMin>0</custom:Knob.ValueMin>
+<custom:Knob.ValueMax>1</custom:Knob.ValueMax>
+<custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
+```
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
-**MinValue and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
-<TO DO IMAGE>
+**MinValue** and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
+```
+<custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
+<custom:Knob.ValueMax>3</custom:Knob.ValueMax>
+<custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
+```
+![Basic Use 2](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/edb8abd20c17686b8e2d78a3b60b454cad82a0b2/ReadmeImages/BasicUse2.png)
 
 ### ValueChanged Event
 The Knob control has a single event that is fired whenever the **Value** property changes. It passes an event argument of type double representing the **Value** property. An event handler can be specified in the XAML, or in codebehind:
@@ -64,7 +74,7 @@ knob2.ValueChanged += (o, e) => {
 
 ## Appearance
 ### Marker Style
-There are 4 marker styles controlled by the **MarkerStyle** property e.g.
+There are 4 marker styles controlled by the **MarkerStyle** property: `Line1`, `Line2`, `Line3` and `Dot`.
 ```
 <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
 ```
@@ -75,7 +85,7 @@ There are 4 marker styles controlled by the **MarkerStyle** property e.g.
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
-Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is Dot
+Note: **MarkerWidth** also affects outline of dot where **MarkerStyle** is `Dot`
 
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
@@ -84,13 +94,13 @@ Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is D
 ``` 
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
-Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is Dot
+Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is `Dot`
 
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
 
-#### DotFillColour
-For Dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
+### DotFillColour
+For `Dot` marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
@@ -114,9 +124,28 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 
 
 ### FillBrush
-A solid brush, a linear gradient, or a radial gradient brush can be used to paint the body of the knob.
-<samples>     a range of solid and gradient brushes
-<images>
+A Bush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - the most useful being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` and `DrawingBrush`. You might even be able to use `VideoBrush`, but I've not tried that one!
+
+#### SolidBrush
+For this example, we've gone for a dark theme with the `Canvas` 'Background' set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the Canvas automatically.
+```
+<custom:Knob.MarkerColor>White</custom:Knob.MarkerColor>
+<custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
+<custom:Knob.FillBrush>
+    <SolidColorBrush Color="Navy" />
+</custom:Knob.FillBrush>
+```
+
+#### LinearGradientBrush
+
+
+#### RadialGradientBrush
+
+
+#### ImageBrush
+
+
+#### DrawingBrush
 
 
 
