@@ -271,10 +271,22 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
    <sys:String>+2</sys:String>
 </custom:Knob.Annotations>
 ```
-![Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
+![Label Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
 
 ### Images
-`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property. Relative or absolute image filenames are passed by setting the `Annotations` `List<String>` property. If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. Personal preference, but `ShowTick` is probably best set to `false` when displaying images.
+`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property. Relative or absolute image filenames are passed by setting the `Annotations` `List<String>` property. If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+```
+<custom:Knob.ShowTicks>false</custom:Knob.ShowTicks>
+<custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
+<custom:Knob.Annotations>
+    <sys:String>KnobImages/Sine.png</sys:String>
+    <sys:String>KnobImages/Triangle.png</sys:String>
+    <sys:String>KnobImages/Square.png</sys:String>
+    <sys:String>KnobImages/Saw.png</sys:String>
+    <sys:String>KnobImages/SuperSaw.png</sys:String>
+</custom:Knob.Annotations>
+```
+![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 
 ## Caption
 
