@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls"
         Title="MainWindow" Height="400" Width="800">
-    <Canvas Background="Navy"> 
+    <Canvas Background="Gray"> 
 
         <custom:Knob Width="70" Name="knob2"  Canvas.Left="144" Canvas.Top="75">
             <custom:Knob.Value>0</custom:Knob.Value>
@@ -12,12 +12,18 @@
             <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
             <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
             <custom:Knob.MarkerStyle>Line2</custom:Knob.MarkerStyle>
-            <custom:Knob.MarkerColor>White</custom:Knob.MarkerColor>
             <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
-            <custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
             <custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
+            <custom:Knob.MarkerColor>White</custom:Knob.MarkerColor>
+            <custom:Knob.OutlineColor>White</custom:Knob.OutlineColor>
             <custom:Knob.FillBrush>
-                <SolidColorBrush Color="Black" />
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+
+                    <GradientStop Color="Blue" Offset="0" />
+
+                    <GradientStop Color="Red" Offset="1.0" />
+
+                </LinearGradientBrush>
             </custom:Knob.FillBrush>
         </custom:Knob>
 
