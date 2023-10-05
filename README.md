@@ -69,7 +69,7 @@ For Dot marker, a Fill Colour can be specified to distinguish the dot from the b
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
 ```
-<image>
+[Dot Fill Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/b554e97f70df5df92c9c94976f8f9496923f38dd/ReadmeImages/MarkerDotFillColor.png)
 
 
 ### Fill Brush
