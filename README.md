@@ -99,7 +99,7 @@ Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is Dot
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
 
-#### DotFillColour
+### DotFillColour
 For Dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
