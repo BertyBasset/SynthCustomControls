@@ -177,7 +177,7 @@ Here you can specify an image file, or other image resource as a brush. This is 
 One disadvantage is that where an image background has an obvious orientation, it does not rotate as the knob rotates. It might be worth adding a `RotateBackground` property in the future?
 
 #### DrawingBrush
-A Drawing Brush extends the funcitonality of an Image Brush. As well as images, it can contain text, shapes and media. Shapes and text can be drawn directly using XamlL
+A Drawing Brush extends the funcionality of an Image Brush. As well as images, it can contain text, shapes and media. Shapes and text can be drawn directly using XAML or codebehind. Again there is the disadvantage that the background does not rotate with the knob.
 ```
 <custom:Knob.FillBrush>
     <DrawingBrush>
