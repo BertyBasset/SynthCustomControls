@@ -74,7 +74,7 @@ knob2.ValueChanged += (o, e) => {
 
 ## Appearance
 ### Marker Style
-There are 4 marker styles controlled by the **MarkerStyle** property e.g.
+There are 4 marker styles controlled by the **MarkerStyle** property: `Line1`, `Line2`, `Line3` and `Dot`.
 ```
 <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
 ```
@@ -85,7 +85,7 @@ There are 4 marker styles controlled by the **MarkerStyle** property e.g.
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
-Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is Dot
+Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is `Dot`
 
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
@@ -94,13 +94,13 @@ Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is D
 ``` 
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
-Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is Dot
+Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is `Dot`
 
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
 
 ### DotFillColour
-For Dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
+For `Dot` marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
