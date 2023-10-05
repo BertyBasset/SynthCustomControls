@@ -139,18 +139,29 @@ For this example, we've gone for a dark theme with the `Canvas` `Background` set
 
 
 #### LinearGradientBrush
-With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, whose angle setermines the gardient direction, and whose distance apart specifies the start and end of the gradient trasnsition. Two or more `GradientStop` elements are then spcified to control colorus, and how fast the  transistion between them occur. The first example shows a vertical gradient, the remainder angled.
+With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, the  angle between which determines the gradient direction, and the distance apart specifies the start and end of the gradient transition. Two or more `GradientStop` elements are then specified to control colours, and how fast the transistion between them occur. The first example shows a vertical gradient, the remainder angled. See following for brief article on Linear Gradients https://www.c-sharpcorner.com/uploadfile/mahesh/wpf-lineargradientbrush/
 ```
-<LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
-    <GradientStop Color="Blue" Offset="0" />
-    <GradientStop Color="Red" Offset="1.0" />
-</LinearGradientBrush>
+<custom:Knob.FillBrush>
+    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+        <GradientStop Color="Blue" Offset="0" />
+        <GradientStop Color="Red" Offset="1.0" />
+    </LinearGradientBrush>
+</custom:Knob.FillBrush>
 ```
-<Image> 
+![Linear Gradient Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/0c3b8506681c1872ddbac7a8430bc560ac317bdb/ReadmeImages/FillColorLinear.png)
 
 #### RadialGradientBrush
-<Intro>
-<Code>
+Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` respectively. These specify the start and end of colour transistions. There is also a `GradientOrigin` which is a sort of focal point for the gradient. By default it is the same as `Center` but may be set separately. Again two or more `GradientStop` elements specify colours and how fast transition between the occurs. See following for brief article on Radial Gradients https://www.c-sharpcorner.com/uploadfile/mahesh/wpf-radialgradientbrush/
+```
+<custom:Knob.FillBrush>
+    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="Blue" Offset="0" />
+            <GradientStop Color="Red" Offset="1.0" />                   
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+<\custom:Knob.FillBrush>
+```        
 <Image> 
 
 
