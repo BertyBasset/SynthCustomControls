@@ -50,16 +50,20 @@ There are 4 marker styles controlled by the MarkerStyle property e.g.
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
+Note: MarkerWidth also affects outline of dot where MarkerStyle is Dot
 
 ### Marker Color
 ``` 
-<custom:Knob.MarkerColor>Green</custom:Knob.MarkerWidth>
+<custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
+Note: MarkerColor also affects outline of dot where MarkerStyle is Dot
 
 #### Dot Fill Colour
-For a dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
-<sample>
+For Dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
+```
+<custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
+```
 <image>
 
 
