@@ -33,7 +33,7 @@ public MainWindow() {
     };
 }
 ```
-`MinValue` is set to 0, `MaxValue` is set to 1, `FullSweepAngle` is set to 270°, so dragging the knob marker with the mouse gives continuous variation of Value (note textbox is separate control):
+`MinValue` is set to 0, `MaxValue` is set to 1, `FullSweepAngle` is set to 270°, so dragging the knob marker with the mouse gives continuous variation of `Value` (note textbox is separate control):
 ```
 <custom:Knob.ValueMin>0</custom:Knob.ValueMin>
 <custom:Knob.ValueMax>1</custom:Knob.ValueMax>
