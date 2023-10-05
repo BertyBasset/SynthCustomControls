@@ -6,6 +6,7 @@ WPF Controls for Virtual Analog Synth Project - primarily a flexible WPF Knob co
 Add a reference to either SynthCustomControls.dll or SynthCustomControls.csproj
 
 ```
+XAML:
 <Window x:Class="Testbed.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -25,18 +26,41 @@ Add a reference to either SynthCustomControls.dll or SynthCustomControls.csproj
 </Window>
 
 Codebehind:
-        public MainWindow() {
-            InitializeComponent();
-
-            knob1.ValueChanged += (o, e) => {
-                txtValue.Text = $"{e:F3}";
-            };
-        }
+public MainWindow() {
+    InitializeComponent();
+    knob1.ValueChanged += (o, e) => {
+          txtValue.Text = $"{e:F3}";
+    };
+}
 ```
 **MinValue** is set to 0, **MaxValue** is set to 1, **FullSweepAngle** is set to 270°, so dragging the knob marker with the mouse gives continuous variation of **Value** (note textbox is separate control):
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
+**MinValue and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
+<TO DO IMAGE>
+
+### ValueChanged Event
+The Knob control has a single event that is fired whenever the **Value** property changes. It passes an event argument of type double representing the **Value** property. An event handler can be specified in the XAML, or in codebehind:
+```
+XAML:
+<custom:Knob ValueChanged="knob1_ValueChanged" />
+
+Codebehind:
+knob2.ValueChanged += Knob1_ValueChanged;
+```
+where the event handler is
+```
+private void Knob1_ValueChanged(object? sender, double e) {
+    txtValue.Text = $"{e:F3}";
+}
+```
+Alternatively a lamda may be used
+```
+knob2.ValueChanged += (o, e) => {
+   txtValue.Text = $"{e:F3}";
+};
+```
 
 ## Appearance
 ### Marker Style
@@ -79,14 +103,14 @@ Determines the width of the knob outline. Note: The Marker width is controlled b
 ```
 <custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
 ```
-<images>
+![Outline Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineWidth.png)
 
 ### OutlineColor
 Determines the colour of the knob outline. Note: The Marker colour is controlled by a separate **MarkerColor** property.
 ```
 <custom:Knob.OutlineColor>Magenta</custom:Knob.OutlineColor>
 ```
-<image>
+![Outline Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineColor.png)
 
 
 ### FillBrush
