@@ -41,7 +41,7 @@ public MainWindow() {
 <TO DO IMAGE>
 
 ### ValueChanged Event
-The Knob control has a single event that is fired whenever the **Value** property changes. It passes a double event argument representing the **Value** property. An event handler can be specified in the markup, or in codebehind:
+The Knob control has a single event that is fired whenever the **Value** property changes. It passes an event argument of type double representing the **Value** property. An event handler can be specified in the XAML, or in codebehind:
 ```
 XAML:
 <custom:Knob ValueChanged="knob1_ValueChanged" />
@@ -52,7 +52,7 @@ knob2.ValueChanged += Knob1_ValueChanged;
 where the event handler is
 ```
 private void Knob1_ValueChanged(object? sender, double e) {
-    double value = e;
+    txtValue.Text = $"{e:F3}";
 }
 ```
 Alternatively a lamda may be used
@@ -61,9 +61,6 @@ knob2.ValueChanged += (o, e) => {
    txtValue.Text = $"{e:F3}";
 };
 ```
-
-
-
 
 ## Appearance
 ### Marker Style
