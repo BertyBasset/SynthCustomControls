@@ -209,7 +209,16 @@ A Drawing Brush extends the functionality of an Image Brush. As well as images, 
 
 
 ## Snapping
-By default, the knob moves smoothly in response to a MouseDrag through the **FullSweepAmgle**.
+By default, the knob moves smoothly in response to a MouseDrag through the **FullSweepAngle**. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the FullSweepAngle into NumPositions - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1, 0.333, 1.667, 3.
+```
+ <custom:Knob.NumPositions>4</custom:Knob.NumPositions>
+ <custom:Knob.Value>0</custom:Knob.Value>
+ <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
+ <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
+ <custom:Knob.FillBrush>
+     <SolidColorBrush Color="">#103070</SolidColorBrush>
+ </custom:Knob.FillBrush>
+```
 
 ## Tick Marks
 
