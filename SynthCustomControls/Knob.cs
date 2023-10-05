@@ -163,6 +163,15 @@ public class Knob : Control {
         }
     }
 
+    Color _AnnotationTextColor = Colors.Black;
+    public Color AnnotationTextColor {
+        get { return _AnnotationTextColor; }
+        set {
+            _AnnotationTextColor = value;
+            DoFullRedraw();
+        }
+    }
+
     // Either show a speicified Tick Label, otherwise show a number 0-n
     private string GetAnnotation(int index) {
         // Depening on Annotation mode, this will either return
@@ -491,7 +500,7 @@ public class Knob : Control {
                 FlowDirection.LeftToRight,
                 new Typeface("Arial"),
                 12 * ActualHeight / 100.0, // Autosize font according to control width, but with poerty scale
-                new SolidColorBrush(OutlineColor),
+                new SolidColorBrush(AnnotationTextColor),
                 1.0 // Default pixels per dip value
             );
 
