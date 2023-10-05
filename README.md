@@ -51,7 +51,7 @@ There are 4 marker styles controlled by the **MarkerStyle** property e.g.
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
-Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is `Dot`
+Note: `**MarkerWidth**` also affects outline of dot where `**MarkerStyle**` is Dot
 
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
