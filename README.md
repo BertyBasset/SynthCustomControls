@@ -66,6 +66,7 @@ Note: MarkerColor also affects outline of dot where MarkerStyle is Dot
 #### Dot Fill Colour
 For Dot marker, a Fill Colour can be specified to distinguish the dot from the brush used to paint the body of the knob.
 ```
+<custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
 ```
 <image>
