@@ -33,7 +33,7 @@ public MainWindow() {
     };
 }
 ```
-**MinValue** is set to 0, **MaxValue** is set to 1, **FullSweepAngle** is set to 270°, so dragging the knob marker with the mouse gives continuous variation of **Value** (note textbox is separate control):
+`MinValue` is set to 0, `MaxValue` is set to 1, `FullSweepAngle` is set to 270°, so dragging the knob marker with the mouse gives continuous variation of Value (note textbox is separate control):
 ```
 <custom:Knob.ValueMin>0</custom:Knob.ValueMin>
 <custom:Knob.ValueMax>1</custom:Knob.ValueMax>
@@ -42,7 +42,7 @@ public MainWindow() {
 
 ![Basic Use](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f65f9baa8b5cdbb6aa57f0c10067136f298932e8/ReadmeImages/BasicUse.png)
 
-**MinValue** and **MaxValue** can be set to any valid positive or negative double value as long as **MaxValue** > **MinValue**. **FullSweepAngle** can be set to any angle between 20° and 340°. The **Value** property will reflect the current knob marker value taking the previous properties into account. e.g. **MinValue** = -1, **MaxValue** = +3, **FullSweepAngle** = 180°
+`MinValue` and `MaxValue` can be set to any valid positive or negative double value as long as `MaxValue` > `MinValue`. `FullSweepAngle` can be set to any angle between 20° and 340°. The `Value` property will reflect the current knob marker value taking the previous properties into account. e.g. `MinValue` = -1, `MaxValue` = +3, `FullSweepAngle` = 180°
 ```
 <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
 <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
@@ -51,7 +51,7 @@ public MainWindow() {
 ![Basic Use 2](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/edb8abd20c17686b8e2d78a3b60b454cad82a0b2/ReadmeImages/BasicUse2.png)
 
 ### ValueChanged Event
-The Knob control has a single event that is fired whenever the **Value** property changes. It passes an event argument of type double representing the **Value** property. An event handler can be specified in the XAML, or in codebehind:
+The Knob control has a single event that is fired whenever the `Value` property changes. It passes an event argument of type double representing the `Value` property. An event handler can be specified in the XAML, or in codebehind:
 ```
 XAML:
 <custom:Knob ValueChanged="knob1_ValueChanged" />
@@ -74,7 +74,7 @@ knob2.ValueChanged += (o, e) => {
 
 ## Appearance
 ### Marker Style
-There are 4 marker styles controlled by the **MarkerStyle** property: `Line1`, `Line2`, `Line3` and `Dot`.
+There are 4 marker styles controlled by the `MarkerStyle` property: `Line1`, `Line2`, `Line3` and `Dot`.
 ```
 <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
 ```
@@ -85,7 +85,7 @@ There are 4 marker styles controlled by the **MarkerStyle** property: `Line1`, `
 ``` 
 <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
 ```
-Note: **MarkerWidth** also affects outline of dot where **MarkerStyle** is `Dot`
+Note: `MarkerWidth` also affects outline of dot where `MarkerStyle` is `Dot`
 
 ![Marker Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerWidth.png)
 
@@ -94,7 +94,7 @@ Note: **MarkerWidth** also affects outline of dot where **MarkerStyle** is `Dot`
 ``` 
 <custom:Knob.MarkerColor>Green</custom:Knob.MarkerColor>
 ```
-Note: **MarkerColor** also affects outline of dot where **MarkerStyle** is `Dot`
+Note: `MarkerColor` also affects outline of dot where `MarkerStyle` is `Dot`
 
 ![Marker Color](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/eb6dd8454bce8584c91d5cadc40c0a3d6ecf0479/ReadmeImages/MarkerColor.png)
 
@@ -109,14 +109,14 @@ For `Dot` marker, a Fill Colour can be specified to distinguish the dot from the
 
 
 ### OutlineWidth
-Determines the width of the knob outline. Note: The Marker width is controlled by a separate **MarkerWidth** property.
+Determines the width of the knob outline. Note: The Marker width is controlled by a separate `MarkerWidth` property.
 ```
 <custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
 ```
 ![Outline Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineWidth.png)
 
 ### OutlineColor
-Determines the colour of the knob outline. Note: The Marker colour is controlled by a separate **MarkerColor** property.
+Determines the colour of the knob outline. Note: The Marker colour is controlled by a separate `MarkerColor` property.
 ```
 <custom:Knob.OutlineColor>Magenta</custom:Knob.OutlineColor>
 ```
@@ -209,7 +209,7 @@ A Drawing Brush extends the functionality of an Image Brush. As well as images, 
 
 
 ## Snapping
-By default, the knob moves smoothly in response to a MouseDrag through the **FullSweepAngle**. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the FullSweepAngle into NumPositions - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1, 0.333, 1.667, 3.
+By default, the knob moves smoothly in response to a MouseDrag through the `FullSweepAngle`. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the FullSweepAngle into NumPositions - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1, 0.333, 1.667, 3.
 ```
  <custom:Knob.NumPositions>4</custom:Knob.NumPositions>
  <custom:Knob.Value>0</custom:Knob.Value>
