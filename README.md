@@ -103,14 +103,14 @@ Determines the width of the knob outline. Note: The Marker width is controlled b
 ```
 <custom:Knob.OutlineWidth>3</custom:Knob.OutlineWidth>
 ```
-<images>
+![Outline Width](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineWidth.png)
 
 ### OutlineColor
 Determines the colour of the knob outline. Note: The Marker colour is controlled by a separate **MarkerColor** property.
 ```
 <custom:Knob.OutlineColor>Magenta</custom:Knob.OutlineColor>
 ```
-<image>
+![Outline Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineColor.png)
 
 
 ### FillBrush
