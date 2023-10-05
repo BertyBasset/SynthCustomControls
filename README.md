@@ -231,9 +231,14 @@ Tick marks can optionally be shown to indicate the angle the knob has rotated th
 ![Tick Marks](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/5d5c527034d7f81b926ac19828e5b5b03ca4a30b/ReadmeImages/Ticks.png)
 
 If snapping is enabled due to `NumPositions` property being set to a value, the number of ticks and their locations correspond to the snap angles. 
-
-<Code>
-<Image>
+```
+<custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
+<custom:Knob.NumPositions>6</custom:Knob.NumPositions>
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.TickColor>black</custom:Knob.TickColor>
+<custom:Knob.TickWidth>1</custom:Knob.TickWidth>
+```
+![Wick Marks with Snapping](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/832068f70f4f3752ca0a235fed60eba45243001d/ReadmeImages/TicksSnapped.png)
 
 
 ## Annotations
