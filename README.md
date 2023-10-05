@@ -124,7 +124,7 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 
 
 ### FillBrush
-A Brush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - the most useful being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` and `DrawingBrush`. You might even be able to use `VideoBrush`, but I've not tried that one!
+A Brush for filling in the body of the knob. FillBrush is of type `abstract class Brush` which means that it can be set to any Brush type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush` and `VisualBrush`.
 
 #### SolidBrush
 For this example, we've gone for a dark theme with the `Canvas` `Background` set to `Gray`, and the Knob and Marker outlines set to `White`. This illustrates that the Knob background takes on the background of the Canvas automatically.
@@ -162,12 +162,16 @@ Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` re
     </RadialGradientBrush>
 <\custom:Knob.FillBrush>
 ```        
-<Image> 
+![Radial Gradient Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/a01c23c8ef635b18d23bc126ccb9a39a8019f273/ReadmeImages/FillColorRadial.png)
 
 
 #### ImageBrush
-<Intro>
-<Code>
+Here you can specify an image file, or other image resource as a brush. This is potentially useful for simulating knob materials.
+```
+<custom:Knob.FillBrush>
+    <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
+</custom:Knob.FillBrush>
+```
 <Image> 
 
 
