@@ -126,6 +126,24 @@ public class Knob : Control {
         }
     }
 
+    Color _TickColor = Colors.Black;
+    public Color TickColor {
+        get { return _TickColor; }
+        set {
+            _TickColor = value;
+            DoFullRedraw();
+        }
+    }
+
+    int _TickWidth = 1;
+    public int TickWidth {
+        get { return _TickWidth; }
+        set {
+            _TickWidth = value;
+            DoFullRedraw();
+        }
+    }
+
     // Annotations
     public enum AnnotationModeType {
         None,
@@ -397,7 +415,7 @@ public class Knob : Control {
 
             // Annotations
             if (_ShowTicks)
-                DrawTicks(cacheContext, outlinePen);
+                DrawTicks(cacheContext);
 
             if (_AnnotationMode == AnnotationModeType.Labels || _AnnotationMode == AnnotationModeType.LabelsAuto)
                 DrawLabelAnnotations(cacheContext);
@@ -417,11 +435,13 @@ public class Knob : Control {
         _cachedDrawing = newCachedDrawing;
     }
 
-    public void DrawTicks(DrawingContext dc, Pen outlinePen) {
+    public void DrawTicks(DrawingContext dc) {
+        var tickPen = new Pen(new SolidColorBrush(TickColor), TickWidth);
+
         int numTicks = (_NumPositions ?? MAX_NUM_TICK_POSITIONS + 1) -1;  //       0-10 ticks if snapangle is off
         var angle = _minAngle;
         for(int i = 0; i <= numTicks; i++) {
-            dc.DrawLine(outlinePen, PointFromAngleAndRadius(angle, (_knobWidth/2)*1.1), PointFromAngleAndRadius(angle, (_knobWidth/2)*1.3));
+            dc.DrawLine(tickPen, PointFromAngleAndRadius(angle, (_knobWidth/2)*1.1), PointFromAngleAndRadius(angle, (_knobWidth/2)*1.3));
             angle += (_maxAngle - _minAngle) / (numTicks);
         }
     }
