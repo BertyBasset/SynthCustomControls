@@ -48,7 +48,7 @@ public MainWindow() {
 <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
 <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
 ```
-<Image>
+![Basic Use 2](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/edb8abd20c17686b8e2d78a3b60b454cad82a0b2/ReadmeImages/BasicUse2.png)
 
 ### ValueChanged Event
 The Knob control has a single event that is fired whenever the **Value** property changes. It passes an event argument of type double representing the **Value** property. An event handler can be specified in the XAML, or in codebehind:
