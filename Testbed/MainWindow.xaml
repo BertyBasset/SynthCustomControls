@@ -22,7 +22,7 @@
             <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
             <custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
 
-            <custom:Knob.ShowTicks>false</custom:Knob.ShowTicks>
+            <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
             <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
             <custom:Knob.Annotations>
                 <sys:String>-2</sys:String>
@@ -31,6 +31,10 @@
                 <sys:String>+1</sys:String>
                 <sys:String>+2</sys:String>
             </custom:Knob.Annotations>
+            <custom:Knob.Caption>Frequency</custom:Knob.Caption>
+            <custom:Knob.CaptionBold>true</custom:Knob.CaptionBold>
+            <custom:Knob.CaptionColor>Green</custom:Knob.CaptionColor>
+            
             
             
             <custom:Knob.Value>0</custom:Knob.Value>
