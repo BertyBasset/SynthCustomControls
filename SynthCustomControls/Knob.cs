@@ -89,6 +89,16 @@ public class Knob : Control {
         }
     }
 
+    Color _MarkerColor = Colors.Black;
+    public Color MarkerColor {
+        get { return _MarkerColor; }
+        set {
+            _MarkerColor = value;
+            DoFullRedraw();
+        }
+    }
+
+
     string? _Caption = null;
     public string? Caption {
         get { return _Caption; }
@@ -347,7 +357,7 @@ public class Knob : Control {
         // Retrieve background from cache
         dc.DrawDrawing(_cachedDrawing);
 
-        var markerPen = new Pen(new SolidColorBrush(OutlineColor), MarkerWidth);
+        var markerPen = new Pen(new SolidColorBrush(MarkerColor), MarkerWidth);
 
         // Knob Marker
         if (MarkerStyle == MarkerStyleType.Dot)

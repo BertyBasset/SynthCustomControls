@@ -10,6 +10,9 @@
             <custom:Knob.Value>0</custom:Knob.Value>
             <custom:Knob.ValueMin>0</custom:Knob.ValueMin>
             <custom:Knob.ValueMax>1</custom:Knob.ValueMax>
+            <custom:Knob.MarkerStyle>Line2</custom:Knob.MarkerStyle>
+            <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
+            <custom:Knob.MarkerColor>Black</custom:Knob.MarkerColor>
             <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
         </custom:Knob>
 
@@ -20,10 +23,10 @@
 
         <custom:Knob Width="90" ValueMin="0" ValueMax="4" Name="knob1" FullSweepAngle="220" Value="0" Margin="444,113,129,200" >
             <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
-            <custom:Knob.MarkerStyle>Line2</custom:Knob.MarkerStyle>
+            <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
             <custom:Knob.OutlineColor>Black</custom:Knob.OutlineColor>
             <custom:Knob.OutlineWidth>1</custom:Knob.OutlineWidth>
-            <custom:Knob.MarkerWidth>1</custom:Knob.MarkerWidth>
+            <custom:Knob.MarkerWidth>3</custom:Knob.MarkerWidth>
             <custom:Knob.DotFillColor>white</custom:Knob.DotFillColor>
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
             <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
