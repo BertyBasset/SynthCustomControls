@@ -209,7 +209,7 @@ A `DrawingBrush` extends the functionality of an `ImageBrush`. As well as images
 
 
 ## Snapping
-By default, the knob moves smoothly in response to a MouseDrag through the `FullSweepAngle`. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the `FullSweepAngle` into `NumPositions` - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1, 0.333, 1.667, 3.
+By default, the knob moves smoothly in response to a MouseDrag through the `FullSweepAngle`. However, we can get it to snap to a fixed number of positions by setting the `NumPositions` property. When set, this will split the `FullSweepAngle` into `NumPositions` - 1 sectors. When dragged with a mouse, the knob `Value` will snap to these sector boundaries. In this example where `ValueMin` is -1, `ValueMax` is 3, and there are 4 `NumPositions`, with a `FullSweepAngle` of 270°, there are 3 sectors, each occupying 90°. Value increments are (1 -(-3) / 3 = 4 / 3 giving 1.333 increments. These will therefore follow the sequence  -1.000, 0.333, 1.667, 3.000
 ```
  <custom:Knob.NumPositions>4</custom:Knob.NumPositions>
  <custom:Knob.Value>0</custom:Knob.Value>
@@ -219,8 +219,17 @@ By default, the knob moves smoothly in response to a MouseDrag through the `Full
      <SolidColorBrush Color="">#103070</SolidColorBrush>
  </custom:Knob.FillBrush>
 ```
+![Snapping using NumPositions](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/48155599a8dcf39e34db4a4fe09328d2da74f6f6/ReadmeImages/Snapping.png)
 
 ## Tick Marks
+Tick marks can optionally be shown to indicate the angle the knob has rotated through. By default, 11 ticks with 10 equally sized sectors are displayed. Ticks are enabled using the `ShowTicks` property, and they can be styled using the `TickColor` and `TickWidth` properties. When tick marks are enabled, the knob will be scaled down slightly to provide room for the ticks to be displayed.
+<Code>
+<Image>
+
+If snapping is enabled due to `NumPositions` property being set to a value, the number of ticks and their locations correspond to the snap angles. 
+
+<Code>
+<Image>
 
 
 ## Annotations
@@ -235,3 +244,5 @@ Annotation Mode
 ## Caption
 
 ### CaptionBold
+
+## Full Property List
