@@ -141,10 +141,12 @@ For this example, we've gone for a dark theme with the `Canvas` `Background` set
 #### LinearGradientBrush
 With a linear gradient brush, you specify a `StartPoint` and an `EndPoint`, the  angle between which determines the gradient direction, and the distance apart specifies the start and end of the gradient transition. Two or more `GradientStop` elements are then specified to control colours, and how fast the transistion between them occur. The first example shows a vertical gradient, the remainder angled.
 ```
-<LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
-    <GradientStop Color="Blue" Offset="0" />
-    <GradientStop Color="Red" Offset="1.0" />
-</LinearGradientBrush>
+<custom:Knob.FillBrush>
+    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+        <GradientStop Color="Blue" Offset="0" />
+        <GradientStop Color="Red" Offset="1.0" />
+    </LinearGradientBrush>
+</custom:Knob.FillBrush>
 ```
 ![Linear Gradient Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/0c3b8506681c1872ddbac7a8430bc560ac317bdb/ReadmeImages/FillColorLinear.png)
 
