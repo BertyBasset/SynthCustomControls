@@ -271,13 +271,30 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
    <sys:String>+2</sys:String>
 </custom:Knob.Annotations>
 ```
-![Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
+![Label Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
 
 ### Images
-`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions.
+`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property. Relative or absolute image filenames are passed by setting the `Annotations` `List<String>` property. If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+```
+<custom:Knob.ShowTicks>false</custom:Knob.ShowTicks>
+<custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
+<custom:Knob.Annotations>
+    <sys:String>KnobImages/Sine.png</sys:String>
+    <sys:String>KnobImages/Triangle.png</sys:String>
+    <sys:String>KnobImages/Square.png</sys:String>
+    <sys:String>KnobImages/Saw.png</sys:String>
+    <sys:String>KnobImages/SuperSaw.png</sys:String>
+</custom:Knob.Annotations>
+```
+![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 
 ## Caption
 
 ### CaptionBold
+
+## Notes
+There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background. 
+
+When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
 ## Full Property List
