@@ -322,7 +322,27 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 ```
 ![Caption](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/42fe8be5916bf8e2ef214be3e7f935b9c278720d/ReadmeImages/Caption.png)
 
+## Nullable Properties
+Several properties are nullable - namelly, `ManualAnnotationFontSize`, `ManualAnnotationRadius`, `ManualTickRadiusEnd`, `ManualTickRadiusStart`, `NumPositions`
+In XAML properties can be expressed either as attributes or as sub-elements. e.g. `NumPositions` can be set euding either of these methods:
+```
+<custom:Knob NumPositions="5"></custom:Knob>
 
+<custom:Knob>
+    <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
+</custom:Knob>
+```
+If you change the 5 to any other valid non-null value, the NumPositions will change. But what if we want to set it back to null. There are two way. The simplest which works for both attribute and sub-element notation is to simply remove the attribute or sub-element.
+```
+<custom:Knob></custom:Knob>
+<custom:Knob>
+
+</custom:Knob>
+```
+The second method only works for attribute notation, the {x:Null} placeholder can be used. This will pass a null to the property's setter. This trick does not work with the sub-element notation.
+```
+<custom:Knob NumPositions="{x:Null}"></custom:Knob>
+```
 
 ## Notes
 The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
