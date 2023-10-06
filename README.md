@@ -345,10 +345,10 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 | `DotFillColor`       | `Color`      |       |       |       |       | |
 | `FillBrush`       | `Brush`      |       |       |       |       | e.g. `SolidBrush`,  `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` etc. |
 | `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
-| `ManualAnnotationFontSize` | `double?`      |       |       |       |       |  |
-| `ManualAnnotationRadius` | `double?`      |       |       |       |       |  |
-| `ManualTickRadiusEnd` | `double?`      |       |       |       |       |  |
-| `ManualTickRadiusStart` | `double?`      |       |       |       |       |  |
+| `ManualAnnotationFontSize` | `double?`      |       |       |       |       | Override auto font size |
+| `ManualAnnotationRadius` | `double?`      |       |       |       |       | Override auto label position |
+| `ManualTickRadiusEnd` | `double?`      |       |       |       |       | Override auto tick end point |
+| `ManualTickRadiusStart` | `double?`      |       |       |       |       |  Override auto tick start point |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
 | `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
 | `MarkerWidth`       | `int`      |       |       |       |       | |
