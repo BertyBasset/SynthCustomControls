@@ -297,7 +297,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 
 
 ### Manual override Annotation position and fontsizr
-By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override this, set the radius using the `ManualAnnotationRadius` property. The FontSize if also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
+By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override this, set the radius using the `ManualAnnotationRadius` property. The FontSize is also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
 ```
 <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
 <custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
@@ -345,6 +345,10 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 | `DotFillColor`       | `Color`      |       |       |       |       | |
 | `FillBrush`       | `Brush`      |       |       |       |       | e.g. `SolidBrush`,  `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` etc. |
 | `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
+| `ManualAnnotationFontSize` | `double?`      |       |       |       |       |  |
+| `ManualAnnotationRadius` | `double?`      |       |       |       |       |  |
+| `ManualTickRadiusEnd` | `double?`      |       |       |       |       |  |
+| `ManualTickRadiusStart` | `double?`      |       |       |       |       |  |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
 | `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
 | `MarkerWidth`       | `int`      |       |       |       |       | |
