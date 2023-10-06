@@ -315,7 +315,7 @@ There are a lot of thing being drawn. Therefore in code, there are two separate 
 
 When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
-**Future work**. The knob gets resized when Ticks and/or Annotations are being displayed. Text and Tick sizes also change in proportion to overall knob size. The positions and sizing of elements could do with a tidy up. Maybe int? `ManualTickRadiusStart`, `ManualTickRadiusEnd`, `ManualAnnotationRadius` to override the auto-positioning of ticks and annotations, where the radii are specified as a fraction of the knob width.
+**Future work**. The positions and sizing of ticks and annotations could do with a tidy up. Maybe manual double? `ManualTickRadiusStart`, `ManualTickRadiusEnd`, `ManualAnnotationRadius`, `ManualAnnotatioonFontSize` to override the auto-positioning/sizing of ticks and annotations, where the radii are specified as a fraction of the knob width.
 
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       |
