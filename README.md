@@ -65,7 +65,7 @@ private void Knob1_ValueChanged(object? sender, double e) {
     txtValue.Text = $"{e:F3}";
 }
 ```
-Alternatively a lamda may be used
+Alternatively a lambda may be used
 ```
 knob2.ValueChanged += (o, e) => {
    txtValue.Text = $"{e:F3}";
@@ -240,6 +240,13 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 ```
 ![Wick Marks with Snapping](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/832068f70f4f3752ca0a235fed60eba45243001d/ReadmeImages/TicksSnapped.png)
 
+### Manual override Tick Positions
+By default, the Tick Positions are set automatically using a StartRadius and an EndRadius relative to the Knob Width. To override, these, set the manual radii on the `ManualTickRadiusStart` and `ManualTickRadiusEnd` properties.
+```
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.ManualTickRadiusStart>1.3</custom:Knob.ManualTickRadiusStart>
+<custom:Knob.ManualTickRadiusEnd>1.5</custom:Knob.ManualTickRadiusEnd>
+```
 
 ## Annotations
 Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each Tick Position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of Tick Positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels` and `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
@@ -288,6 +295,15 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ```
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 
+
+### Manual override Annotation position and fontsizr
+By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override this, set the radius using the `ManualAnnotationRadius` property. The FontSize is also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
+```
+<custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+<custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
+<custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
+```
+
 ## Caption
 A caption can be displayed below the knob using the `Caption`, `CaptionBold` and `CaptionColor` properties.
 ```
@@ -309,36 +325,42 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 
 
 ## Notes
+The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
+
 There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background each time. 
 
 When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
-Future work. The knob gets resized when Ticks and/or Annotations are being displayed. Text and Tick sizes also change in proportion to overall knob size. The positions and sizing of elements could do with a tidy up.
+Tick Marks and annotation are positioned/sized automatically. Thhis can be overridden by setting the `ManualTickRadiusStart`, `ManualTickRadiusStart`, `ManualAnnotationRadius` and `ManualAnnotationFontSize` properties.
 
 ## Full Property List
-| Property/XAML attribute | Data Type      |   Options    |       |       |       |
-| ------ | ------| ------| ------| ------| ------|
-| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      |
-| `Annotations`       | `List<string>`      |       |       |       |       |
-| `AnnotationTextColor`       | `Color`      |       |       |       |       |
-| `Caption`       | `string?`      |       |       |       |       |
-| `CaptionBold`       | `bool`      |       |       |       |       |
-| `CaptionColor`      | `Color`      |       |       |       |       |
-| `DotFillColor`       | `Color`      |       |       |       |       |
-| `FillBrush`       | `Brush`      |       |       |       |       |
-| `FullSweepAngle`       | `double`      |       |       |       |       |
-| `MarkerColor`       | `Color`      |       |       |       |       |
-| `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      |
-| `MarkerWidth`       | `int`      |       |       |       |       |
-| `NumPositions`       | `int`      |       |       |       |       |
-| `OutlineColor`       | `Color`      |       |       |       |       |
-| `OutlineWidth`       | `int`      |       |       |       |       |
-| `ShowTicks`       | `bool`      |       |       |       |       |
-| `TickWidth`       | `int`      |       |       |       |       |
-| `Value`       | `double`      |       |       |       |       |
-| `ValueMax`       | `double`      |       |       |       |       |
-| `ValueMin`       | `double`      |       |       |       |       |
-| `Width`       | `int`      |       |       |       |       |
+| Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
+| ------ | ------| ------| ------| ------| ------| ------|
+| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreases to accomodate annotations |
+| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` or `Labels`, full or relative image path where `AnnotationMode` = `Images` |
+| `AnnotationTextColor`       | `Color`      |       |       |       |       | |
+| `Caption`       | `string?`      |       |       |       |       | |
+| `CaptionBold`       | `bool`      |       |       |       |       | |
+| `CaptionColor`      | `Color`      |       |       |       |       | |
+| `DotFillColor`       | `Color`      |       |       |       |       | |
+| `FillBrush`       | `Brush`      |       |       |       |       | e.g. `SolidBrush`,  `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` etc. |
+| `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
+| `ManualAnnotationFontSize` | `double?`      |       |       |       |       | Override auto font size |
+| `ManualAnnotationRadius` | `double?`      |       |       |       |       | Override auto label position |
+| `ManualTickRadiusEnd` | `double?`      |       |       |       |       | Override auto tick end point |
+| `ManualTickRadiusStart` | `double?`      |       |       |       |       |  Override auto tick start point |
+| `MarkerColor`       | `Color`      |       |       |       |       | |
+| `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
+| `MarkerWidth`       | `int`      |       |       |       |       | |
+| `NumPositions`       | `int?`      |       |       |       |       | When set, knob snaps through fixed positions. Number of sectors will = `NumPositions` - 1 |
+| `OutlineColor`       | `Color`      |       |       |       |       | Affects Knob and `Dot` marker outlines |
+| `OutlineWidth`       | `int`      |       |       |       |       | Affects Knob and `Dot` marker outlines |
+| `ShowTicks`       | `bool`      |       |       |       |       | Knob size decreases to accomodate ticks |
+| `TickWidth`       | `int`      |       |       |       |       | |
+| `Value`       | `double`      |       |       |       |       | |
+| `ValueMax`       | `double`      |       |       |       |       | |
+| `ValueMin`       | `double`      |       |       |       |       | |
+| `Width`       | `int`      |       |       |       |       | `Height` tracks `Width` |
 
 
 
