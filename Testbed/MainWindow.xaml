@@ -23,7 +23,14 @@
             <custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
 
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+            <custom:Knob.ManualTickRadiusStart>1.3</custom:Knob.ManualTickRadiusStart>
+            <custom:Knob.ManualTickRadiusEnd>1.5</custom:Knob.ManualTickRadiusEnd>
+            
             <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+            <custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
+            <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
+            
+            
             <custom:Knob.Annotations>
                 <sys:String>-2</sys:String>
                 <sys:String>-1</sys:String>

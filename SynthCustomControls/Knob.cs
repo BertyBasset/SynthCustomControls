@@ -10,7 +10,7 @@ namespace SynthCustomControls;
 
 // To DO
 // 1. Offset position
-// 3. Article
+// 2. Article
 
 
 public class Knob : Control {
@@ -153,6 +153,27 @@ public class Knob : Control {
         }
     }
 
+    double? _ManualTickRadiusStart = null;
+    ///  This is relative to Knob width, not control width
+    public double? ManualTickRadiusStart {
+        get { return _ManualTickRadiusStart; }
+        set {
+            _ManualTickRadiusStart = value;
+            DoFullRedraw();
+        }
+    }
+
+    double? _ManualTickRadiusEnd = null;
+    ///  This is relative to Knob width, not control width
+    public double? ManualTickRadiusEnd {
+        get { return _ManualTickRadiusEnd; }
+        set {
+            _ManualTickRadiusEnd = value;
+            DoFullRedraw();
+        }
+    }
+    
+
     // Annotations
     public enum AnnotationModeType {
         None,
@@ -217,6 +238,33 @@ public class Knob : Control {
             DoFullRedraw();
         }
     }
+
+
+    double? _ManualAnnotationRadius = null;
+    /// <summary>
+    ///  This is relative to Knob width, not control width
+    /// </summary>
+    public double? ManualAnnotationRadius {
+        get { return _ManualAnnotationRadius; }
+        set {
+            _ManualAnnotationRadius = value;
+            DoFullRedraw();
+        }
+    }
+
+    double? _ManualAnnotationFontSize = null;
+    public double? ManualAnnotationFontSize {
+        get { return _ManualAnnotationFontSize; }
+        set {
+            _ManualAnnotationFontSize = value;
+            DoFullRedraw();
+        }
+    }
+
+    
+
+
+
     #endregion
 
     #region Value and Behavious Properties
@@ -458,8 +506,14 @@ public class Knob : Control {
 
         int numTicks = (_NumPositions ?? MAX_NUM_TICK_POSITIONS + 1) -1;  //       0-10 ticks if snapangle is off
         var angle = _minAngle;
-        for(int i = 0; i <= numTicks; i++) {
-            dc.DrawLine(tickPen, PointFromAngleAndRadius(angle, (_knobWidth/2)*1.1), PointFromAngleAndRadius(angle, (_knobWidth/2)*1.3));
+
+        // Override auto tick positions if manually set
+        var tickRadiusStart = _ManualTickRadiusStart ?? 1.1;
+        var tickRadiusEnd = _ManualTickRadiusEnd ?? 1.3;
+
+
+        for (int i = 0; i <= numTicks; i++) {
+            dc.DrawLine(tickPen, PointFromAngleAndRadius(angle, (_knobWidth/2)* tickRadiusStart), PointFromAngleAndRadius(angle, (_knobWidth/2)* tickRadiusEnd));
             angle += (_maxAngle - _minAngle) / (numTicks);
         }
     }
@@ -478,6 +532,10 @@ public class Knob : Control {
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * 1.6);
             else
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * 1.35);
+            // If manual radius set, use it
+            if (_ManualAnnotationRadius != null)
+                centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
+
 
             centrePoint.Y =  centrePoint.Y;
             centrePoint.X = -centrePoint.X;
@@ -508,7 +566,8 @@ public class Knob : Control {
                 CultureInfo.CurrentCulture,
                 FlowDirection.LeftToRight,
                 new Typeface("Arial"),
-                12 * ActualHeight / 100.0, // Autosize font according to control width, but with poerty scale
+                // Override font size if set, otherwise auto
+                ManualAnnotationFontSize ?? (12 * ActualHeight / 100.0), // Autosize font according to control width, but with poerty scale
                 new SolidColorBrush(AnnotationTextColor),
                 1.0 // Default pixels per dip value
             );
@@ -519,6 +578,10 @@ public class Knob : Control {
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * 1.55);
             else
                 centrePoint = PointFromAngleAndRadius(angle,(_knobWidth / 2) * 1.35);
+
+            // If manual radius set, use it
+            if(_ManualAnnotationRadius != null)
+                centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
 
             centrePoint.Y = -centrePoint.Y;
 
