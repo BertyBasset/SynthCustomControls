@@ -320,7 +320,7 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
 | ------ | ------| ------| ------| ------| ------| ------|
-| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreaases to accomodate annotations |
+| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreases to accomodate annotations |
 | `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` or `Labels`, full or relative image path where `AnnotationMode` = `Images` |
 | `AnnotationTextColor`       | `Color`      |       |       |       |       | |
 | `Caption`       | `string?`      |       |       |       |       | |
