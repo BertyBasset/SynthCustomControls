@@ -320,14 +320,14 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
 | ------ | ------| ------| ------| ------| ------| ------|
-| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | |
+| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreaases to accomodate annotations |
 | `Annotations`       | `List<string>`      |       |       |       |       | |
 | `AnnotationTextColor`       | `Color`      |       |       |       |       | |
 | `Caption`       | `string?`      |       |       |       |       | |
 | `CaptionBold`       | `bool`      |       |       |       |       | |
 | `CaptionColor`      | `Color`      |       |       |       |       | |
 | `DotFillColor`       | `Color`      |       |       |       |       | |
-| `FillBrush`       | `Brush`      |       |       |       |       | |
+| `FillBrush`       | `Brush`      |       |       |       |       | e.g. `SolidBrush`,  `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` etc. |
 | `FullSweepAngle`       | `double`      |       |       |       |       | |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
 | `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
@@ -335,12 +335,12 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 | `NumPositions`       | `int`      |       |       |       |       | |
 | `OutlineColor`       | `Color`      |       |       |       |       | |
 | `OutlineWidth`       | `int`      |       |       |       |       | |
-| `ShowTicks`       | `bool`      |       |       |       |       | |
+| `ShowTicks`       | `bool`      |       |       |       |       | Knob size decreaases to accomodate ticks |
 | `TickWidth`       | `int`      |       |       |       |       | |
 | `Value`       | `double`      |       |       |       |       | |
 | `ValueMax`       | `double`      |       |       |       |       | |
 | `ValueMin`       | `double`      |       |       |       |       | |
-| `Width`       | `int`      |       |       |       |       | |
+| `Width`       | `int`      |       |       |       |       | `Height` reacks `Width` |
 
 
 
