@@ -4,7 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls"
         Title="MainWindow" Height="400" Width="800">
-    <Canvas Background="white"> 
+    <Canvas Background="white">
 
         <custom:Knob Width="70" Name="knob2"  Canvas.Left="144" Canvas.Top="75">
 
@@ -17,7 +17,7 @@
 
             <custom:Knob.TickColor>black</custom:Knob.TickColor>
             <custom:Knob.TickWidth>1</custom:Knob.TickWidth>
-            
+
             <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
             <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
             <custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
@@ -25,12 +25,12 @@
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
             <custom:Knob.ManualTickRadiusStart>1.3</custom:Knob.ManualTickRadiusStart>
             <custom:Knob.ManualTickRadiusEnd>1.5</custom:Knob.ManualTickRadiusEnd>
-            
+
             <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
             <custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
             <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
-            
-            
+
+
             <custom:Knob.Annotations>
                 <sys:String>-2</sys:String>
                 <sys:String>-1</sys:String>
@@ -41,9 +41,9 @@
             <custom:Knob.Caption>Frequency</custom:Knob.Caption>
             <custom:Knob.CaptionBold>true</custom:Knob.CaptionBold>
             <custom:Knob.CaptionColor>Green</custom:Knob.CaptionColor>
-            
-            
-            
+
+
+
             <custom:Knob.Value>0</custom:Knob.Value>
             <custom:Knob.ValueMin>-1</custom:Knob.ValueMin>
             <custom:Knob.ValueMax>3</custom:Knob.ValueMax>
@@ -58,7 +58,7 @@
             </custom:Knob.FillBrush>
         </custom:Knob>
 
-        <TextBox Name="txtValue" Canvas.Left="105" Canvas.Top="113" HorizontalAlignment="Left" VerticalAlignment="Center" Width="81"/>
+        <TextBox Name="txtValue" Canvas.Left="138" Canvas.Top="149" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82"/>
 
 
 
@@ -91,9 +91,9 @@
         </custom:Knob>
 
 
-        
 
 
-  
+
+
     </Canvas>
 </Window>

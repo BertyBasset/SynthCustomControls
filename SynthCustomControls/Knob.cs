@@ -9,8 +9,7 @@ using System.Windows.Media.Imaging;
 namespace SynthCustomControls;
 
 // To DO
-// 1. Offset position
-// 2. Article
+// 1. Article
 
 
 public class Knob : Control {
@@ -371,10 +370,6 @@ public class Knob : Control {
         // Map p to p in mathematical co-ords
         var pMath = ScreenPointToMathPoint(p);
 
-        // COnvert to match point with knob centre at origin
-        pMath.X += ActualWidth / 2;
-        pMath.Y -= ActualWidth / 2;
-
         _currentAngle = Math.Atan2(pMath.Y, pMath.X) * 180.0 / Math.PI;
         if (_currentAngle < -90)                    // Or 'standard' angles are -90 to 269.99999
             _currentAngle += 360.0;
@@ -452,7 +447,19 @@ public class Knob : Control {
                 r2 = _knobWidth / 2 * 6 / 8;         // Don't go all the way to the edge for Line2
             if (MarkerStyle == MarkerStyleType.Line3)
                 r1 = _knobWidth / 5;                 // Don't start from middle for Line3
-            dc.DrawLine(markerPen, PointFromAngleAndRadius(_currentAngle, r1), PointFromAngleAndRadius(_currentAngle, r2));
+
+            var fromPoint = PointFromAngleAndRadius(_currentAngle, r1);
+            var toPoint = PointFromAngleAndRadius(_currentAngle, r2);
+            
+            // Points are relative to knob centre, so offset to give absolute
+            fromPoint.X += ActualWidth / 2;
+            fromPoint.Y += ActualHeight / 2;
+            toPoint.X += ActualWidth / 2;
+            toPoint.Y += ActualHeight / 2;
+
+
+
+            dc.DrawLine(markerPen, fromPoint, toPoint);
         }
     }
 
@@ -477,7 +484,7 @@ public class Knob : Control {
             var outlinePen = new Pen(new SolidColorBrush(OutlineColor), OutlineWidth);
 
             // Knob Outline
-            cacheContext.DrawEllipse(FillBrush, outlinePen, new Point(0, 0), _knobWidth / 2, _knobWidth / 2);
+            cacheContext.DrawEllipse(FillBrush, outlinePen, new Point(ActualWidth / 2, ActualWidth / 2), _knobWidth / 2, _knobWidth / 2);
 
             // Annotations
             if (_ShowTicks)
@@ -513,7 +520,17 @@ public class Knob : Control {
 
 
         for (int i = 0; i <= numTicks; i++) {
-            dc.DrawLine(tickPen, PointFromAngleAndRadius(angle, (_knobWidth/2)* tickRadiusStart), PointFromAngleAndRadius(angle, (_knobWidth/2)* tickRadiusEnd));
+            var fromPoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * tickRadiusStart);
+            var toPoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * tickRadiusEnd);
+
+            // Points are relative to knob centre, so offset to give absolute
+            fromPoint.X += ActualWidth / 2;
+            fromPoint.Y += ActualHeight / 2;
+            toPoint.X += ActualWidth / 2;
+            toPoint.Y += ActualHeight / 2;
+
+
+            dc.DrawLine(tickPen, fromPoint, toPoint);
             angle += (_maxAngle - _minAngle) / (numTicks);
         }
     }
@@ -536,9 +553,14 @@ public class Knob : Control {
             if (_ManualAnnotationRadius != null)
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
 
-
             centrePoint.Y =  centrePoint.Y;
             centrePoint.X = -centrePoint.X;
+
+            // Points are relative to knob centre, so offset to give absolute
+            centrePoint.X += ActualWidth / 2;
+            centrePoint.Y += ActualHeight / 2;
+
+
             //dc.DrawEllipse(FillBrush, new Pen(new SolidColorBrush(Colors.Red), 1), centrePoint, 4, 4);
 
             var imgFile = GetAnnotation(i);
@@ -583,7 +605,12 @@ public class Knob : Control {
             if(_ManualAnnotationRadius != null)
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
 
+            // Transform mathematical to screen co-ords
             centrePoint.Y = -centrePoint.Y;
+
+            // Points are relative to knob centre, so offset to give absolute
+            centrePoint.X += ActualWidth / 2;
+            centrePoint.Y += ActualHeight / 2;
 
             // Debug just to show centre of text
             //dc.DrawEllipse(FillBrush, new Pen(new SolidColorBrush(Colors.Red), 1), centrePoint, 4, 4);
@@ -611,7 +638,11 @@ public class Knob : Control {
              );
 
         var centrePoint = new Point(0, _knobWidth / 2 + _knobWidth/4);
-        
+
+        // Points are relative to knob centre, so offset to give absolute
+        centrePoint.X += ActualWidth / 2;
+        centrePoint.Y += ActualHeight / 2;
+
         // Move up a bit if not displaying Annotations
         if (_AnnotationMode == AnnotationModeType.None )
             centrePoint.Y -= _knobWidth / 10;
