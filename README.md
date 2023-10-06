@@ -328,7 +328,7 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 | `CaptionColor`      | `Color`      |       |       |       |       | |
 | `DotFillColor`       | `Color`      |       |       |       |       | |
 | `FillBrush`       | `Brush`      |       |       |       |       | e.g. `SolidBrush`,  `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` etc. |
-| `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle i symmetrical around positive vertical axis |
+| `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
 | `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
 | `MarkerWidth`       | `int`      |       |       |       |       | |
