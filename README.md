@@ -240,8 +240,8 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 ```
 ![Wick Marks with Snapping](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/832068f70f4f3752ca0a235fed60eba45243001d/ReadmeImages/TicksSnapped.png)
 
-### Manual override Tick Positions
-By default, the Tick Positions are set automatically using a StartRadius and an EndRadius relative to the Knob Width. To override, these, set the manual radii on the `ManualTickRadiusStart` and `ManualTickRadiusEnd` properties.
+### Manually override Tick Positions
+By default, the Tick Positions are set automatically using a StartRadius and an EndRadius relative to the Knob Width. To override, these, set the manual radii on the `ManualTickRadiusStart` and `ManualTickRadiusEnd` `double?` properties.
 ```
 <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
 <custom:Knob.ManualTickRadiusStart>1.3</custom:Knob.ManualTickRadiusStart>
@@ -296,8 +296,8 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 
 
-### Manual override Annotation position and fontsizr
-By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override this, set the radius using the `ManualAnnotationRadius` property. The FontSize is also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
+### Manually override Annotation position and fontsize
+By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override this, set the radius using the `ManualAnnotationRadius` `double?` property. The FontSize is also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` `double?` property.
 ```
 <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
 <custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
