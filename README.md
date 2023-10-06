@@ -240,6 +240,13 @@ If snapping is enabled due to `NumPositions` property being set to a value, the 
 ```
 ![Wick Marks with Snapping](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/832068f70f4f3752ca0a235fed60eba45243001d/ReadmeImages/TicksSnapped.png)
 
+### Manual override Tick Positions
+By default, the Tick Positions are set automatically using a StartRadius and an EndRadius relative to the Knob Width. To override, these, set the manual radii on the `ManualTickRadiusStart` and `ManualTickRadiusEnd` properties.
+```
+<custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
+<custom:Knob.ManualTickRadiusStart>1.3</custom:Knob.ManualTickRadiusStart>
+<custom:Knob.ManualTickRadiusEnd>1.5</custom:Knob.ManualTickRadiusEnd>
+```
 
 ## Annotations
 Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Either a text label or an icon can be displayed at each Tick Position. Text labels can be manually specified, or they can be automatic where they will take the value 0 up to the number of Tick Positions. Annotations can be selected by setting the `AnnotationMode` property, valid values being `None`, `LabelsAuto`, `Labels` and `Images`. For `LabelsAuto` and `Labels` modes, the text size of the labels will automatically increase if the knob is made bigger. 
@@ -287,6 +294,15 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 </custom:Knob.Annotations>
 ```
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
+
+
+### Manual override Annotation position and fontsizr
+By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override, this set the radius using the `ManualAnnotationRadius` property. The FontSize if also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
+```
+<custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+<custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
+<custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
+```
 
 ## Caption
 A caption can be displayed below the knob using the `Caption`, `CaptionBold` and `CaptionColor` properties.
