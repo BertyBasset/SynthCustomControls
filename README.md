@@ -335,12 +335,12 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 | `NumPositions`       | `int?`      |       |       |       |       | When set, knob snaps through fixed positions. Number of sectors will = `NumPositions` - 1 |
 | `OutlineColor`       | `Color`      |       |       |       |       | Affects Knob and `Dot` marker outlines |
 | `OutlineWidth`       | `int`      |       |       |       |       | Affects Knob and `Dot` marker outlines |
-| `ShowTicks`       | `bool`      |       |       |       |       | Knob size decreaases to accomodate ticks |
+| `ShowTicks`       | `bool`      |       |       |       |       | Knob size decreases to accomodate ticks |
 | `TickWidth`       | `int`      |       |       |       |       | |
 | `Value`       | `double`      |       |       |       |       | |
 | `ValueMax`       | `double`      |       |       |       |       | |
 | `ValueMin`       | `double`      |       |       |       |       | |
-| `Width`       | `int`      |       |       |       |       | `Height` reacks `Width` |
+| `Width`       | `int`      |       |       |       |       | `Height` tracks `Width` |
 
 
 
