@@ -309,11 +309,13 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 
 
 ## Notes
+The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
+
 There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background each time. 
 
 When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
-**Future work**. The knob gets resized when Ticks and/or Annotations are being displayed. Text and Tick sizes also change in proportion to overall knob size. The positions and sizing of elements could do with a tidy up. Maybe int? `ManualTickRadiusStart`, `ManuaTickRadiusEnd`, `ManualAnnotationRadius` to override the auto-positioning of ticks and annotations.
+**Future work**. The knob gets resized when Ticks and/or Annotations are being displayed. Text and Tick sizes also change in proportion to overall knob size. The positions and sizing of elements could do with a tidy up. Maybe int? `ManualTickRadiusStart`, `ManualTickRadiusEnd`, `ManualAnnotationRadius` to override the auto-positioning of ticks and annotations, where the radii are specified as a fraction of the knob width.
 
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       |
