@@ -321,18 +321,18 @@ When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> ca
 | Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
 | ------ | ------| ------| ------| ------| ------| ------|
 | `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreaases to accomodate annotations |
-| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode`=`LabelsAuto` or `Labels`, full or relativice image path where `AnnotationMode`=`Images` |
+| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode`=`LabelsAuto` or `Labels`, full or relative image path where `AnnotationMode`=`Images` |
 | `AnnotationTextColor`       | `Color`      |       |       |       |       | |
 | `Caption`       | `string?`      |       |       |       |       | |
 | `CaptionBold`       | `bool`      |       |       |       |       | |
 | `CaptionColor`      | `Color`      |       |       |       |       | |
 | `DotFillColor`       | `Color`      |       |       |       |       | |
 | `FillBrush`       | `Brush`      |       |       |       |       | e.g. `SolidBrush`,  `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush` etc. |
-| `FullSweepAngle`       | `double`      |       |       |       |       | |
+| `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle i symmetrical around positive vertical axis |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
 | `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
 | `MarkerWidth`       | `int`      |       |       |       |       | |
-| `NumPositions`       | `int`      |       |       |       |       | |
+| `NumPositions`       | `int`      |       |       |       |       | Numer of sector will = `NumPositions` - 1 |
 | `OutlineColor`       | `Color`      |       |       |       |       | |
 | `OutlineWidth`       | `int`      |       |       |       |       | |
 | `ShowTicks`       | `bool`      |       |       |       |       | Knob size decreaases to accomodate ticks |
