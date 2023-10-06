@@ -65,7 +65,7 @@ private void Knob1_ValueChanged(object? sender, double e) {
     txtValue.Text = $"{e:F3}";
 }
 ```
-Alternatively a lamda may be used
+Alternatively a lambda may be used
 ```
 knob2.ValueChanged += (o, e) => {
    txtValue.Text = $"{e:F3}";
