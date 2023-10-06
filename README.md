@@ -315,32 +315,32 @@ There are a lot of thing being drawn. Therefore in code, there are two separate 
 
 When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
-**Future work**. The positions and sizing of ticks and annotations could do with a tidy up. Maybe manual double? `ManualTickRadiusStart`, `ManualTickRadiusEnd`, `ManualAnnotationRadius`, `ManualAnnotatioonFontSize` to override the auto-positioning/sizing of ticks and annotations, where the radii are specified as a fraction of the knob width.
+**Future work**. The positions and sizing of ticks and annotations could do with a tidy up. Maybe manual double? `ManualTickRadiusStart`, `ManualTickRadiusEnd`, `ManualAnnotationRadius`, `ManualAnnotationFontSize` to override the auto-positioning/sizing of ticks and annotations, where the radii are specified as a fraction of the knob width.
 
 ## Full Property List
-| Property/XAML attribute | Data Type      |   Options    |       |       |       |
-| ------ | ------| ------| ------| ------| ------|
-| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      |
-| `Annotations`       | `List<string>`      |       |       |       |       |
-| `AnnotationTextColor`       | `Color`      |       |       |       |       |
-| `Caption`       | `string?`      |       |       |       |       |
-| `CaptionBold`       | `bool`      |       |       |       |       |
-| `CaptionColor`      | `Color`      |       |       |       |       |
-| `DotFillColor`       | `Color`      |       |       |       |       |
-| `FillBrush`       | `Brush`      |       |       |       |       |
-| `FullSweepAngle`       | `double`      |       |       |       |       |
-| `MarkerColor`       | `Color`      |       |       |       |       |
-| `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      |
-| `MarkerWidth`       | `int`      |       |       |       |       |
-| `NumPositions`       | `int`      |       |       |       |       |
-| `OutlineColor`       | `Color`      |       |       |       |       |
-| `OutlineWidth`       | `int`      |       |       |       |       |
-| `ShowTicks`       | `bool`      |       |       |       |       |
-| `TickWidth`       | `int`      |       |       |       |       |
-| `Value`       | `double`      |       |       |       |       |
-| `ValueMax`       | `double`      |       |       |       |       |
-| `ValueMin`       | `double`      |       |       |       |       |
-| `Width`       | `int`      |       |       |       |       |
+| Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
+| ------ | ------| ------| ------| ------| ------| ------|
+| `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | |
+| `Annotations`       | `List<string>`      |       |       |       |       | |
+| `AnnotationTextColor`       | `Color`      |       |       |       |       | |
+| `Caption`       | `string?`      |       |       |       |       | |
+| `CaptionBold`       | `bool`      |       |       |       |       | |
+| `CaptionColor`      | `Color`      |       |       |       |       | |
+| `DotFillColor`       | `Color`      |       |       |       |       | |
+| `FillBrush`       | `Brush`      |       |       |       |       | |
+| `FullSweepAngle`       | `double`      |       |       |       |       | |
+| `MarkerColor`       | `Color`      |       |       |       |       | |
+| `MarkerStyle`       | `MarkerStyleType`      | `Line1`      | `Line2`      | `Line3`      | `Dot`      | |
+| `MarkerWidth`       | `int`      |       |       |       |       | |
+| `NumPositions`       | `int`      |       |       |       |       | |
+| `OutlineColor`       | `Color`      |       |       |       |       | |
+| `OutlineWidth`       | `int`      |       |       |       |       | |
+| `ShowTicks`       | `bool`      |       |       |       |       | |
+| `TickWidth`       | `int`      |       |       |       |       | |
+| `Value`       | `double`      |       |       |       |       | |
+| `ValueMax`       | `double`      |       |       |       |       | |
+| `ValueMin`       | `double`      |       |       |       |       | |
+| `Width`       | `int`      |       |       |       |       | |
 
 
 
