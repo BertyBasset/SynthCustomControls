@@ -297,7 +297,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 
 
 ### Manual override Annotation position and fontsizr
-By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override, this set the radius using the `ManualAnnotationRadius` property. The FontSize if also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
+By default, the Annotation positions are set automatically using a radius relative to the Knob Width. To override this, set the radius using the `ManualAnnotationRadius` property. The FontSize if also automatically set to scale with Knob Width. To override, set the `ManualAnnotationFontSize` property.
 ```
 <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
 <custom:Knob.ManualAnnotationRadius>1.9</custom:Knob.ManualAnnotationRadius>
