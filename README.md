@@ -324,7 +324,7 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 
 ## Nullable Properties
 Several properties are nullable - namelly, `ManualAnnotationFontSize`, `ManualAnnotationRadius`, `ManualTickRadiusEnd`, `ManualTickRadiusStart`, `NumPositions`
-In XAML properties can be expressed either as attributes or as sub-elements. e.g. `NumPositions` can be set euding either of these methods:
+In XAML, properties can be expressed either as attributes or as sub-elements. e.g. `NumPositions`, which is an `int?` can be set using either of these methods:
 ```
 <custom:Knob NumPositions="5"></custom:Knob>
 
@@ -332,14 +332,14 @@ In XAML properties can be expressed either as attributes or as sub-elements. e.g
     <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
 </custom:Knob>
 ```
-If you change the 5 to any other valid non-null value, the NumPositions will change. But what if we want to set it back to null. There are two way. The simplest which works for both attribute and sub-element notation is to simply remove the attribute or sub-element.
+If you change the 5 to any other valid non-null value, the stter of `NumPositions` get called and the value will change. But what if we want to set it back to null. There are two ways. The simplest which works for both attribute and sub-element notation is to simply remove the attribute or sub-element altogether.
 ```
 <custom:Knob></custom:Knob>
 <custom:Knob>
 
 </custom:Knob>
 ```
-The second method only works for attribute notation, the {x:Null} placeholder can be used. This will pass a null to the property's setter. This trick does not work with the sub-element notation.
+The second method only works for attribute notation - the {x:Null} placeholder can be used. This will pass a null to the property's setter. This trick does not work with the sub-element notation.
 ```
 <custom:Knob NumPositions="{x:Null}"></custom:Knob>
 ```
