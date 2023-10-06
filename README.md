@@ -332,7 +332,7 @@ In XAML, properties can be expressed either as attributes or as sub-elements. e.
     <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
 </custom:Knob>
 ```
-If you change the 5 to any other valid non-null value, the stter of `NumPositions` get called and the value will change. But what if we want to set it back to null. There are two ways. The simplest which works for both attribute and sub-element notation is to simply remove the attribute or sub-element altogether.
+If you change the 5 to any other valid non-null value, the setter of `NumPositions` gets called and the value will change. But what if we want to set it back to null. There are two ways. The simplest which works for both attribute and sub-element notation is to simply remove the attribute or sub-element altogether.
 ```
 <custom:Knob></custom:Knob>
 <custom:Knob>
