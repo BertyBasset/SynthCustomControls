@@ -363,7 +363,7 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 ![Caption](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/42fe8be5916bf8e2ef214be3e7f935b9c278720d/ReadmeImages/Caption.png)
 
 ### Manually override Caption Radius and fontsize
-The caption is automatically drawn at a specific radius from the knob centre. This can be manually set where `ManualCaptionRadius' is relative to knob width. The caption fontsize can also be overriden by `ManualCaptionFontSize`.
+The caption is automatically drawn at a specific radius from the knob centre. This can be manually set where `ManualCaptionRadius` is relative to knob width. The caption fontsize can also be overriden by `ManualCaptionFontSize`.
 ```
 <custom:Knob.ManualCaptionRadius>1.9</custom:Knob.ManualAnnotationRadius>
 <custom:Knob.ManualCaptionFontSize>15</custom:Knob.ManualAnnotationFontSize>
