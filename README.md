@@ -126,7 +126,8 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 Rather than passing filenames and paths to the knob control, we've used WPF resources instead. Firstly, it means you don't have physical files as part of your deployment, and secondly you don't have to worry about paths if you've set up the resource correctly. You will see later that images are used for two separate purposes
 1. As a Knob background when using `ImageBrush`
 2. As marker icons when using image Annotations.
-Any image you intend to use, add to the <Windows.Resource> section of your XAML, and give them a meaningful key by which to use them later:
+   
+Any image you intend to use, add to the <Windows.Resource> section of your XAML, and give them a meaningful key by which to access them later:
 ```
 <Window.Resources>
     <!-- ImageBrush Images -->
@@ -139,7 +140,7 @@ Any image you intend to use, add to the <Windows.Resource> section of your XAML,
     <BitmapImage x:Key="Icon_Triangle" UriSource="/KnobImages/Triangle.png" />
 </Window.Resources>
 ```
-*Note* The images must be somewhere within your project hierarchy, and the UriSource should be set to reflect that. A subfolder under the WPF project such as KnobImages above is ideal. Also ensure that the images are added to your project. Fore each image, set its _Build Action_ to _Resource_.
+*Note* The images must be somewhere within your project hierarchy, and the `UriSource` should be set to reflect that. A subfolder under the WPF project such as _/KnobImages_ above is ideal. Also ensure that the images are added to your project. For each image, set its _Build Action_ to _Resource_.
 
 ### FillBrush
 A `Brush` for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any `Brush` type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`, `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
@@ -184,10 +185,16 @@ Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` re
 
 
 #### ImageBrush
-Here you can specify an image file, or other image resource as a `Brush`. This is potentially useful for simulating knob materials.
+Here you can specify an image file resource as a `Brush`. This is potentially useful for simulating knob materials. Ensure your image has been setup as a resource with a key.
 ```
+<Window.Resources>
+    <!-- ImageBrush Images -->
+    <BitmapImage x:Key="BrushedAluminiumImage" UriSource="/KnobImages/BrushedAluminium.png" />
+</Window.Resources>
+
+
 <custom:Knob.FillBrush>
-    <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
+    <ImageBrush ImageSource="{StaticResource BrushedAluminiumImage}" />
 </custom:Knob.FillBrush>
 ```
 ![Image Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/80aca0a34b57d4e8ed28462754f42d893472c722/ReadmeImages/FillImagel.png)
