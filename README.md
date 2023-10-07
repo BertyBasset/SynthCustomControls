@@ -396,7 +396,7 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
 | ------ | ------| ------| ------| ------| ------| ------|
-| `AnnotationImageResourceKeys` | `List<string>` |       |       |       |       | Image Resources must have been setup for all images to use
+| `AnnotationImageResourceKeys` | `List<string>` |       |       |       |       | Image Resources must have been setup for all images in <Window.Resources> |
 | `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreases to accomodate annotations |
 | `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` |
 | `AnnotationTextColor`       | `Color`      |       |       |       |       | |
