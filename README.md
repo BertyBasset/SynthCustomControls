@@ -306,19 +306,34 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Label Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
 
 ### Images
-`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property. Relative or absolute image filenames are passed by setting the `Annotations` `List<String>` property. If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property.
+
+Again we are passing images in as resource, but in this case we must pass in a string array of Resource Keys.
+
 ```
+<Window.Resources>
+    <!-- Annotation Images -->
+    <BitmapImage x:Key="Icon_Saw" UriSource="/KnobImages/Saw.png" />
+    <BitmapImage x:Key="Icon_Sine" UriSource="/KnobImages/Sine.png" />
+    <BitmapImage x:Key="Icon_Square" UriSource="/KnobImages/Square.png" />
+    <BitmapImage x:Key="Icon_SuperSaw" UriSource="/KnobImages/SuperSaw.png" />
+    <BitmapImage x:Key="Icon_Triangle" UriSource="/KnobImages/Triangle.png" />
+</Window.Resources>
+
+
 <custom:Knob.ShowTicks>false</custom:Knob.ShowTicks>
 <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
-<custom:Knob.Annotations>
-    <sys:String>KnobImages/Sine.png</sys:String>
-    <sys:String>KnobImages/Triangle.png</sys:String>
-    <sys:String>KnobImages/Square.png</sys:String>
-    <sys:String>KnobImages/Saw.png</sys:String>
-    <sys:String>KnobImages/SuperSaw.png</sys:String>
-</custom:Knob.Annotations>
+<custom:Knob.AnnotationImageResourceKeys>
+    <sys:String>Icon_Saw</sys:String>
+    <sys:String>Icon_Sine</sys:String>
+    <sys:String>Icon_Square</sys:String>
+    <sys:String>Icon_SuperSaw</sys:String>
+    <sys:String>Icon_Triangle</sys:String>
+</custom:Knob.AnnotationImageResourceKeys>
 ```
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
+If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+
 
 
 ### Manually override Annotation position and fontsize
