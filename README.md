@@ -308,7 +308,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ### Images
 `AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property.
 
-Again we are passing images in as resource, but in this case we must pass in a string array of Resource Keys.
+We are passing images in as resource again, but in this case we must pass in a string array of Resource Keys.
 
 ```
 <Window.Resources>
@@ -396,8 +396,9 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
 | ------ | ------| ------| ------| ------| ------| ------|
+| `AnnotationImageResourceKeys` | `List<string>` |       |       |       |       | Image Resources must have been setup for all images to use
 | `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreases to accomodate annotations |
-| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` or `Labels`, full or relative image path where `AnnotationMode` = `Images` |
+| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` |
 | `AnnotationTextColor`       | `Color`      |       |       |       |       | |
 | `Caption`       | `string?`      |       |       |       |       | |
 | `CaptionBold`       | `bool`      |       |       |       |       | |
