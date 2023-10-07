@@ -11,12 +11,10 @@ using System.Windows.Media.Imaging;
 namespace SynthCustomControls;
 
 // To DO
-//  2 KnobImages only displaying in design view - may need to combine run path - or use resources - probably better plan
-//  3 Have some nice examples. 
-
-
-// Add manual Caption radius
-// Add manual Caption FontSize
+// 4. Add manual Caption radius
+// 5. Add manual Caption FontSize
+//
+// Is there anything else needing color, width or fontsize?
 
 public class Knob : Control {
     public event EventHandler<double>? ValueChanged;
