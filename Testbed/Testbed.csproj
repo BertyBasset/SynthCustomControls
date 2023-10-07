@@ -8,7 +8,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="KnobImages\BrushedAluminium.png" />
+    <None Remove="KnobImages\Saw.png" />
+    <None Remove="KnobImages\Sine.png" />
+    <None Remove="KnobImages\Square.png" />
+    <None Remove="KnobImages\SuperSaw.png" />
+    <None Remove="KnobImages\Triangle.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SynthCustomControls\SynthCustomControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="KnobImages\BrushedAluminium.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="KnobImages\Saw.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="KnobImages\Sine.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="KnobImages\Square.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="KnobImages\SuperSaw.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="KnobImages\Triangle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -23,25 +53,8 @@
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="KnobImages\SuperSaw.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="KnobImages\Triangle.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="KnobImages\Square.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="KnobImages\Saw.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="KnobImages\Sine.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

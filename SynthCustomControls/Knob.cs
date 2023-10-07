@@ -1,7 +1,9 @@
 ﻿using SynthCustomControls.Utils;
 using System.Globalization;
+using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -9,12 +11,16 @@ using System.Windows.Media.Imaging;
 namespace SynthCustomControls;
 
 // To DO
-// 1. Article
+//  2 KnobImages only displaying in design view - may need to combine run path - or use resources - probably better plan
+//  3 Have some nice examples. 
 
+
+// Add manual Caption radius
+// Add manual Caption FontSize
 
 public class Knob : Control {
     public event EventHandler<double>? ValueChanged;
-    
+
     double _knobWidth;
     bool _redrawKnob = false;
 
@@ -41,6 +47,7 @@ public class Knob : Control {
             DoFullRedraw();
         }
     }
+
 
     Color _DotFillColor = Colors.White;
     public Color DotFillColor {
@@ -201,8 +208,19 @@ public class Knob : Control {
         }
     }
 
+
+    List<string> _AnnotationImageResourceKeys = new();
+    public List<string> AnnotationImageResourceKeys {
+        get { return _AnnotationImageResourceKeys; }
+        set {
+            _AnnotationImageResourceKeys = value;
+            DoFullRedraw();
+        }
+    }
+
+
     // Either show a speicified Tick Label, otherwise show a number 0-n
-    private string GetAnnotation(int index) {
+    private string GetAnnotationLabel(int index) {
         // Depening on Annotation mode, this will either return
         //     an auto number
         //     a string from Annotations property
@@ -215,13 +233,13 @@ public class Knob : Control {
                 return index.ToString();
             case AnnotationModeType.Labels:
                 // If we don't have enough Manual Labels, use index
-                if (index < (_Annotations?.Count ?? 0) && _Annotations != null)
-                    return string.IsNullOrEmpty(_Annotations[index]) ? index.ToString() : _Annotations[index];
+                if (index < (_AnnotationLabels?.Count ?? 0) && _AnnotationLabels != null)
+                    return string.IsNullOrEmpty(_AnnotationLabels[index]) ? index.ToString() : _AnnotationLabels[index];
                 else
                     return index.ToString();
             case AnnotationModeType.Images:
-                if (index < (_Annotations?.Count ?? 0) && _Annotations != null)
-                    return string.IsNullOrEmpty(_Annotations[index]) ? "" : _Annotations[index];
+                if (index < (_AnnotationLabels?.Count ?? 0) && _AnnotationLabels != null)
+                    return string.IsNullOrEmpty(_AnnotationLabels[index]) ? "" : _AnnotationLabels[index];
                 else
                     return "";
             default:
@@ -229,11 +247,11 @@ public class Knob : Control {
         }
      }
 
-    List<string> _Annotations = new ();
-    public List<string> Annotations {
-        get { return _Annotations; }
+    List<string> _AnnotationLabels = new ();
+    public List<string> AnnotationLabels {
+        get { return _AnnotationLabels; }
         set {
-            _Annotations = value;
+            _AnnotationLabels = value;
             DoFullRedraw();
         }
     }
@@ -243,6 +261,7 @@ public class Knob : Control {
     /// <summary>
     ///  This is relative to Knob width, not control width
     /// </summary>
+
     public double? ManualAnnotationRadius {
         get { return _ManualAnnotationRadius; }
         set {
@@ -439,9 +458,10 @@ public class Knob : Control {
         var markerPen = new Pen(new SolidColorBrush(MarkerColor), MarkerWidth);
 
         // Knob Marker
-        if (MarkerStyle == MarkerStyleType.Dot)
-            dc.DrawEllipse(new SolidColorBrush(_DotFillColor), markerPen, PointFromAngleAndRadius(_currentAngle, _knobWidth / 2 - _knobWidth / 8), _knobWidth / 15, _knobWidth / 15);
-        else {
+        if (MarkerStyle == MarkerStyleType.Dot) {
+            var point = PointFromAngleAndRadius(_currentAngle, _knobWidth / 2 - _knobWidth / 8);
+            dc.DrawEllipse(new SolidColorBrush(_DotFillColor), markerPen, RecenterPointToScreen(point), _knobWidth / 15, _knobWidth / 15);
+        } else {
             double r1 = 0, r2 = _knobWidth / 2;        // Go from centre to edge for Line1 
             if (MarkerStyle == MarkerStyleType.Line2 || MarkerStyle == MarkerStyleType.Line3)
                 r2 = _knobWidth / 2 * 6 / 8;         // Don't go all the way to the edge for Line2
@@ -450,18 +470,21 @@ public class Knob : Control {
 
             var fromPoint = PointFromAngleAndRadius(_currentAngle, r1);
             var toPoint = PointFromAngleAndRadius(_currentAngle, r2);
-            
+
             // Points are relative to knob centre, so offset to give absolute
-            fromPoint.X += ActualWidth / 2;
-            fromPoint.Y += ActualHeight / 2;
-            toPoint.X += ActualWidth / 2;
-            toPoint.Y += ActualHeight / 2;
 
-
-
-            dc.DrawLine(markerPen, fromPoint, toPoint);
+            dc.DrawLine(markerPen, RecenterPointToScreen(fromPoint), RecenterPointToScreen(toPoint));
         }
     }
+
+
+    Point RecenterPointToScreen(Point p) {
+        // We are caculating with (0, 0) at centre, so offset
+        p.X += ActualWidth / 2;
+        p.Y += ActualHeight / 2;
+        return p;
+    }
+
 
     void DrawKnob() {
         // Setup a special cached context
@@ -523,14 +546,8 @@ public class Knob : Control {
             var fromPoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * tickRadiusStart);
             var toPoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * tickRadiusEnd);
 
-            // Points are relative to knob centre, so offset to give absolute
-            fromPoint.X += ActualWidth / 2;
-            fromPoint.Y += ActualHeight / 2;
-            toPoint.X += ActualWidth / 2;
-            toPoint.Y += ActualHeight / 2;
 
-
-            dc.DrawLine(tickPen, fromPoint, toPoint);
+            dc.DrawLine(tickPen, RecenterPointToScreen(fromPoint), RecenterPointToScreen(toPoint));
             angle += (_maxAngle - _minAngle) / (numTicks);
         }
     }
@@ -553,27 +570,29 @@ public class Knob : Control {
             if (_ManualAnnotationRadius != null)
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
 
-            centrePoint.Y =  centrePoint.Y;
+            centrePoint.Y = centrePoint.Y;
             centrePoint.X = -centrePoint.X;
 
             // Points are relative to knob centre, so offset to give absolute
-            centrePoint.X += ActualWidth / 2;
-            centrePoint.Y += ActualHeight / 2;
-
+            centrePoint = RecenterPointToScreen(centrePoint);
 
             //dc.DrawEllipse(FillBrush, new Pen(new SolidColorBrush(Colors.Red), 1), centrePoint, 4, 4);
 
-            var imgFile = GetAnnotation(i);
-            if (!string.IsNullOrWhiteSpace(imgFile)) {
+            if (i >= _AnnotationImageResourceKeys.Count)
+                return;
 
-                BitmapImage bitmapImage = new (new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, imgFile)));
+            // Get Image by key
+            BitmapImage? bitmapImage = this.FindResource(_AnnotationImageResourceKeys[i]) as BitmapImage;
+
+            if (bitmapImage != null) { 
                 // Move centre of image to plot point
                 centrePoint.X -= bitmapImage.Width / 2;
-                centrePoint.Y -= bitmapImage.Height/ 2;
-                Rect imageRect = new (centrePoint, new Size(bitmapImage.Width, bitmapImage.Height));
+                centrePoint.Y -= bitmapImage.Height / 2;
+                Rect imageRect = new(centrePoint, new Size(bitmapImage.Width, bitmapImage.Height));
                 dc.DrawImage(bitmapImage, imageRect);
+
+                angle += (_maxAngle - _minAngle) / (numTicks);
             }
-            angle += (_maxAngle - _minAngle) / (numTicks);
         }
     }
 
@@ -584,7 +603,7 @@ public class Knob : Control {
         var angle = _minAngle + 180;
         for (int i = 0; i <= numTicks; i++) {
             var t = new FormattedText(
-                GetAnnotation(i),
+                GetAnnotationLabel(i),
                 CultureInfo.CurrentCulture,
                 FlowDirection.LeftToRight,
                 new Typeface("Arial"),
@@ -608,9 +627,7 @@ public class Knob : Control {
             // Transform mathematical to screen co-ords
             centrePoint.Y = -centrePoint.Y;
 
-            // Points are relative to knob centre, so offset to give absolute
-            centrePoint.X += ActualWidth / 2;
-            centrePoint.Y += ActualHeight / 2;
+            centrePoint = RecenterPointToScreen(centrePoint);
 
             // Debug just to show centre of text
             //dc.DrawEllipse(FillBrush, new Pen(new SolidColorBrush(Colors.Red), 1), centrePoint, 4, 4);
@@ -640,8 +657,7 @@ public class Knob : Control {
         var centrePoint = new Point(0, _knobWidth / 2 + _knobWidth/4);
 
         // Points are relative to knob centre, so offset to give absolute
-        centrePoint.X += ActualWidth / 2;
-        centrePoint.Y += ActualHeight / 2;
+        centrePoint = RecenterPointToScreen(centrePoint);
 
         // Move up a bit if not displaying Annotations
         if (_AnnotationMode == AnnotationModeType.None )
@@ -684,3 +700,6 @@ public class Knob : Control {
     }
     #endregion
 }
+
+
+
