@@ -416,8 +416,8 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 | `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
 | `ManualAnnotationFontSize` | `double?`      |       |       |       |       | Override auto font size |
 | `ManualAnnotationRadius` | `double?`      |       |       |       |       | Override auto label position |
-| `ManualCaptionRadius' | `double`       |       |       |       |       | Override Caption position |
-| `ManualCaptionFontsize' | `double`       |       |       |       |       | Override auto font size |
+| `ManualCaptionRadius` | `double`       |       |       |       |       | Override Caption position |
+| `ManualCaptionFontsize` | `double`       |       |       |       |       | Override auto font size |
 | `ManualTickRadiusEnd` | `double?`      |       |       |       |       | Override auto tick end point |
 | `ManualTickRadiusStart` | `double?`      |       |       |       |       |  Override auto tick start point |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
