@@ -122,6 +122,24 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 ```
 ![Outline Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineColor.png)
 
+### Images
+Rather than passing filenames and paths to the knob control, we've used WPF resources instead. Firstly, it means you don't have physical files as part of your deployment, and secondly you don't have to worry about paths if you've set up the resource correctly. You will see later that images are used for two separate purposes
+1. As a Knob background when using `ImageBrush`
+2. As marker icons when using image Annotations.
+Any image you intend to use, add to the <Windows.Resource> section of your XAML, and give them a meaningful key by which to use them later:
+```
+<Window.Resources>
+    <!-- ImageBrush Images -->
+    <BitmapImage x:Key="BrushedAluminiumImage" UriSource="/KnobImages/BrushedAluminium.png" />
+    <!-- Annotation Images -->
+    <BitmapImage x:Key="Icon_Saw" UriSource="/KnobImages/Saw.png" />
+    <BitmapImage x:Key="Icon_Sine" UriSource="/KnobImages/Sine.png" />
+    <BitmapImage x:Key="Icon_Square" UriSource="/KnobImages/Square.png" />
+    <BitmapImage x:Key="Icon_SuperSaw" UriSource="/KnobImages/SuperSaw.png" />
+    <BitmapImage x:Key="Icon_Triangle" UriSource="/KnobImages/Triangle.png" />
+</Window.Resources>
+```
+*Note* The images must be somewhere within your project hierarchy, and the UriSource should be set to reflect that. A subfolder under the WPF project such as KnobImages above is ideal. Also ensure that the images are added to your project. Fore each image, set its _Build Action_ to _Resource_.
 
 ### FillBrush
 A `Brush` for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any `Brush` type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`, `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
