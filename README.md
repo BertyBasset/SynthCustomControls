@@ -122,6 +122,25 @@ Determines the colour of the knob outline. Note: The Marker colour is controlled
 ```
 ![Outline Colour](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/3f159ad96d8b16df1d372d5d87574c417925b021/ReadmeImages/OutlineColor.png)
 
+### Images
+Rather than passing filenames and paths to the knob control, we've used WPF resources instead. Firstly, it means you don't have physical files as part of your deployment, and secondly you don't have to worry about paths if you've set up the resource correctly. You will see later that images are used for two separate purposes
+1. As a Knob background when using `ImageBrush`
+2. As marker icons when using image Annotations.
+   
+Any image you intend to use, add to the <Windows.Resource> section of your XAML, and give them a meaningful key by which to access them later:
+```
+<Window.Resources>
+    <!-- ImageBrush Images -->
+    <BitmapImage x:Key="BrushedAluminiumImage" UriSource="/KnobImages/BrushedAluminium.png" />
+    <!-- Annotation Images -->
+    <BitmapImage x:Key="Icon_Saw" UriSource="/KnobImages/Saw.png" />
+    <BitmapImage x:Key="Icon_Sine" UriSource="/KnobImages/Sine.png" />
+    <BitmapImage x:Key="Icon_Square" UriSource="/KnobImages/Square.png" />
+    <BitmapImage x:Key="Icon_SuperSaw" UriSource="/KnobImages/SuperSaw.png" />
+    <BitmapImage x:Key="Icon_Triangle" UriSource="/KnobImages/Triangle.png" />
+</Window.Resources>
+```
+*Note* The images must be somewhere within your project hierarchy, and the `UriSource` should be set to reflect that. A subfolder under the WPF project such as _/KnobImages_ above is ideal. Also ensure that the images are added to your project. For each image, set its _Build Action_ to _Resource_.
 
 ### FillBrush
 A `Brush` for filling in the body of the knob. `FillBrush` is of type `abstract class Brush` which means that it can be set to any `Brush` type that derives from this - these being `SolidBrush`, `LinearGradientBrush`, `RadialGradientBrush`, `ImageBrush`, `DrawingBrush`, `VisualBrush`, `TileBrush` and `BitmapCacheBrush` - we won't discuss the final 3.
@@ -166,10 +185,16 @@ Here, you specify a `Center` point and x and y radii- `RadiusX` and `RadiusY` re
 
 
 #### ImageBrush
-Here you can specify an image file, or other image resource as a `Brush`. This is potentially useful for simulating knob materials.
+Here you can specify an image file resource as a `Brush`. This is potentially useful for simulating knob materials. Ensure your image has been setup as a resource with a key.
 ```
+<Window.Resources>
+    <!-- ImageBrush Images -->
+    <BitmapImage x:Key="BrushedAluminiumImage" UriSource="/KnobImages/BrushedAluminium.png" />
+</Window.Resources>
+
+
 <custom:Knob.FillBrush>
-    <ImageBrush ImageSource="images/ManOnBike.png"></ImageBrush>
+    <ImageBrush ImageSource="{StaticResource BrushedAluminiumImage}" />
 </custom:Knob.FillBrush>
 ```
 ![Image Brush](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/80aca0a34b57d4e8ed28462754f42d893472c722/ReadmeImages/FillImagel.png)
@@ -281,19 +306,34 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ![Label Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/54ac4981b8765df77da2975dacf21525f93b54a7/ReadmeImages/AnnotationsLabel.png)
 
 ### Images
-`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property. Relative or absolute image filenames are passed by setting the `Annotations` `List<String>` property. If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+`AnnotationMode` is set to `Images`. In this setting, rather than displaying text labels, image icons are displayed at the Tick Positions. Again, this is meant mainly for when the knob is in snapping mode and a few number of options have been specified by the `NumPositions` property.
+
+We are passing images in as resource again, but in this case we must pass in a string array of Resource Keys.
+
 ```
+<Window.Resources>
+    <!-- Annotation Images -->
+    <BitmapImage x:Key="Icon_Saw" UriSource="/KnobImages/Saw.png" />
+    <BitmapImage x:Key="Icon_Sine" UriSource="/KnobImages/Sine.png" />
+    <BitmapImage x:Key="Icon_Square" UriSource="/KnobImages/Square.png" />
+    <BitmapImage x:Key="Icon_SuperSaw" UriSource="/KnobImages/SuperSaw.png" />
+    <BitmapImage x:Key="Icon_Triangle" UriSource="/KnobImages/Triangle.png" />
+</Window.Resources>
+
+
 <custom:Knob.ShowTicks>false</custom:Knob.ShowTicks>
 <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
-<custom:Knob.Annotations>
-    <sys:String>KnobImages/Sine.png</sys:String>
-    <sys:String>KnobImages/Triangle.png</sys:String>
-    <sys:String>KnobImages/Square.png</sys:String>
-    <sys:String>KnobImages/Saw.png</sys:String>
-    <sys:String>KnobImages/SuperSaw.png</sys:String>
-</custom:Knob.Annotations>
+<custom:Knob.AnnotationImageResourceKeys>
+    <sys:String>Icon_Saw</sys:String>
+    <sys:String>Icon_Sine</sys:String>
+    <sys:String>Icon_Square</sys:String>
+    <sys:String>Icon_SuperSaw</sys:String>
+    <sys:String>Icon_Triangle</sys:String>
+</custom:Knob.AnnotationImageResourceKeys>
 ```
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
+If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+
 
 
 ### Manually override Annotation position and fontsize
@@ -321,6 +361,14 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 <custom:Knob.CaptionColor>Green</custom:Knob.CaptionColor>
 ```
 ![Caption](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/42fe8be5916bf8e2ef214be3e7f935b9c278720d/ReadmeImages/Caption.png)
+
+### ### Manually override Caption Radius and fontsize
+The caption is automatically drawn at a specific radius from the knob centre. This can be manually set where `ManualCaptionRadius' is relative to knob width. The caption fontsize can also be overriden by `ManualCaptionFontSize`.
+```
+<custom:Knob.ManualCaptionRadius>1.9</custom:Knob.ManualAnnotationRadius>
+<custom:Knob.ManualCaptionFontSize>15</custom:Knob.ManualAnnotationFontSize>
+```
+
 
 ## Nullable Properties
 Several properties are nullable - namelly, `ManualAnnotationFontSize`, `ManualAnnotationRadius`, `ManualTickRadiusEnd`, `ManualTickRadiusStart`, `NumPositions`
@@ -356,8 +404,9 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 ## Full Property List
 | Property/XAML attribute | Data Type      |   Options    |       |       |       | Notes |
 | ------ | ------| ------| ------| ------| ------| ------|
+| `AnnotationImageResourceKeys` | `List<string>` |       |       |       |       | Image Resources must have been setup for all images in <Window.Resources> |
 | `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreases to accomodate annotations |
-| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` or `Labels`, full or relative image path where `AnnotationMode` = `Images` |
+| `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` |
 | `AnnotationTextColor`       | `Color`      |       |       |       |       | |
 | `Caption`       | `string?`      |       |       |       |       | |
 | `CaptionBold`       | `bool`      |       |       |       |       | |
@@ -367,6 +416,8 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 | `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
 | `ManualAnnotationFontSize` | `double?`      |       |       |       |       | Override auto font size |
 | `ManualAnnotationRadius` | `double?`      |       |       |       |       | Override auto label position |
+| `ManualCaptionRadius` | `double`       |       |       |       |       | Override Caption position |
+| `ManualCaptionFontsize` | `double`       |       |       |       |       | Override auto font size |
 | `ManualTickRadiusEnd` | `double?`      |       |       |       |       | Override auto tick end point |
 | `ManualTickRadiusStart` | `double?`      |       |       |       |       |  Override auto tick start point |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
