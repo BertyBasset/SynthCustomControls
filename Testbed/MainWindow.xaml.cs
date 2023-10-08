@@ -21,14 +21,45 @@ namespace Testbed {
         public MainWindow() {
             InitializeComponent();
 
-              knob1.ValueChanged += (o, e) => {
-                  int a = 2;
-              };
+            knob1.ValueChanged += (o, e) => {
+                switch ((int)e) {
+                    case 0: txtText1.Text = "-2"; break;
+                    case 1: txtText1.Text = "-1"; break;
+                    case 2: txtText1.Text = "0"; break;
+                    case 3: txtText1.Text = "+1"; break;
+                    case 4: txtText1.Text = "+2"; break;
+                    default:
+                        break;
+                }
+            };
 
+            knob2.ValueChanged += (o, e) => {
+                txtText2.Text = $"{e:F3}";
+            };
 
+            knob3.ValueChanged += (o, e) => {
+                switch ((int)e) {
+                    case 0: txtText3.Text = "None"; break;
+                    case 1: txtText3.Text = "Reverb"; break;
+                    case 2: txtText3.Text = "Echo"; break;
+                    case 3: txtText3.Text = "Delay"; break;
+                    case 4: txtText3.Text = "Comb"; break;
+                    default:
+                        break;
+                }
+            };
 
+            knob4.ValueChanged += (o, e) => {
+                switch ((int)e) {
+                    case 0: txtText4.Text = "Saw"; break;
+                    case 1: txtText4.Text = "Sine"; break;
+                    case 2: txtText4.Text = "Triangle"; break;
+                    case 3: txtText4.Text = "Square"; break;
+                    case 4: txtText4.Text = "SuperSaw"; break;
+                    default:
+                        break;
+                }
+            };
         }
-
-
     }
 }

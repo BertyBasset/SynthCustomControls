@@ -11,10 +11,7 @@ using System.Windows.Media.Imaging;
 namespace SynthCustomControls;
 
 // To DO
-// 4. Add manual Caption radius
-// 5. Add manual Caption FontSize
-//
-// Is there anything else needing color, width or fontsize?
+
 
 public class Knob : Control {
     public event EventHandler<double>? ValueChanged;
@@ -55,6 +52,8 @@ public class Knob : Control {
             DoFullRedraw();
         }
     }
+
+ 
 
     Brush _FillBrush = new SolidColorBrush(Colors.White);
     public Brush FillBrush {
@@ -129,6 +128,26 @@ public class Knob : Control {
             DoFullRedraw();
         }
     }
+
+    double? _ManualCaptionRadius = null;
+    public double? ManualCaptionRadius {
+        get { return _ManualCaptionRadius; }
+        set {
+            _ManualCaptionRadius = value;
+            DoFullRedraw();
+        }
+    }
+
+    double? _ManualCaptionFontSize = null;
+    public double? ManualCaptionFontSize {
+        get { return _ManualCaptionFontSize; }
+        set {
+            _ManualCaptionFontSize = value;
+            DoFullRedraw();
+        }
+    }
+
+
 
     bool _ShowTicks = false;
     public bool ShowTicks {
@@ -647,12 +666,12 @@ public class Knob : Control {
                  _Caption, System.Globalization.CultureInfo.CurrentCulture,
                  FlowDirection.LeftToRight,
                  new Typeface(new FontFamily("Arial"), FontStyles.Normal, CaptionBold ? FontWeights.Bold : FontWeights.Normal, FontStretches.Normal),
-                 17 * ActualHeight / 100.0,                // Autosize font according to control width, with baseline of 17pt
+                 ManualCaptionFontSize ?? 17 * ActualHeight / 100.0,                // Autosize font according to control width, with baseline of 17pt
                  new SolidColorBrush(CaptionColor),
                  1.0                                       // Pixels per dip
              );
 
-        var centrePoint = new Point(0, _knobWidth / 2 + _knobWidth/4);
+        var centrePoint = new Point(0, ManualCaptionRadius == null ? ( _knobWidth / 2 + _knobWidth/4) : (double)ManualCaptionRadius * _knobWidth / 2);
 
         // Points are relative to knob centre, so offset to give absolute
         centrePoint = RecenterPointToScreen(centrePoint);

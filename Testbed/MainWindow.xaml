@@ -15,10 +15,10 @@
         <BitmapImage x:Key="Icon_SuperSaw" UriSource="/KnobImages/SuperSaw.png" />
         <BitmapImage x:Key="Icon_Triangle" UriSource="/KnobImages/Triangle.png" />
     </Window.Resources>
-    
-    
+
+
     <Canvas Background="white" Margin="0,0,-72,0">
-        <custom:Knob Width="150" Name="knob1"  Canvas.Left="20" Canvas.Top="75">
+        <custom:Knob Width="150" Name="knob1"  Canvas.Left="20" Canvas.Top="75" ValueMin="0" ValueMax="4">
             <custom:Knob.MarkerStyle>Dot</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
             <custom:Knob.MarkerColor>black</custom:Knob.MarkerColor>
@@ -28,6 +28,7 @@
             <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
             <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
             <custom:Knob.Caption>Octave</custom:Knob.Caption>
+            <custom:Knob.ManualCaptionFontSize>20</custom:Knob.ManualCaptionFontSize>
             <custom:Knob.AnnotationLabels>
                 <sys:String>-2</sys:String>
                 <sys:String>-1</sys:String>
@@ -39,8 +40,10 @@
                 <ImageBrush ImageSource="{StaticResource BrushedAluminiumImage}" />
             </custom:Knob.FillBrush>
         </custom:Knob>
+        <TextBox Name="txtText1" Text="-2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Canvas.Left="48" Canvas.Top="239"></TextBox>
 
-        <custom:Knob Width="150" Name="knob2"  Canvas.Left="210" Canvas.Top="75">
+
+        <custom:Knob Width="150" Name="knob2"  Canvas.Left="210" Canvas.Top="75" ValueMin="0" ValueMax="10">
             <custom:Knob.MarkerStyle>Line2</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>7</custom:Knob.MarkerWidth>
             <custom:Knob.MarkerColor>white</custom:Knob.MarkerColor>
@@ -48,6 +51,7 @@
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
             <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
             <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
+            <custom:Knob.ManualCaptionFontSize>20</custom:Knob.ManualCaptionFontSize>
             <custom:Knob.Caption>Volume</custom:Knob.Caption>
             <custom:Knob.FillBrush>
                 <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
@@ -58,9 +62,9 @@
                 </RadialGradientBrush>
             </custom:Knob.FillBrush>
         </custom:Knob>
+        <TextBox x:Name="txtText2" Text="0.000" Width="94" Canvas.Left="238" Canvas.Top="239" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-
-        <custom:Knob Width="150" Name="knob3"  Canvas.Left="420" Canvas.Top="75">
+        <custom:Knob Width="150" Name="knob3"  Canvas.Left="420" Canvas.Top="75" ValueMin="0" ValueMax="4">
             <custom:Knob.MarkerStyle>Dot</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
             <custom:Knob.MarkerColor>black</custom:Knob.MarkerColor>
@@ -72,6 +76,7 @@
             <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
             <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
             <custom:Knob.ManualAnnotationRadius>1.8</custom:Knob.ManualAnnotationRadius>
+            <custom:Knob.ManualCaptionFontSize>20</custom:Knob.ManualCaptionFontSize>
             <custom:Knob.Caption>Effect</custom:Knob.Caption>
             <custom:Knob.AnnotationLabels>
                 <sys:String>None</sys:String>
@@ -84,8 +89,10 @@
                 <SolidColorBrush Color="navy"></SolidColorBrush>
             </custom:Knob.FillBrush>
         </custom:Knob>
+        <TextBox x:Name="txtText3" Text="None" Width="94" Canvas.Left="448" Canvas.Top="239" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-        <custom:Knob Width="150" Name="knob4"  Canvas.Left="620" Canvas.Top="75">
+
+        <custom:Knob Width="150" Name="knob4"  Canvas.Left="620" Canvas.Top="75" ValueMin="0" ValueMax="4">
             <custom:Knob.MarkerStyle>Line3</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>9</custom:Knob.MarkerWidth>
             <custom:Knob.MarkerColor>black</custom:Knob.MarkerColor>
@@ -104,6 +111,7 @@
             </custom:Knob.AnnotationImageResourceKeys>
             <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
             <custom:Knob.ManualAnnotationRadius>1.7</custom:Knob.ManualAnnotationRadius>
+            <custom:Knob.ManualCaptionFontSize>20</custom:Knob.ManualCaptionFontSize>
             <custom:Knob.Caption>Waveform</custom:Knob.Caption>
             <custom:Knob.FillBrush>
                 <LinearGradientBrush>
@@ -112,6 +120,7 @@
                 </LinearGradientBrush>
             </custom:Knob.FillBrush>
         </custom:Knob>
+        <TextBox x:Name="txtText4" Text="Saw" Width="94" Canvas.Left="648" Canvas.Top="239" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
     </Canvas>
 </Window>
