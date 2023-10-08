@@ -100,7 +100,7 @@ Note: `MarkerColor` also affects outline of dot where `MarkerStyle` is `Dot`
 
 
 ### DotFillColour
-For `Dot` marker, a `DotFillColour` can be specified to distinguish the dot from the brush used to paint the body of the knob.
+For `Dot` marker, a `DotFillColour` can be specified to distinguish the dot from the brush used to paint the body of the knob. Dot outline is rendered using `MarkerWidth` and `MarkerColor` settings.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
@@ -368,7 +368,6 @@ The caption is automatically drawn at a specific radius from the knob centre. Th
 <custom:Knob.ManualCaptionRadius>1.9</custom:Knob.ManualAnnotationRadius>
 <custom:Knob.ManualCaptionFontSize>15</custom:Knob.ManualAnnotationFontSize>
 ```
-
 
 ## Nullable Properties
 Several properties are nullable - namelly, `ManualAnnotationFontSize`, `ManualAnnotationRadius`,  `ManualCaptionRadius`, `ManualCaptionFontSize`, `ManualTickRadiusEnd`, `ManualTickRadiusStart`, `NumPositions`
