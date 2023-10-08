@@ -100,7 +100,7 @@ Note: `MarkerColor` also affects outline of dot where `MarkerStyle` is `Dot`
 
 
 ### DotFillColour
-For `Dot` marker, a `DotFillColour` can be specified to distinguish the dot from the brush used to paint the body of the knob.
+For `Dot` marker, a `DotFillColour` can be specified to distinguish the dot from the brush used to paint the body of the knob. Dot outline is rendered using `MarkerWidth` and `MarkerColor` settings.
 ```
 <custom:Knob.MarkerColor>Red</custom:Knob.MarkerColor>
 <custom:Knob.DotFillColor>Yellow</custom:Knob.DotFillColor>
@@ -362,16 +362,15 @@ A caption can be displayed below the knob using the `Caption`, `CaptionBold` and
 ```
 ![Caption](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/42fe8be5916bf8e2ef214be3e7f935b9c278720d/ReadmeImages/Caption.png)
 
-### ### Manually override Caption Radius and fontsize
-The caption is automatically drawn at a specific radius from the knob centre. This can be manually set where `ManualCaptionRadius' is relative to knob width. The caption fontsize can also be overriden by `ManualCaptionFontSize`.
+### Manually override Caption Radius and fontsize
+The caption is automatically drawn at a specific radius from the knob centre. This can be manually set where `ManualCaptionRadius` is relative to knob width. The caption fontsize can also be overriden by `ManualCaptionFontSize`.
 ```
 <custom:Knob.ManualCaptionRadius>1.9</custom:Knob.ManualAnnotationRadius>
 <custom:Knob.ManualCaptionFontSize>15</custom:Knob.ManualAnnotationFontSize>
 ```
 
-
 ## Nullable Properties
-Several properties are nullable - namelly, `ManualAnnotationFontSize`, `ManualAnnotationRadius`, `ManualTickRadiusEnd`, `ManualTickRadiusStart`, `NumPositions`
+Several properties are nullable - namelly, `ManualAnnotationFontSize`, `ManualAnnotationRadius`,  `ManualCaptionRadius`, `ManualCaptionFontSize`, `ManualTickRadiusEnd`, `ManualTickRadiusStart`, `NumPositions`
 In XAML, properties can be expressed either as attributes or as sub-elements. e.g. `NumPositions`, which is an `int?` can be set using either of these methods:
 ```
 <custom:Knob NumPositions="5"></custom:Knob>
@@ -416,8 +415,8 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 | `FullSweepAngle`       | `double`      |       |       |       |       | Sweep angle is symmetrical around positive vertical axis |
 | `ManualAnnotationFontSize` | `double?`      |       |       |       |       | Override auto font size |
 | `ManualAnnotationRadius` | `double?`      |       |       |       |       | Override auto label position |
-| `ManualCaptionRadius` | `double`       |       |       |       |       | Override Caption position |
-| `ManualCaptionFontsize` | `double`       |       |       |       |       | Override auto font size |
+| `ManualCaptionRadius` | `double?`       |       |       |       |       | Override Caption position |
+| `ManualCaptionFontsize` | `double?`       |       |       |       |       | Override auto font size |
 | `ManualTickRadiusEnd` | `double?`      |       |       |       |       | Override auto tick end point |
 | `ManualTickRadiusStart` | `double?`      |       |       |       |       |  Override auto tick start point |
 | `MarkerColor`       | `Color`      |       |       |       |       | |
