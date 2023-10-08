@@ -36,12 +36,12 @@ public class Knob : Control {
 
     public static readonly DependencyProperty MarkerStyleProperty =
         DependencyProperty.Register(
-            "MarkerStyleProperty",
+            "MarkerStyle",
             typeof(MarkerStyleType),
             typeof(Knob),
             new PropertyMetadata(MarkerStyleType.Line1));
 
-    public MarkerStyleType MarkerStyle {
+    public MarkerStyleType? MarkerStyle {
         get { return (MarkerStyleType)GetValue(MarkerStyleProperty); }
         set {
             SetValue(MarkerStyleProperty, value);
@@ -165,7 +165,7 @@ public class Knob : Control {
     public static readonly DependencyProperty CaptionColorProperty =
         DependencyProperty.Register(
             "CaptionColor",
-            typeof(string),
+            typeof(Color),
             typeof(Knob),
             new PropertyMetadata(Colors.Black));
 
@@ -471,7 +471,7 @@ public class Knob : Control {
     }
 
     double _minAngle = -45;
-    double _maxAngle = 255;
+    double _maxAngle = 225;
 
     double _FullSweepAngle = 270;
     public double FullSweepAngle {
