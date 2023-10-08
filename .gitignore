@@ -11,3 +11,6 @@
 /Testbed/obj
 .vs/ProjectEvaluation/synthcustomcontrols.metadata.v6.1
 .vs/ProjectEvaluation/synthcustomcontrols.projects.v6.1
+*.json
+SynthCustomControls/bin/Release/net6.0-windows/SynthCustomControls.dll
+SynthCustomControls/bin/Release/net6.0-windows/SynthCustomControls.pdb

@@ -10,10 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace SynthCustomControls;
 
-// To DO
-
 
 public class Knob : Control {
+    #region Private Variables & Constants
     public event EventHandler<double>? ValueChanged;
 
     double _knobWidth;
@@ -21,11 +20,10 @@ public class Knob : Control {
 
     readonly double MIN_FULL_SWEEP_ANGLE = 20;
     readonly double MAX_FULL_SWEEP_ANGLE = 340;
-
     readonly int MAX_NUM_TICK_POSITIONS = 10;
 
     double _currentAngle = 0;
-
+    #endregion
 
     #region Appearance Properties
     public enum MarkerStyleType {
@@ -34,164 +32,277 @@ public class Knob : Control {
         Line3,          // away from edge
         Dot
     }
-    MarkerStyleType _MarkerStyle = MarkerStyleType.Line1;
+
+
+    public static readonly DependencyProperty MarkerStyleProperty =
+        DependencyProperty.Register(
+            "MarkerStyleProperty",
+            typeof(MarkerStyleType),
+            typeof(Knob),
+            new PropertyMetadata(MarkerStyleType.Line1));
+
     public MarkerStyleType MarkerStyle {
-        get { return _MarkerStyle; }
+        get { return (MarkerStyleType)GetValue(MarkerStyleProperty); }
         set {
-            _MarkerStyle = value;
+            SetValue(MarkerStyleProperty, value);
             DoFullRedraw();
         }
     }
 
 
-    Color _DotFillColor = Colors.White;
+    public static readonly DependencyProperty DotFillColorProperty =
+        DependencyProperty.Register(
+             "DotFillColor",
+             typeof(Color),
+             typeof(Knob),
+             new PropertyMetadata(Colors.White));
+
     public Color DotFillColor {
-        get { return _DotFillColor; }
+        get { return (Color)GetValue(DotFillColorProperty); }
         set {
-            _DotFillColor = value;
+            SetValue(DotFillColorProperty, value);
             DoFullRedraw();
         }
     }
 
- 
 
-    Brush _FillBrush = new SolidColorBrush(Colors.White);
-    public Brush FillBrush {
-        get { return _FillBrush; }
+    public static readonly DependencyProperty FillBrushProperty =
+        DependencyProperty.Register(
+             "FillBrush",
+             typeof(Brush),
+             typeof(Knob),
+             new PropertyMetadata(null));
+
+    public Brush? FillBrush {
+        get { return (Brush?)GetValue(FillBrushProperty); }
         set {
-            _FillBrush = value;
+            SetValue(FillBrushProperty, value);
             DoFullRedraw();
         }
     }
 
-    Color _OutlineColor = Colors.Black;
+
+    public static readonly DependencyProperty OutlineColorProperty =
+      DependencyProperty.Register(
+          "OutlineColor",
+          typeof(Color),
+          typeof(Knob),
+          new PropertyMetadata(Colors.Black));
+
     public Color OutlineColor {
-        get { return _OutlineColor; }
+        get { return (Color)GetValue(OutlineColorProperty); }
         set {
-            _OutlineColor = value;
+            SetValue(OutlineColorProperty, value);
             DoFullRedraw();
         }
     }
 
-    int _OutlineWidth = 1;
+
+    public static readonly DependencyProperty OutlineWidthProperty =
+        DependencyProperty.Register(
+            "OutlineWidth",
+            typeof(int),
+            typeof(Knob),
+            new PropertyMetadata(1));
+
     public int OutlineWidth {
-        get { return _OutlineWidth; }
+        get { return (int)GetValue(OutlineWidthProperty); }
         set {
-            _OutlineWidth = value;
+            SetValue(OutlineWidthProperty, value);
             DoFullRedraw();
         }
     }
 
-    int _MarkerWidth = 1;
+
+    public static readonly DependencyProperty MarkerWidthProperty =
+        DependencyProperty.Register(
+            "MarkerWidth",
+            typeof(int),
+            typeof(Knob),
+            new PropertyMetadata(1));
+
     public int MarkerWidth {
-        get { return _MarkerWidth; }
+        get { return (int)GetValue(MarkerWidthProperty); }
         set {
-            _MarkerWidth = value;
+            SetValue(MarkerWidthProperty, value);
             DoFullRedraw();
         }
     }
 
-    Color _MarkerColor = Colors.Black;
+
+    public static readonly DependencyProperty MarkerColorProperty =
+        DependencyProperty.Register(
+            "MarkerColor",
+            typeof(Color),
+            typeof(Knob),
+            new PropertyMetadata(Colors.Black));
+
     public Color MarkerColor {
-        get { return _MarkerColor; }
+        get { return (Color)GetValue(MarkerColorProperty); }
         set {
-            _MarkerColor = value;
+            SetValue(MarkerColorProperty, value);
             DoFullRedraw();
         }
     }
 
 
-    string? _Caption = null;
+    public static readonly DependencyProperty CaptionProperty =
+        DependencyProperty.Register(
+            "Caption",
+            typeof(string),
+            typeof(Knob),
+            new PropertyMetadata(null));
+
     public string? Caption {
-        get { return _Caption; }
+        get { return (string?)GetValue(CaptionProperty); }
         set {
-            _Caption = (value??"").Trim();
+            SetValue(CaptionProperty, value);
             DoFullRedraw();
         }
     }
 
-    Color _CaptionColor = Colors.Black;
+
+    public static readonly DependencyProperty CaptionColorProperty =
+        DependencyProperty.Register(
+            "CaptionColor",
+            typeof(string),
+            typeof(Knob),
+            new PropertyMetadata(Colors.Black));
+
     public Color CaptionColor {
-        get { return _CaptionColor; }
+        get { return (Color)GetValue(CaptionColorProperty); }
         set {
-            _CaptionColor = value;
+            SetValue(CaptionColorProperty, value);
             DoFullRedraw();
         }
     }
 
 
-    bool _CaptionBold = false;
+    public static readonly DependencyProperty CaptionBoldProperty =
+        DependencyProperty.Register(
+            "CaptionBold",
+            typeof(bool),
+            typeof(Knob),
+            new PropertyMetadata(false));
+
     public bool CaptionBold {
-        get { return _CaptionBold; }
+        get { return (bool)GetValue(CaptionBoldProperty); }
         set {
-            _CaptionBold = value;
+            SetValue(CaptionBoldProperty, value);
             DoFullRedraw();
         }
     }
 
-    double? _ManualCaptionRadius = null;
+
+    public static readonly DependencyProperty ManualCaptionRadiusProperty =
+    DependencyProperty.Register(
+        "ManualCaptionRadius",
+        typeof(double?),
+        typeof(Knob),
+        new PropertyMetadata(null));
+
     public double? ManualCaptionRadius {
-        get { return _ManualCaptionRadius; }
+        get { return (double?)GetValue(ManualCaptionRadiusProperty); }
         set {
-            _ManualCaptionRadius = value;
+            SetValue(ManualCaptionRadiusProperty, value);
             DoFullRedraw();
         }
     }
 
-    double? _ManualCaptionFontSize = null;
+
+    public static readonly DependencyProperty ManualCaptionFontSizeProperty =
+        DependencyProperty.Register(
+            "ManualCaptionFontSize",
+            typeof(double?),
+            typeof(Knob),
+            new PropertyMetadata(null));
+
     public double? ManualCaptionFontSize {
-        get { return _ManualCaptionFontSize; }
+        get { return (double?)GetValue(ManualCaptionFontSizeProperty); }
         set {
-            _ManualCaptionFontSize = value;
+            SetValue(ManualCaptionFontSizeProperty, value);
             DoFullRedraw();
         }
     }
 
 
+    public static readonly DependencyProperty ShowTicksProperty =
+        DependencyProperty.Register(
+            "ShowTicks",
+            typeof(bool),
+            typeof(Knob),
+            new PropertyMetadata(false));
 
-    bool _ShowTicks = false;
     public bool ShowTicks {
-        get { return _ShowTicks; }
+        get { return (bool)GetValue(ShowTicksProperty); }
         set {
-            _ShowTicks = value;
+            SetValue(ShowTicksProperty, value);
             DoFullRedraw();
         }
     }
 
-    Color _TickColor = Colors.Black;
+
+    public static readonly DependencyProperty TickColorProperty =
+        DependencyProperty.Register(
+            "TickColor",
+            typeof(Color),
+            typeof(Knob),
+            new PropertyMetadata(Colors.Black));
+
     public Color TickColor {
-        get { return _TickColor; }
+        get { return (Color)GetValue(TickColorProperty); }
         set {
-            _TickColor = value;
+            SetValue(TickColorProperty, value);
             DoFullRedraw();
         }
     }
 
-    int _TickWidth = 1;
+
+    public static readonly DependencyProperty TickWidthProperty =
+        DependencyProperty.Register(
+            "TickWidth",
+            typeof(int),
+            typeof(Knob),
+            new PropertyMetadata(1));
+
     public int TickWidth {
-        get { return _TickWidth; }
+        get { return (int)GetValue(TickWidthProperty); }
         set {
-            _TickWidth = value;
+            SetValue(TickWidthProperty, value);
             DoFullRedraw();
         }
     }
 
-    double? _ManualTickRadiusStart = null;
+
+    public static readonly DependencyProperty ManualTickRadiusStartProperty =
+        DependencyProperty.Register(
+            "ManualTickRadiusStart",
+            typeof(double?),
+            typeof(Knob),
+            new PropertyMetadata(null));
+
     ///  This is relative to Knob width, not control width
     public double? ManualTickRadiusStart {
-        get { return _ManualTickRadiusStart; }
+        get { return (double?)GetValue(ManualTickRadiusStartProperty); }
         set {
-            _ManualTickRadiusStart = value;
+            SetValue(ManualTickRadiusStartProperty, value);
             DoFullRedraw();
         }
     }
 
-    double? _ManualTickRadiusEnd = null;
+
+    public static readonly DependencyProperty ManualTickRadiusEndProperty =
+        DependencyProperty.Register(
+            "ManualTickRadiusEnd",
+            typeof(double?),
+            typeof(Knob),
+            new PropertyMetadata(null));
+
     ///  This is relative to Knob width, not control width
     public double? ManualTickRadiusEnd {
-        get { return _ManualTickRadiusEnd; }
+        get { return (double?)GetValue(ManualTickRadiusEndProperty); }
         set {
-            _ManualTickRadiusEnd = value;
+            SetValue(ManualTickRadiusEndProperty, value);
             DoFullRedraw();
         }
     }
@@ -205,32 +316,50 @@ public class Knob : Control {
         Images
     }
 
-    private AnnotationModeType _AnnotationMode = AnnotationModeType.None;
+
+    public static readonly DependencyProperty AnnotationModeProperty =
+        DependencyProperty.Register(
+            "AnnotationMode",
+            typeof(AnnotationModeType),
+            typeof(Knob),
+            new PropertyMetadata(AnnotationModeType.None));
+
     public AnnotationModeType AnnotationMode {
-        get {
-            return _AnnotationMode;
-        }
+        get { return (AnnotationModeType)GetValue(AnnotationModeProperty); }
         set {
-            _AnnotationMode = value;
+            SetValue(AnnotationModeProperty, value);
             DoFullRedraw();
         }
     }
 
-    Color _AnnotationTextColor = Colors.Black;
+
+    public static readonly DependencyProperty AnnotationTextColorProperty =
+        DependencyProperty.Register(
+            "AnnotationTextColor",
+            typeof(Color),
+            typeof(Knob),
+            new PropertyMetadata(Colors.Black));
+
     public Color AnnotationTextColor {
-        get { return _AnnotationTextColor; }
+        get { return (Color)GetValue(AnnotationTextColorProperty); }
         set {
-            _AnnotationTextColor = value;
+            SetValue(AnnotationTextColorProperty, value);
             DoFullRedraw();
         }
     }
 
 
-    List<string> _AnnotationImageResourceKeys = new();
+    public static readonly DependencyProperty AnnotationImageResourceKeysProperty =
+        DependencyProperty.Register(
+            "AnnotationImageResourceKeys",
+            typeof(List<string>),
+            typeof(Knob),
+            new PropertyMetadata(new List<string>()));
+
     public List<string> AnnotationImageResourceKeys {
-        get { return _AnnotationImageResourceKeys; }
+        get { return (List<string>)GetValue(AnnotationImageResourceKeysProperty); }
         set {
-            _AnnotationImageResourceKeys = value;
+            SetValue(AnnotationImageResourceKeysProperty, value);
             DoFullRedraw();
         }
     }
@@ -243,20 +372,20 @@ public class Knob : Control {
         //     a string from Annotations property
         //     an image filename from Annotations property 
 
-        switch (_AnnotationMode) {
+        switch (AnnotationMode) {
             case AnnotationModeType.None:
                 return "";
             case AnnotationModeType.LabelsAuto:
                 return index.ToString();
             case AnnotationModeType.Labels:
                 // If we don't have enough Manual Labels, use index
-                if (index < (_AnnotationLabels?.Count ?? 0) && _AnnotationLabels != null)
-                    return string.IsNullOrEmpty(_AnnotationLabels[index]) ? index.ToString() : _AnnotationLabels[index];
+                if (index < (AnnotationLabels?.Count ?? 0) && AnnotationLabels != null)
+                    return string.IsNullOrEmpty(AnnotationLabels[index]) ? index.ToString() : AnnotationLabels[index];
                 else
                     return index.ToString();
             case AnnotationModeType.Images:
-                if (index < (_AnnotationLabels?.Count ?? 0) && _AnnotationLabels != null)
-                    return string.IsNullOrEmpty(_AnnotationLabels[index]) ? "" : _AnnotationLabels[index];
+                if (index < (AnnotationLabels?.Count ?? 0) && AnnotationLabels != null)
+                    return string.IsNullOrEmpty(AnnotationLabels[index]) ? "" : AnnotationLabels[index];
                 else
                     return "";
             default:
@@ -264,42 +393,53 @@ public class Knob : Control {
         }
      }
 
-    List<string> _AnnotationLabels = new ();
+
+    public static readonly DependencyProperty AnnotationLabelsProperty =
+        DependencyProperty.Register(
+            "AnnotationLabels",
+            typeof(List<string>),
+            typeof(Knob),
+            new PropertyMetadata(new List<string>()));
+
     public List<string> AnnotationLabels {
-        get { return _AnnotationLabels; }
+        get { return (List<string>)GetValue(AnnotationLabelsProperty); }
         set {
-            _AnnotationLabels = value;
+            SetValue(AnnotationLabelsProperty, value);
             DoFullRedraw();
         }
     }
 
 
-    double? _ManualAnnotationRadius = null;
-    /// <summary>
-    ///  This is relative to Knob width, not control width
-    /// </summary>
+    public static readonly DependencyProperty ManualAnnotationRadiusProperty =
+        DependencyProperty.Register(
+            "ManualAnnotationRadius",
+            typeof(double?),
+            typeof(Knob),
+            new PropertyMetadata(null));
 
     public double? ManualAnnotationRadius {
-        get { return _ManualAnnotationRadius; }
+        get { return (double?)GetValue(ManualAnnotationRadiusProperty); }
         set {
-            _ManualAnnotationRadius = value;
-            DoFullRedraw();
-        }
-    }
-
-    double? _ManualAnnotationFontSize = null;
-    public double? ManualAnnotationFontSize {
-        get { return _ManualAnnotationFontSize; }
-        set {
-            _ManualAnnotationFontSize = value;
+            SetValue(ManualAnnotationRadiusProperty, value);
             DoFullRedraw();
         }
     }
 
     
+    public static readonly DependencyProperty ManualAnnotationFontSizeProperty =
+    DependencyProperty.Register(
+        "ManualAnnotationFontSize",
+        typeof(double?),
+        typeof(Knob),
+        new PropertyMetadata(null));
 
-
-
+    public double? ManualAnnotationFontSize {
+        get { return (double?)GetValue(ManualAnnotationFontSizeProperty); }
+        set {
+            SetValue(ManualAnnotationFontSizeProperty, value);
+            DoFullRedraw();
+        }
+    }
     #endregion
 
     #region Value and Behavious Properties
@@ -477,7 +617,7 @@ public class Knob : Control {
         // Knob Marker
         if (MarkerStyle == MarkerStyleType.Dot) {
             var point = PointFromAngleAndRadius(_currentAngle, _knobWidth / 2 - _knobWidth / 8);
-            dc.DrawEllipse(new SolidColorBrush(_DotFillColor), markerPen, RecenterPointToScreen(point), _knobWidth / 15, _knobWidth / 15);
+            dc.DrawEllipse(new SolidColorBrush(DotFillColor), markerPen, RecenterPointToScreen(point), _knobWidth / 15, _knobWidth / 15);
         } else {
             double r1 = 0, r2 = _knobWidth / 2;        // Go from centre to edge for Line1 
             if (MarkerStyle == MarkerStyleType.Line2 || MarkerStyle == MarkerStyleType.Line3)
@@ -514,9 +654,9 @@ public class Knob : Control {
             _knobWidth = ActualWidth - 2;
 
             // Reserve room for ticks, annotations and caption
-            if (_ShowTicks)
+            if (ShowTicks)
                 _knobWidth = _knobWidth * 6.25 / 8;
-            if (_AnnotationMode != AnnotationModeType.None)
+            if (AnnotationMode != AnnotationModeType.None)
                 _knobWidth = _knobWidth * 6.25 / 8;
 
 
@@ -527,16 +667,16 @@ public class Knob : Control {
             cacheContext.DrawEllipse(FillBrush, outlinePen, new Point(ActualWidth / 2, ActualWidth / 2), _knobWidth / 2, _knobWidth / 2);
 
             // Annotations
-            if (_ShowTicks)
+            if (ShowTicks)
                 DrawTicks(cacheContext);
 
-            if (_AnnotationMode == AnnotationModeType.Labels || _AnnotationMode == AnnotationModeType.LabelsAuto)
+            if (AnnotationMode == AnnotationModeType.Labels || AnnotationMode == AnnotationModeType.LabelsAuto)
                 DrawLabelAnnotations(cacheContext);
 
-            if (_AnnotationMode == AnnotationModeType.Images)
+            if (AnnotationMode == AnnotationModeType.Images)
                 DrawImageAnnotations(cacheContext);
 
-            if (!string.IsNullOrWhiteSpace(_Caption))
+            if (!string.IsNullOrWhiteSpace(Caption))
                 DrawCaption(cacheContext);
         }
 
@@ -555,8 +695,8 @@ public class Knob : Control {
         var angle = _minAngle;
 
         // Override auto tick positions if manually set
-        var tickRadiusStart = _ManualTickRadiusStart ?? 1.1;
-        var tickRadiusEnd = _ManualTickRadiusEnd ?? 1.3;
+        var tickRadiusStart = ManualTickRadiusStart ?? 1.1;
+        var tickRadiusEnd = ManualTickRadiusEnd ?? 1.3;
 
 
         for (int i = 0; i <= numTicks; i++) {
@@ -579,13 +719,13 @@ public class Knob : Control {
         for (int i = 0; i <= numTicks; i++) {
             Point centrePoint;
             // If not showing ticks, bring annotations in a bit
-            if (_ShowTicks)
+            if (ShowTicks)
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * 1.6);
             else
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * 1.35);
             // If manual radius set, use it
-            if (_ManualAnnotationRadius != null)
-                centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
+            if (ManualAnnotationRadius != null)
+                centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)ManualAnnotationRadius);
 
             centrePoint.Y = centrePoint.Y;
             centrePoint.X = -centrePoint.X;
@@ -595,13 +735,12 @@ public class Knob : Control {
 
             //dc.DrawEllipse(FillBrush, new Pen(new SolidColorBrush(Colors.Red), 1), centrePoint, 4, 4);
 
-            if (i >= _AnnotationImageResourceKeys.Count)
+            if (i >= AnnotationImageResourceKeys.Count)
                 return;
 
             // Get Image by key
-            BitmapImage? bitmapImage = this.FindResource(_AnnotationImageResourceKeys[i]) as BitmapImage;
 
-            if (bitmapImage != null) { 
+            if (this.FindResource(AnnotationImageResourceKeys[i]) is BitmapImage bitmapImage) {
                 // Move centre of image to plot point
                 centrePoint.X -= bitmapImage.Width / 2;
                 centrePoint.Y -= bitmapImage.Height / 2;
@@ -632,14 +771,14 @@ public class Knob : Control {
 
             Point centrePoint;
             // If not showing ticks, bring annotations in a bit
-            if (_ShowTicks)
+            if (ShowTicks)
                 centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * 1.55);
             else
                 centrePoint = PointFromAngleAndRadius(angle,(_knobWidth / 2) * 1.35);
 
             // If manual radius set, use it
-            if(_ManualAnnotationRadius != null)
-                centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)_ManualAnnotationRadius);
+            if(ManualAnnotationRadius != null)
+                centrePoint = PointFromAngleAndRadius(angle, (_knobWidth / 2) * (double)ManualAnnotationRadius);
 
             // Transform mathematical to screen co-ords
             centrePoint.Y = -centrePoint.Y;
@@ -663,7 +802,7 @@ public class Knob : Control {
             return;
 
         var t = new FormattedText(
-                 _Caption, System.Globalization.CultureInfo.CurrentCulture,
+                 Caption, System.Globalization.CultureInfo.CurrentCulture,
                  FlowDirection.LeftToRight,
                  new Typeface(new FontFamily("Arial"), FontStyles.Normal, CaptionBold ? FontWeights.Bold : FontWeights.Normal, FontStretches.Normal),
                  ManualCaptionFontSize ?? 17 * ActualHeight / 100.0,                // Autosize font according to control width, with baseline of 17pt
@@ -677,7 +816,7 @@ public class Knob : Control {
         centrePoint = RecenterPointToScreen(centrePoint);
 
         // Move up a bit if not displaying Annotations
-        if (_AnnotationMode == AnnotationModeType.None )
+        if (AnnotationMode == AnnotationModeType.None )
             centrePoint.Y -= _knobWidth / 10;
 
         // Offset text due to its width and height
@@ -685,7 +824,6 @@ public class Knob : Control {
         dc.DrawText(t, offsetPoint);
     }
     #endregion
-
 
     #region Calc Utils
     void SetCurrentAngleFromCurrentValue() {
