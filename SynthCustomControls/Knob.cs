@@ -742,7 +742,7 @@ public class Knob : Control {
 
             if (this.FindResource(AnnotationImageResourceKeys[i]) is BitmapImage bitmapImage) {
                 // Move centre of image to plot point
-                centrePoint.X -= bitmapImage.Width / 2;
+                centrePoint.X -= bitmapImage.Width / 2 -1;
                 centrePoint.Y -= bitmapImage.Height / 2;
                 Rect imageRect = new(centrePoint, new Size(bitmapImage.Width, bitmapImage.Height));
                 dc.DrawImage(bitmapImage, imageRect);
