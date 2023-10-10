@@ -439,9 +439,9 @@ Instead of applying appearance properties to a knob control one by one in xaml o
 </ResourceDictionary>
 ```
 
-In particular notice we can style a RadialGRadientBrush that is then referenced using `<Setter Property="FillBrush" Value="{StaticResource KnobFillBrush}"/>`
+In particular notice we can style a `RadialGradientBrush` that is then referenced in the Knob control theming using `<Setter Property="FillBrush" Value="{StaticResource KnobFillBrush}"/>`
 
-To apply a theme, the Theme is included in the `<Windows.Resources>` section of the main xaml form. The theme can be changed by changing the filename in `<ResourceDictionary Source="/Themes/Oberheim.xaml"/>`
+To apply a theme, the Theme is included in the `<Windows.Resources>` section of the main xaml form. The theme can be changed by changing the filename in `<ResourceDictionary Source="/Themes/Prophet.xaml"/>`
 
 ```
 <Window x:Class="WpfUi.TestWindow"
@@ -455,7 +455,7 @@ To apply a theme, the Theme is included in the `<Windows.Resources>` section of 
         <ResourceDictionary>
             <!-- Merge the Prophet.xaml theme -->
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/Oberheim.xaml"/>
+                <ResourceDictionary Source="/Themes/Prophet.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
