@@ -409,8 +409,63 @@ The second method only works for attribute notation - the {x:Null} placeholder c
 ```
 
 ## Using Themes
-Instead of applying appearance properties to a knob control one by one in xaml or codebehind, you can so so en-masse using a Themes file. If you have multiple themese files, they can be swapped over using a single line of code.
+Instead of applying appearance properties to a knob control one by one in xaml or codebehind, you can so so en-masse using a Themes file. If you have multiple themese files, they can be swapped over using a single line of code. The knob styling is placed in a themes file - in this case Prophet.xaml
+```
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls">
 
+    <!-- Apply any window styling -->
+    <Style TargetType="Canvas">
+        <Setter Property="Background" Value="navy"/>
+    </Style>
+
+    <!-- Define a SolidColorBrush for the FillBrush -->
+    <RadialGradientBrush x:Key="KnobFillBrush" Center=".62,.62">
+        <GradientStop Color="silver" Offset="0" />
+        <GradientStop Color="Black" Offset="1.0" />
+    </RadialGradientBrush>
+    
+    <!-- Define the custom control style -->
+    <Style TargetType="custom:Knob">
+        <!-- Assign a null value to ManualCaptionFontSize using x:Null -->
+        <Setter Property="OutlineWidth" Value="2"/>
+        <Setter Property="OutlineColor" Value="Yellow"/>
+        <Setter Property="MarkerWidth" Value="3"/>
+        <Setter Property="MarkerColor" Value="Yellow"/>
+        <Setter Property="DotFillColor" Value="White"/>
+        <Setter Property="FillBrush" Value="{StaticResource KnobFillBrush}"/>
+    </Style>
+</ResourceDictionary>
+```
+
+In particular notice we can style a RadialGRadientBrush that is then referenced using `<Setter Property="FillBrush" Value="{StaticResource KnobFillBrush}"/>`
+
+To apply a theme, the Theme is included in the `<Windows.Resources>` section of the main xaml form. The theme can be changed by changing the filename in `<ResourceDictionary Source="/Themes/Oberheim.xaml"/>`
+
+```
+<Window x:Class="WpfUi.TestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:custom="clr-namespace:SynthCustomControls;assembly=SynthCustomControls"
+        Title="Synth 5" Height="188" Width="356" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <!-- Merge the Prophet.xaml theme -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/Oberheim.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Canvas Margin="0,0,-27,-39">
+        <custom:Knob Canvas.Top="30" Canvas.Left="50" Name="knob1" Height="100"  ValueMin="0" ValueMax="5"></custom:Knob>
+        <custom:Knob Canvas.Top="30" Canvas.Left="200" Name="knob2" Height="100" ValueMin="0" ValueMax="5"></custom:Knob>
+    </Canvas>
+</Window>
+```
 
 ## Notes
 The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
