@@ -283,7 +283,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
 <custom:Knob.TickColor>black</custom:Knob.TickColor>
 <custom:Knob.TickWidth>1</custom:Knob.TickWidth>
-<custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
+<custom:Knob.AnnotationColor>black</custom:Knob.AnnotationColor>
 <custom:Knob.AnnotationMode>LabelsAuto</custom:Knob.AnnotationMode>
 ```
 ![Automatic Labels](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/2cc53fa84ed078f7b7863ae4be67e65aa1e00877/ReadmeImages/AnnotationsAuto.png)
@@ -293,7 +293,7 @@ Each Tick Mark location can be annotated, even when `ShowTicks` is `false`. Eith
 ```
 <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
 <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
-<custom:Knob.AnnotationTextColor>black</custom:Knob.AnnotationTextColor>
+<custom:Knob.AnnotationColor>black</custom:Knob.AnnotationColor>
 <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
 <custom:Knob.Annotations>
    <sys:String>-2</sys:String>
@@ -333,6 +333,21 @@ We are passing images in as resource again, but in this case we must pass in a s
 ```
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
+
+
+### Styling Images
+Any white pixels (R:255, G:255, B:255) in the provided image will be converted to a pixel of `AnnotationColor`. Alpha channel is maintained for transparancy. Any none-white pixel will be unchanged. So, to style an annotation image, design it with a transparent background layer, apply graphic in white on another layer, then merge layers an save.
+```
+<custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
+<custom:Knob.AnnotationColor>Orange</custom:Knob.AnnotationColor>
+<custom:Knob.AnnotationImageResourceKeys>
+    <sys:String>Icon_Saw</sys:String>
+    <sys:String>Icon_Sine</sys:String>
+    <sys:String>Icon_Square</sys:String>
+    <sys:String>Icon_SuperSaw</sys:String>
+    <sys:String>Icon_Triangle</sys:String>
+</custom:Knob.AnnotationImageResourceKeys>
+```
 
 
 
@@ -406,7 +421,7 @@ Tick Marks and annotation are positioned/sized automatically. Thhis can be overr
 | `AnnotationImageResourceKeys` | `List<string>` |       |       |       |       | Image Resources must have been setup for all images in <Window.Resources> |
 | `AnnotationMode`       | `AnnotationType`      | `None`      | `LabelsAuto`      | `Labels`      | `Images`      | Knob size decreases to accomodate annotations |
 | `Annotations`       | `List<string>`      |       |       |       |       | Labels where `AnnotationMode` = `LabelsAuto` |
-| `AnnotationTextColor`       | `Color`      |       |       |       |       | |
+| `AnnotationColor`       | `Color`      |       |       |       |       | Text colour or image colour. Image must be white on an alpha channel  |
 | `Caption`       | `string?`      |       |       |       |       | |
 | `CaptionBold`       | `bool`      |       |       |       |       | |
 | `CaptionColor`      | `Color`      |       |       |       |       | |
