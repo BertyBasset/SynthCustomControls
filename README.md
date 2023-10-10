@@ -337,7 +337,7 @@ If fewer images have been specified than of `NumPositions`, then nothing is disp
 
 
 ### Styling Images
-Any white pixels (R:255, G:255, B:255) in the provided image will be converted to a pixel of `AnnotationColor`. Alpha channel is maintained for transparancy. Any none-white pixel will be unchanged. So, to style an annotation image, design it with a transparent background layer, apply graphic in white on another layer, then merge layers an save.
+Any white pixels (R:255, G:255, B:255) in the provided image will be converted to a pixel of `AnnotationColor`. Alpha channel is maintained for transparancy. Any non-white pixeld will be unchanged. So, to style an annotation image, design it with a transparent background layer, apply graphic in white on another layer, then merge layers and save. If you don't want it styled just use any pixel that isn't white.
 ```
 <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
 <custom:Knob.AnnotationColor>Orange</custom:Knob.AnnotationColor>
