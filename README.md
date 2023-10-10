@@ -331,6 +331,7 @@ We are passing images in as resource again, but in this case we must pass in a s
     <sys:String>Icon_Triangle</sys:String>
 </custom:Knob.AnnotationImageResourceKeys>
 ```
+
 ![Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/8ccdd16403c707d7fdc38e53c627b03208974cb7/ReadmeImages/AnnotationImages.png)
 If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
 
