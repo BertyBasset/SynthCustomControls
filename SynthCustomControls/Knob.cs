@@ -350,7 +350,7 @@ public class Knob : Control {
     }
 
 
-    private List<string> annotationImageResourceKeys = new List<string>();
+    private List<string> annotationImageResourceKeys = new ();
 
     // Public property to access the list
     public List<string> AnnotationImageResourceKeys {
@@ -392,7 +392,7 @@ public class Knob : Control {
 
 
 
-    private List<string> annotationLabels = new List<string>();
+    private List<string> annotationLabels = new ();
 
     // Public property to access the list
     public List<string> AnnotationLabels {
@@ -831,8 +831,12 @@ public class Knob : Control {
 
     #region Image Utils
     BitmapImage ApplyColorToImage(BitmapImage originalImage) {
+        // This replaces white RGB 255, 255, 255 pixels with AnnotationColor
+        // Alpha channel if present is left unchanged
+        // If there are no white pixels, they are left unchanged
 
-        WriteableBitmap writeableBitmap = new WriteableBitmap(originalImage);
+
+        WriteableBitmap writeableBitmap = new (originalImage);
 
         // Define the replacement color
         Color replacementColor = AnnotationColor; // Change this to your desired RGB color
@@ -852,7 +856,7 @@ public class Knob : Control {
                 byte blue = pixelData[offset];
                 byte green = pixelData[offset + 1];
                 byte red = pixelData[offset + 2];
-                byte alpha = pixelData[offset + 3];
+                //byte alpha = pixelData[offset + 3];
 
                 if (red == 255 && green == 255 && blue == 255) {
                     // Pixel is white, replace with the specified color
@@ -866,12 +870,12 @@ public class Knob : Control {
         // Update the WriteableBitmap with the modified pixel data
         writeableBitmap.WritePixels(new Int32Rect(0, 0, width, height), pixelData, stride, 0);
 
-        BitmapImage bitmapImage = new BitmapImage();
+        BitmapImage bitmapImage = new();
 
         // Create a MemoryStream to hold the WriteableBitmap's pixel data
-        using (MemoryStream stream = new MemoryStream()) {
+        using (MemoryStream stream = new()) {
             // Encode the WriteableBitmap as PNG and save it to the MemoryStream
-            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            PngBitmapEncoder encoder = new ();
             encoder.Frames.Add(BitmapFrame.Create(writeableBitmap));
             encoder.Save(stream);
 
