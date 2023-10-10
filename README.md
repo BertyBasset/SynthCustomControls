@@ -466,6 +466,8 @@ To apply a theme, the Theme is included in the `<Windows.Resources>` section of 
     </Canvas>
 </Window>
 ```
+![Themes](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/0bafe8bab8646d5b9ac9f4d53436c5a7e86b0a00/ReadmeImages/Themes.png)
+
 
 ## Notes
 The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
