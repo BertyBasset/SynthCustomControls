@@ -17,7 +17,7 @@
     </Window.Resources>
 
 
-    <Canvas Background="white" Margin="0,0,-72,0">
+    <Canvas Background="beige" Margin="0,0,-72,0">
         <custom:Knob Width="150" Name="knob1"  Canvas.Left="20" Canvas.Top="75" ValueMin="0" ValueMax="4">
             <custom:Knob.MarkerStyle>Dot</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
@@ -34,7 +34,7 @@
                 <sys:String>-1</sys:String>
                 <sys:String>0</sys:String>
                 <sys:String>+1</sys:String>
-                <sys:String>+2</sys:String>
+
             </custom:Knob.AnnotationLabels>
             <custom:Knob.FillBrush>
                 <ImageBrush ImageSource="{StaticResource BrushedAluminiumImage}" />
@@ -49,7 +49,7 @@
             <custom:Knob.MarkerColor>white</custom:Knob.MarkerColor>
             <custom:Knob.FullSweepAngle>270</custom:Knob.FullSweepAngle>
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
-            <custom:Knob.AnnotationMode>Labels</custom:Knob.AnnotationMode>
+            <custom:Knob.AnnotationMode>LabelsAuto</custom:Knob.AnnotationMode>
             <custom:Knob.ManualAnnotationFontSize>15</custom:Knob.ManualAnnotationFontSize>
             <custom:Knob.ManualCaptionFontSize>20</custom:Knob.ManualCaptionFontSize>
             <custom:Knob.Caption>Volume</custom:Knob.Caption>
@@ -68,6 +68,7 @@
             <custom:Knob.MarkerStyle>Dot</custom:Knob.MarkerStyle>
             <custom:Knob.MarkerWidth>2</custom:Knob.MarkerWidth>
             <custom:Knob.MarkerColor>black</custom:Knob.MarkerColor>
+            <custom:Knob.DotFillColor>yellow</custom:Knob.DotFillColor>
             <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
             <custom:Knob.OutlineColor>Orange</custom:Knob.OutlineColor>
             <custom:Knob.OutlineWidth>5</custom:Knob.OutlineWidth>
@@ -97,11 +98,12 @@
             <custom:Knob.MarkerWidth>9</custom:Knob.MarkerWidth>
             <custom:Knob.MarkerColor>black</custom:Knob.MarkerColor>
             <custom:Knob.NumPositions>5</custom:Knob.NumPositions>
-            <custom:Knob.OutlineColor>Orange</custom:Knob.OutlineColor>
+            <custom:Knob.OutlineColor>Navy</custom:Knob.OutlineColor>
             <custom:Knob.OutlineWidth>5</custom:Knob.OutlineWidth>
             <custom:Knob.FullSweepAngle>180</custom:Knob.FullSweepAngle>
             <custom:Knob.ShowTicks>true</custom:Knob.ShowTicks>
             <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
+            <custom:Knob.AnnotationColor>Orange</custom:Knob.AnnotationColor>
             <custom:Knob.AnnotationImageResourceKeys>
                 <sys:String>Icon_Saw</sys:String>
                 <sys:String>Icon_Sine</sys:String>

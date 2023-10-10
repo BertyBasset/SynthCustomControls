@@ -1,5 +1,6 @@
 ﻿using SynthCustomControls.Utils;
 using System.Globalization;
+using System.IO;
 using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
@@ -333,33 +334,29 @@ public class Knob : Control {
     }
 
 
-    public static readonly DependencyProperty AnnotationTextColorProperty =
+    public static readonly DependencyProperty AnnotationColorProperty =
         DependencyProperty.Register(
-            "AnnotationTextColor",
+            "AnnotationColor",
             typeof(Color),
             typeof(Knob),
             new PropertyMetadata(Colors.Black));
 
-    public Color AnnotationTextColor {
-        get { return (Color)GetValue(AnnotationTextColorProperty); }
+    public Color AnnotationColor {
+        get { return (Color)GetValue(AnnotationColorProperty); }
         set {
-            SetValue(AnnotationTextColorProperty, value);
+            SetValue(AnnotationColorProperty, value);
             DoFullRedraw();
         }
     }
 
 
-    public static readonly DependencyProperty AnnotationImageResourceKeysProperty =
-        DependencyProperty.Register(
-            "AnnotationImageResourceKeys",
-            typeof(List<string>),
-            typeof(Knob),
-            new PropertyMetadata(new List<string>()));
+    private List<string> annotationImageResourceKeys = new List<string>();
 
+    // Public property to access the list
     public List<string> AnnotationImageResourceKeys {
-        get { return (List<string>)GetValue(AnnotationImageResourceKeysProperty); }
+        get { return annotationImageResourceKeys; }
         set {
-            SetValue(AnnotationImageResourceKeysProperty, value);
+            annotationImageResourceKeys = value;
             DoFullRedraw();
         }
     }
@@ -394,17 +391,14 @@ public class Knob : Control {
      }
 
 
-    public static readonly DependencyProperty AnnotationLabelsProperty =
-        DependencyProperty.Register(
-            "AnnotationLabels",
-            typeof(List<string>),
-            typeof(Knob),
-            new PropertyMetadata(new List<string>()));
 
+    private List<string> annotationLabels = new List<string>();
+
+    // Public property to access the list
     public List<string> AnnotationLabels {
-        get { return (List<string>)GetValue(AnnotationLabelsProperty); }
+        get { return annotationLabels; }
         set {
-            SetValue(AnnotationLabelsProperty, value);
+            annotationLabels = value;
             DoFullRedraw();
         }
     }
@@ -711,6 +705,9 @@ public class Knob : Control {
 
     // Return true if we have displayed tick images
     public void DrawImageAnnotations(DrawingContext dc) {
+        // Images should be white on a transparent backgroun
+        // Apply AnnotationColor to it
+
         if (ActualHeight == 0)
             return;
    
@@ -741,10 +738,17 @@ public class Knob : Control {
             // Get Image by key
 
             if (this.FindResource(AnnotationImageResourceKeys[i]) is BitmapImage bitmapImage) {
+                // Apply Annotation Color to image
+
+
+
                 // Move centre of image to plot point
                 centrePoint.X -= bitmapImage.Width / 2 -1;
                 centrePoint.Y -= bitmapImage.Height / 2;
                 Rect imageRect = new(centrePoint, new Size(bitmapImage.Width, bitmapImage.Height));
+
+                bitmapImage = ApplyColorToImage(bitmapImage);
+
                 dc.DrawImage(bitmapImage, imageRect);
 
                 angle += (_maxAngle - _minAngle) / (numTicks);
@@ -765,7 +769,7 @@ public class Knob : Control {
                 new Typeface("Arial"),
                 // Override font size if set, otherwise auto
                 ManualAnnotationFontSize ?? (12 * ActualHeight / 100.0), // Autosize font according to control width, but with poerty scale
-                new SolidColorBrush(AnnotationTextColor),
+                new SolidColorBrush(AnnotationColor),
                 1.0 // Default pixels per dip value
             );
 
@@ -822,6 +826,62 @@ public class Knob : Control {
         // Offset text due to its width and height
         var offsetPoint = new Point(centrePoint.X - t.Width / 2, centrePoint.Y - t.Height / 2);
         dc.DrawText(t, offsetPoint);
+    }
+    #endregion
+
+    #region Image Utils
+    BitmapImage ApplyColorToImage(BitmapImage originalImage) {
+
+        WriteableBitmap writeableBitmap = new WriteableBitmap(originalImage);
+
+        // Define the replacement color
+        Color replacementColor = AnnotationColor; // Change this to your desired RGB color
+
+        // Get the pixel data
+        int width = writeableBitmap.PixelWidth;
+        int height = writeableBitmap.PixelHeight;
+        int bytesPerPixel = (writeableBitmap.Format.BitsPerPixel + 7) / 8;
+        int stride = width * bytesPerPixel;
+        byte[] pixelData = new byte[height * stride];
+        writeableBitmap.CopyPixels(pixelData, stride, 0);
+
+        // Iterate through the pixels and apply the color conversion
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                int offset = y * stride + x * bytesPerPixel;
+                byte blue = pixelData[offset];
+                byte green = pixelData[offset + 1];
+                byte red = pixelData[offset + 2];
+                byte alpha = pixelData[offset + 3];
+
+                if (red == 255 && green == 255 && blue == 255) {
+                    // Pixel is white, replace with the specified color
+                    pixelData[offset] = replacementColor.B;
+                    pixelData[offset + 1] = replacementColor.G;
+                    pixelData[offset + 2] = replacementColor.R;
+                }
+            }
+        }
+
+        // Update the WriteableBitmap with the modified pixel data
+        writeableBitmap.WritePixels(new Int32Rect(0, 0, width, height), pixelData, stride, 0);
+
+        BitmapImage bitmapImage = new BitmapImage();
+
+        // Create a MemoryStream to hold the WriteableBitmap's pixel data
+        using (MemoryStream stream = new MemoryStream()) {
+            // Encode the WriteableBitmap as PNG and save it to the MemoryStream
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(writeableBitmap));
+            encoder.Save(stream);
+
+            // Set the BitmapImage's source to the MemoryStream
+            bitmapImage.BeginInit();
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.StreamSource = stream;
+            bitmapImage.EndInit();
+        }
+        return bitmapImage;
     }
     #endregion
 
