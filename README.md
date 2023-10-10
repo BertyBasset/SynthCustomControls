@@ -409,7 +409,7 @@ The second method only works for attribute notation - the {x:Null} placeholder c
 ```
 
 ## Using Themes
-Instead of applying appearane properties to a knob contorl one by one, you can so so en-masse using a Themes file. If you have multiple themese files, they can be changed using a single line of code.
+Instead of applying appearance properties to a knob control one by one in xaml or codebehind, you can so so en-masse using a Themes file. If you have multiple themese files, they can be swapped over using a single line of code.
 
 
 ## Notes
