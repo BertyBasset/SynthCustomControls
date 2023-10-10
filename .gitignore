@@ -14,3 +14,4 @@
 *.json
 SynthCustomControls/bin/Release/net6.0-windows/SynthCustomControls.dll
 SynthCustomControls/bin/Release/net6.0-windows/SynthCustomControls.pdb
+/Testbed/bin/Release/net6.0-windows
