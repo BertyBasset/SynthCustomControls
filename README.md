@@ -336,7 +336,7 @@ We are passing images in as resource again, but in this case we must pass in a s
 If fewer images have been specified than of `NumPositions`, then nothing is displayed for those Tick Positions lacking an image. `ShowTick` is probably best set to `false` when displaying images. **Note:** Image positioning could do with a bit more work. 
 
 
-### Styling Images
+### Styling Image Annotations
 Any white pixels (R:255, G:255, B:255) in the provided image will be converted to a pixel of `AnnotationColor`. Alpha channel is maintained for transparancy. Any non-white pixeld will be unchanged. So, to style an annotation image, design it with a transparent background layer, apply graphic in white on another layer, then merge layers and save. If you don't want it styled just use any pixel that isn't white.
 ```
 <custom:Knob.AnnotationMode>Images</custom:Knob.AnnotationMode>
@@ -350,6 +350,7 @@ Any white pixels (R:255, G:255, B:255) in the provided image will be converted t
 </custom:Knob.AnnotationImageResourceKeys>
 ```
 
+![Styling Styling Image Annotations](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/f8e45c5de7e724ea4475cf2005452d42ab377129/ReadmeImages/AnnotationColor.png)
 
 
 ### Manually override Annotation position and fontsize
@@ -406,6 +407,10 @@ The second method only works for attribute notation - the {x:Null} placeholder c
 ```
 <custom:Knob NumPositions="{x:Null}"></custom:Knob>
 ```
+
+## Using Themes
+Instead of applying appearane properties to a knob contorl one by one, you can so so en-masse using a Themes file. If you have multiple themese files, they can be changed using a single line of code.
+
 
 ## Notes
 The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
