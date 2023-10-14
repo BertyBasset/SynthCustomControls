@@ -439,9 +439,9 @@ Instead of applying appearance properties to a knob control one by one in xaml o
 </ResourceDictionary>
 ```
 
-In particular notice we can style a RadialGRadientBrush that is then referenced using `<Setter Property="FillBrush" Value="{StaticResource KnobFillBrush}"/>`
+In particular notice we can style a `RadialGradientBrush` that is then referenced in the Knob control theming using `<Setter Property="FillBrush" Value="{StaticResource KnobFillBrush}"/>`
 
-To apply a theme, the Theme is included in the `<Windows.Resources>` section of the main xaml form. The theme can be changed by changing the filename in `<ResourceDictionary Source="/Themes/Oberheim.xaml"/>`
+To apply a theme, the Theme is included in the `<Windows.Resources>` section of the main xaml form. The theme can be changed by changing the filename in `<ResourceDictionary Source="/Themes/Prophet.xaml"/>`
 
 ```
 <Window x:Class="WpfUi.TestWindow"
@@ -455,7 +455,7 @@ To apply a theme, the Theme is included in the `<Windows.Resources>` section of 
         <ResourceDictionary>
             <!-- Merge the Prophet.xaml theme -->
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/Oberheim.xaml"/>
+                <ResourceDictionary Source="/Themes/Prophet.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -466,11 +466,13 @@ To apply a theme, the Theme is included in the `<Windows.Resources>` section of 
     </Canvas>
 </Window>
 ```
+![Themes](https://raw.githubusercontent.com/BertyBasset/SynthCustomControls/0bafe8bab8646d5b9ac9f4d53436c5a7e86b0a00/ReadmeImages/Themes.png)
+
 
 ## Notes
 The `Height` property  of the knob tracks the `Width` property, so the control outline will always be a square, and the knob outline will always be a circle.
 
-There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line. When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background each time. 
+There are a lot of thing being drawn. Therefore in code, there are two separate methods used for drawing: `DrawKnob()` which displays outline, ticks, labels, caption etc. and `DrawMarker()` which just displays the marker, which is a single straight line (or circle). When the knob is being rotated by having the mouse drag over it, it's only the marker position that needs to change, so only `DrawMarker()` is called. However, the rest of the knob will be lost when doing this. Therefore, whenever DrawKnob() is called, before returning it copies the drawing context into a cache. The DrawMarker() can then use this cache for restoring the knob background before drawing the marker. As this is essentially a memory copy operation, it is faster than performing all the mathematical operations for actually drawing the background each time. 
 
 When a property affecting the knob display is changed, `DrawKnob()` <u>is</u> called, and the entire knob is redrawn. However, this normally happens much less frequently than rotating the knob with a mouse drag.
 
