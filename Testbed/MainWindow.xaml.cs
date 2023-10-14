@@ -31,10 +31,20 @@ namespace Testbed {
                     default:
                         break;
                 }
+
+                if (e >=  2)
+                    Led1.LedOn = true;
+                else
+                    Led1.LedOn = false;
+
             };
 
             knob2.ValueChanged += (o, e) => {
                 txtText2.Text = $"{e:F3}";
+                if (e > 5)
+                    Led2.LedOn = true;
+                else
+                    Led2.LedOn = false;
             };
 
             knob3.ValueChanged += (o, e) => {
@@ -47,6 +57,10 @@ namespace Testbed {
                     default:
                         break;
                 }
+                if (e >= 2)
+                    Led3.LedOn = true;
+                else
+                    Led3.LedOn = false;
             };
 
             knob4.ValueChanged += (o, e) => {
@@ -59,6 +73,10 @@ namespace Testbed {
                     default:
                         break;
                 }
+                if (e >= 2)
+                    Led4.LedOn = true;
+                else
+                    Led4.LedOn = false;
             };
         }
     }

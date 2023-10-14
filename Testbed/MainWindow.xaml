@@ -124,5 +124,11 @@
         </custom:Knob>
         <TextBox x:Name="txtText4" Text="Saw" Width="94" Canvas.Left="648" Canvas.Top="239" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
+        <custom:Led Name="Led1" ToggleOnClick="true" Canvas.Left="150" Canvas.Top="200" Shape="Circle" Width="15" FillBrushOn="OrangeRed" FillBrushOff="#600000"> </custom:Led>
+        <custom:Led Name="Led2" ToggleOnClick="true" Canvas.Left="350" Canvas.Top="200" Shape="Circle" Width="15" FillBrushOn="OrangeRed" FillBrushOff="#600000"></custom:Led>
+        <custom:Led Name="Led3" ToggleOnClick="true" Canvas.Left="550" Canvas.Top="200" Shape="Circle" Width="15" FillBrushOn="OrangeRed" FillBrushOff="#600000"></custom:Led>
+        <custom:Led Name="Led4" ToggleOnClick="true" Canvas.Left="750" Canvas.Top="200" Width="15" FillBrushOn="OrangeRed" FillBrushOff="#600000"></custom:Led>
+
+
     </Canvas>
 </Window>
